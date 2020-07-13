@@ -1,4 +1,4 @@
-# arkon-scalademos
+# arkon-scalatraining
 
 ## Concepts
 - referential transparency

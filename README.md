@@ -25,7 +25,13 @@
 - [ScalaTest](https://www.scalatest.org/): Scala testing library.
 - [ScalaCheck](https://www.scalacheck.org/): Library for random testing of program properties inspired by [QuickCheck](https://hackage.haskell.org/package/QuickCheck).
 
-
+## Exercises
+- [Std lib](https://www.scala-exercises.org/std_lib/asserts)
+- [Fp in Scala](https://www.scala-exercises.org/fp_in_scala/getting_started_with_functional_programming)
+- [Cats](https://www.scala-exercises.org/cats/semigroup)
+- [Circe](https://www.scala-exercises.org/circe/Json)
+- [Doobie](https://www.scala-exercises.org/doobie/connecting_to_database)
+- [ScalaCheck](https://www.scala-exercises.org/scalacheck/properties)
 
 ## Basic commands
 SBT console

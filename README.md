@@ -11,6 +11,13 @@ programming language and the way it's used within the ArkonData team.
 You'll implement a web server exposing a GraphQL API to expose business retrieved from the INEGI's API and 
 query them based on their location.
 
+* [Concepts](https://github.com/Grupo-Abraxas/arkon-scalatraining#concepts)
+* [Tools](https://github.com/Grupo-Abraxas/arkon-scalatraining#tools)
+* [Libraries](https://github.com/Grupo-Abraxas/arkon-scalatraining#libraries)
+* [Exercises](https://github.com/Grupo-Abraxas/arkon-scalatraining#exercises)
+* [Basic commands](https://github.com/Grupo-Abraxas/arkon-scalatraining#basic-commands)
+* [Requirements](https://github.com/Grupo-Abraxas/arkon-scalatraining#requirements)
+
 ## Concepts
 - FP
     - [Why functional programming?](http://book.realworldhaskell.org/read/why-functional-programming-why-haskell.html)

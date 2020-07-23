@@ -78,6 +78,14 @@ sbt:arkon-scalatraining> test
 sbt:arkon-scalatraining> testOnly training.std.OptionSpec
 ```
 
-## Requirements
-- web service
-- 
+## Requirements 
+Implement a GraphQL API based on the given [schema](./schema.graphql) to expose the saved business and 
+query them based on their location. The database to be used should be [PostgreSQL](www.postgresql.org) with the 
+[PostGIS](http://postgis.net/) exitension to power the georeferenced queries. To fill the database you'll have 
+to implement a web scrapper to retrieve data from the INEGI's DENUE [API](https://www.inegi.org.mx/servicios/api_denue.html) 
+and execute the `createShop` mutation defined on the implemented API.
+
+The implemented API should comply the following rules: 
+- On the `createShop` mutation 
+    - The `activity`, `stratum` and `shopType` fields should search for existing records on the `Activity`, 
+      `Stratum` and `ShopType` tables and insert only if there is no previous record.

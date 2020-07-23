@@ -1,4 +1,15 @@
-# arkon-scalatraining
+<a href="https://www.arkondata.com/">
+    <img src="./img/logo.jpg" align="right" height="80">
+</a>
+
+# Arkon's Scala Training
+
+## Description
+Scala hands on training project. Looking to introduce new team members or anyone interested to the scala 
+programming language and the way it's used within the ArkonData team. 
+
+You'll implement a web server exposing a GraphQL API to expose business retrieved from the INEGI's API and 
+query them based on their location.
 
 ## Concepts
 - FP

@@ -28,6 +28,15 @@ query them based on their location.
 - Functor/Mondad (FP through [cats](https://typelevel.org/cats/)).
 - The real world/side effects using the [IO Monad](http://book.realworldhaskell.org/read/io.html).
 - Testing
+- [Types and type clases](http://learnyouahaskell.com/types-and-typeclasses)
+- [Implicits](https://docs.scala-lang.org/tour/implicit-parameters.html)
+- [hlists](https://www.scala-exercises.org/shapeless/heterogenous_lists)
+
+## Books
+- [https://underscore.io/books](https://underscore.io/books/)
+
+## Videos
+- [Let’s Code Real World App Using Purely Functional Techniques (in Scala)](https://youtu.be/m40YOZr1nxQ)
 
 ## Tools
 - [Scala](https://www.scala-lang.org/2020/06/29/one-click-install.html)

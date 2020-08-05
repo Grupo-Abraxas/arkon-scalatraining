@@ -7,7 +7,7 @@ import training.std.Models._
 import scala.concurrent.Future
 
 class ShopRepository {
-  val transactor = GlobalConnection.transactor
+  val transactor = GlobalConnection().connect
 
   def shops(limit: Int = 50, offset: Int = 0): List[Shop] = {
     val query: doobie.ConnectionIO[List[Shop]] =

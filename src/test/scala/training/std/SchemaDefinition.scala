@@ -19,6 +19,8 @@ object SchemaDefinition {
   //Resolver fetchers
   val Resolver = DeferredResolver.fetchers(caFetcher, shopTypeFetcher, stratumFetcher)
 
+  val repository = new ShopRepository();
+
   //GraphQl Types
   implicit val shopType: ObjectType[Unit, Shop] = {
     deriveObjectType[Unit, Shop](
@@ -37,10 +39,10 @@ object SchemaDefinition {
           resolve = c => stratumFetcher.defer(c.value.stratum_id)),
         Field("nearbyShops",
           ListType(shopType),
-          resolve = c => new ShopRepository().nearByShop(c.value.id)),
+          resolve = c => repository.nearByShop(c.value.id)),
         Field("shopsInRadius",
           ListType(shopType),
-          resolve = c => new ShopRepository().radiusByShop(c.value.id))
+          resolve = c => repository.radiusByShop(c.value.id))
       )
     )
   }

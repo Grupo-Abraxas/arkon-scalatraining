@@ -9,7 +9,7 @@ import scala.concurrent.Future
 class ShopRepository {
   val transactor = GlobalConnection().connect
 
-  def shops(limit: Int = 50, offset: Int = 0): List[Shop] = {
+  def shops(limit: Int = 50, offset: Int = 0) = {
     val query: doobie.ConnectionIO[List[Shop]] =
       sql"""
     select
@@ -19,7 +19,7 @@ class ShopRepository {
     transactor.use(query.transact[IO]).unsafeRunSync.drop(offset).take(limit)
   }
 
-  def shop(id: Int): Future[Shop] = {
+  def shop(id: Int) = {
     val query: doobie.ConnectionIO[Shop] =
       sql"""
     select
@@ -29,7 +29,7 @@ class ShopRepository {
     transactor.use(query.transact[IO]).unsafeToFuture
   }
 
-  def activities(ids: Seq[Int]): Future[Seq[ComercialActivity]] = {
+  def activities(ids: Seq[Int]) = {
     val query: doobie.ConnectionIO[List[ComercialActivity]] =
       sql"""
     select
@@ -39,7 +39,7 @@ class ShopRepository {
     transactor.use(query.transact[IO]).unsafeToFuture
   }
 
-  def shopTypes(ids: Seq[Int]): Future[Seq[ShopType]] = {
+  def shopTypes(ids: Seq[Int]) = {
     val query: doobie.ConnectionIO[List[ShopType]] =
       sql"""
     select
@@ -49,7 +49,7 @@ class ShopRepository {
     transactor.use(query.transact[IO]).unsafeToFuture
   }
 
-  def stratums(ids: Seq[Int]): Future[Seq[Stratum]] = {
+  def stratums(ids: Seq[Int]) = {
     val query: doobie.ConnectionIO[List[Stratum]] =
       sql"""
     select
@@ -59,7 +59,7 @@ class ShopRepository {
     transactor.use(query.transact[IO]).unsafeToFuture
   }
 
-  def createShop(input: CreateShopInput): Future[CreateShopPayload] = {
+  def createShop(input: CreateShopInput) = {
     val query: doobie.ConnectionIO[CreateShopPayload] =
       sql"""
       insert into shop
@@ -74,7 +74,7 @@ class ShopRepository {
     transactor.use(query.transact[IO]).unsafeToFuture
   }
 
-  def activity(id: Int): Future[ComercialActivity] = {
+  def activity(id: Int) = {
     val query: doobie.ConnectionIO[ComercialActivity] =
       sql"""
     select id, name
@@ -83,7 +83,7 @@ class ShopRepository {
     transactor.use(query.transact[IO]).unsafeToFuture
   }
 
-  def toCoordinates(idShop: Int): Position = {
+  def toCoordinates(idShop: Int) = {
     val query: doobie.ConnectionIO[Position] =
       sql"""
       SELECT ST_X(position::geometry) as lat, ST_Y(position::geometry) as long FROM shop where id = $idShop
@@ -91,12 +91,12 @@ class ShopRepository {
     transactor.use(query.transact[IO]).unsafeRunSync
   }
 
-  def nearByShop(idShop: Int): Future[List[Shop]] = {
+  def nearByShop(idShop: Int) = {
     val position: Position = toCoordinates(idShop)
     nearbyShops(lat = position.x, long = position.y)
   }
 
-  def nearbyShops(limit: Int = 5, lat: Float = 0L, long: Float = 0L): Future[List[Shop]] = {
+  def nearbyShops(limit: Int = 5, lat: Float = 0L, long: Float = 0L) = {
     println(s"nearbyShops => limit: $limit - lat: $lat - long: $long")
     val point = "POINT(" + lat + " " + long + ")"
     val query: doobie.ConnectionIO[List[Shop]] =
@@ -110,12 +110,12 @@ class ShopRepository {
     transactor.use(query.transact[IO]).unsafeToFuture
   }
 
-  def radiusByShop(idShop: Int): Future[List[Shop]] = {
+  def radiusByShop(idShop: Int) = {
     val position: Position = toCoordinates(idShop)
     shopsInRadius(lat = position.x, long = position.y)
   }
 
-  def shopsInRadius(radius: Int = 50, lat: Float, long: Float): Future[List[Shop]] = {
+  def shopsInRadius(radius: Int = 50, lat: Float, long: Float) = {
     println(s"shopsInRadius => limit: $radius - lat: $lat - long: $long")
     val point = "ST_MakePoint(" + lat + "," + long + ")::geography"
     val query: doobie.ConnectionIO[List[Shop]] =
@@ -128,7 +128,7 @@ class ShopRepository {
     transactor.use(query.transact[IO]).unsafeToFuture
   }
 
-  def createShopTrx(shop: Shop): doobie.ConnectionIO[Int] = {
+  def createShopTrx(shop: Shop) = {
     sql"""
     insert into shop
     (id, name, business_name, activity_id, stratum_id, address, phone_number, email, website, shop_type_id, position)
@@ -138,13 +138,13 @@ class ShopRepository {
     """.update.run
   }
 
-  def createComercialActivityTrx(ca: ComercialActivity): doobie.ConnectionIO[Int] = {
+  def createComercialActivityTrx(ca: ComercialActivity) = {
     sql"""
       insert into comercial_activity (id, name) values (${ca.id}, ${ca.name})
     """.update.run
   }
 
-  def createShopTypeTrx(shop: ShopType): doobie.ConnectionIO[Int] = {
+  def createShopTypeTrx(shop: ShopType) = {
     sql"""
       insert into shop_type (id, name) values (${
       shop.id
@@ -154,7 +154,7 @@ class ShopRepository {
     """.update.run
   }
 
-  def createStratumTrx(stratum: Stratum): doobie.ConnectionIO[Int] = {
+  def createStratumTrx(stratum: Stratum) = {
     sql"""
       insert into stratum (id, name) values (${
       stratum.id

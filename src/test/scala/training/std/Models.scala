@@ -3,6 +3,7 @@ package training.std
 import sangria.execution.deferred.HasId
 
 object Models {
+
   case class Shop(id: Int,
                   name: String,
                   business_name: String,
@@ -14,6 +15,22 @@ object Models {
                   website: String,
                   shop_type_id: Int,
                   position: String) {}
+  case class Position(x: Float, y: Float) {}
+  case class CreateShopInput(id: Int,
+                             name: String,
+                             businessName: String,
+                             activity: String,
+                             stratum: String,
+                             address: String,
+                             phoneNumber: String,
+                             email: String,
+                             website: String,
+                             shopType: String,
+                             lat: Float,
+                             long: Float) {
+  }
+
+  case class CreateShopPayload(id: Int) {}
 
   case class ComercialActivity(id: Int, name: String)
 
@@ -21,8 +38,13 @@ object Models {
 
   case class Stratum(id: Int, name: String) {}
 
+  object CreateShopInput{
+    implicit val hasId = HasId[Shop, Float](_.id)
+  }
+
   object Shop {
     implicit val hasId = HasId[Shop, Int](_.id)
+    implicit val hasPosition = HasId[Shop, String](_.position)
   }
 
   object ComercialActivity {
@@ -36,4 +58,5 @@ object Models {
   object Stratum {
     implicit val hasId = HasId[Stratum, Int](_.id)
   }
+
 }

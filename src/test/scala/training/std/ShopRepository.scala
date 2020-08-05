@@ -1,131 +1,177 @@
 package training.std
 
-import slick.jdbc.PostgresProfile.api._
+import cats.effect._
+import doobie.implicits._
 import training.std.Models._
-import training.std.ShopRepository._
 
 import scala.concurrent.Future
-import scala.language.postfixOps
-import scala.concurrent.ExecutionContext.Implicits.global
 
-class ShopRepository(db: Database) {
-  def addShop(id: Int,
-                  name: String,
-                  business_name: String,
-                  activity_id: Int,
-                  stratum_id: Int,
-                  address: String,
-                  phone_number: String,
-                  email: String,
-                  website: String,
-                  shop_type_id: Int,
-                  position: String): Future[Shop] = {
-    val shop: Shop =
-      Shop(id, name, business_name, activity_id, stratum_id, address, phone_number, email, website, shop_type_id, position)
-    db.run(ShopTQ.insertOrUpdate(shop)).map(_ => shop)
+class ShopRepository {
+  val transactor = GlobalConnection.transactor
+
+  def shops(limit: Int = 50, offset: Int = 0): List[Shop] = {
+    val query: doobie.ConnectionIO[List[Shop]] =
+      sql"""
+    select
+      id, name, business_name, activity_id, stratum_id, address, phone_number, email, website, shop_type_id, position
+    from shop
+    """.query[Shop].to[List]
+    transactor.use(query.transact[IO]).unsafeRunSync.drop(offset).take(limit)
   }
 
-  def shop(id: Int) =
-    db.run(ShopTQ.filter(_.shopId === id).result.headOption)
-
-  def shops(ids: Seq[Int]): Future[Seq[Shop]] =
-    db.run(ShopTQ.filter(_.shopId inSet ids).result)
-
-  def activities(ids: Seq[Int]): Future[Seq[ComercialActivity]] =
-    db.run(CActivityTQ.filter(_.activityId inSet ids).result)
-
-  def activityByRelShopIds(ids: Seq[Int]): Future[Seq[ComercialActivity]] = {
-    db.run { CActivityTQ.filter(_.activityId inSet ids).result }
+  def shop(id: Int): Future[Shop] = {
+    val query: doobie.ConnectionIO[Shop] =
+      sql"""
+    select
+      id, name, business_name, activity_id, stratum_id, address, phone_number, email, website, shop_type_id, position
+    from shop where id = $id
+    """.query[Shop].unique
+    transactor.use(query.transact[IO]).unsafeToFuture
   }
 
-  def shopTypes(ids: Seq[Int]): Future[Seq[ShopType]] =
-    db.run(ShopTypeTQ.filter(_.shopTypeId inSet ids).result)
-
-  def shopTypeByRelShopIds(ids: Seq[Int]): Future[Seq[ShopType]] = {
-    db.run { ShopTypeTQ.filter(_.shopTypeId inSet ids).result }
+  def activities(ids: Seq[Int]): Future[Seq[ComercialActivity]] = {
+    val query: doobie.ConnectionIO[List[ComercialActivity]] =
+      sql"""
+    select
+      id, name
+    from comercial_activity
+    """.query[ComercialActivity].to[List]
+    transactor.use(query.transact[IO]).unsafeToFuture
   }
 
-  def stratums(ids: Seq[Int]): Future[Seq[Stratum]] =
-    db.run(StratumTQ.filter(_.stratumId inSet ids).result)
-
-  def stratumsByRelShopIds(ids: Seq[Int]): Future[Seq[Stratum]] = {
-    db.run { StratumTQ.filter(_.stratumId inSet ids).result }
+  def shopTypes(ids: Seq[Int]): Future[Seq[ShopType]] = {
+    val query: doobie.ConnectionIO[List[ShopType]] =
+      sql"""
+    select
+      id, name
+    from shop_type
+    """.query[ShopType].to[List]
+    transactor.use(query.transact[IO]).unsafeToFuture
   }
 
+  def stratums(ids: Seq[Int]): Future[Seq[Stratum]] = {
+    val query: doobie.ConnectionIO[List[Stratum]] =
+      sql"""
+    select
+      id, name
+    from Stratum
+    """.query[Stratum].to[List]
+    transactor.use(query.transact[IO]).unsafeToFuture
+  }
+
+  def createShop(input: CreateShopInput): Future[CreateShopPayload] = {
+    val query: doobie.ConnectionIO[CreateShopPayload] =
+      sql"""
+      insert into shop
+      (id, name, business_name, activity_id, stratum_id, address, phone_number, email, website, shop_type_id, position)
+      values (
+      ${input.id}, ${input.name}, ${input.businessName}, ${input.activity.toInt}, ${input.stratum.toInt},
+      ${input.address}, ${input.phoneNumber}, ${input.email}, ${input.website}, ${input.shopType.toInt},
+      ST_SetSRID(ST_Point( ${input.long}, ${input.lat} ), 4326)::geography)
+      """.update
+        .withUniqueGeneratedKeys("id", "name", "business_name", "activity_id", "stratum_id", "address",
+          "phone_number", "email", "website", "shop_type_id", "position")
+    transactor.use(query.transact[IO]).unsafeToFuture
+  }
+
+  def activity(id: Int): Future[ComercialActivity] = {
+    val query: doobie.ConnectionIO[ComercialActivity] =
+      sql"""
+    select id, name
+    from comercial_activity where id = $id
+    """.query[ComercialActivity].unique
+    transactor.use(query.transact[IO]).unsafeToFuture
+  }
+
+  def toCoordinates(idShop: Int): Position = {
+    val query: doobie.ConnectionIO[Position] =
+      sql"""
+      SELECT ST_X(position::geometry) as lat, ST_Y(position::geometry) as long FROM shop where id = $idShop
+    """.query[Position].unique
+    transactor.use(query.transact[IO]).unsafeRunSync
+  }
+
+  def nearByShop(idShop: Int): Future[List[Shop]] = {
+    val position: Position = toCoordinates(idShop)
+    nearbyShops(lat = position.x, long = position.y)
+  }
+
+  def nearbyShops(limit: Int = 5, lat: Float = 0L, long: Float = 0L): Future[List[Shop]] = {
+    println(s"nearbyShops => limit: $limit - lat: $lat - long: $long")
+    val point = "POINT(" + lat + " " + long + ")"
+    val query: doobie.ConnectionIO[List[Shop]] =
+      sql"""
+    select
+      id, name, business_name, activity_id, stratum_id, address, phone_number, email, website, shop_type_id, position
+    from shop
+    order by position <-> ST_GeogFromText($point)
+    limit $limit
+    """.query[Shop].to[List]
+    transactor.use(query.transact[IO]).unsafeToFuture
+  }
+
+  def radiusByShop(idShop: Int): Future[List[Shop]] = {
+    val position: Position = toCoordinates(idShop)
+    shopsInRadius(lat = position.x, long = position.y)
+  }
+
+  def shopsInRadius(radius: Int = 50, lat: Float, long: Float): Future[List[Shop]] = {
+    println(s"shopsInRadius => limit: $radius - lat: $lat - long: $long")
+    val point = "ST_MakePoint(" + lat + "," + long + ")::geography"
+    val query: doobie.ConnectionIO[List[Shop]] =
+      sql"""
+    select
+      id, name, business_name, activity_id, stratum_id, address, phone_number, email, website, shop_type_id, position
+    from shop
+    WHERE ST_DWithin(position, ST_MakePoint($lat,$long), $radius)
+    """.query[Shop].to[List]
+    transactor.use(query.transact[IO]).unsafeToFuture
+  }
+
+  def createShopTrx(shop: Shop): doobie.ConnectionIO[Int] = {
+    sql"""
+    insert into shop
+    (id, name, business_name, activity_id, stratum_id, address, phone_number, email, website, shop_type_id, position)
+    values (${shop.id}, ${shop.name}, ${shop.business_name}, ${shop.activity_id}, ${shop.stratum_id},
+    ${shop.address}, ${shop.phone_number}, ${shop.email}, ${shop.website}, ${shop.shop_type_id},
+    ST_GeographyFromText(${shop.position}))
+    """.update.run
+  }
+
+  def createComercialActivityTrx(ca: ComercialActivity): doobie.ConnectionIO[Int] = {
+    sql"""
+      insert into comercial_activity (id, name) values (${ca.id}, ${ca.name})
+    """.update.run
+  }
+
+  def createShopTypeTrx(shop: ShopType): doobie.ConnectionIO[Int] = {
+    sql"""
+      insert into shop_type (id, name) values (${
+      shop.id
+    }, ${
+      shop.name
+    })
+    """.update.run
+  }
+
+  def createStratumTrx(stratum: Stratum): doobie.ConnectionIO[Int] = {
+    sql"""
+      insert into stratum (id, name) values (${
+      stratum.id
+    }, ${
+      stratum.name
+    })
+    """.update.run
+  }
+
+  def createAll(ca: ComercialActivity, st: ShopType, str: Stratum, shop: Shop) = {
+    val rows = for {
+      activity <- createComercialActivityTrx(ca)
+      shopType <- createShopTypeTrx(st)
+      stratum <- createStratumTrx(str)
+      shop <- createShopTrx(shop)
+    } yield activity + shopType + stratum + shop
+    transactor.use(rows.transact[IO]).unsafeToFuture
+  }
 }
 
-//Table mapping
-object ShopRepository {
-  class ShopTable(tag: Tag) extends Table[Shop](tag, "shop") {
-    def shopId = column[Int]("id", O.PrimaryKey)
-
-    def name = column[String]("name")
-
-    def business = column[String]("business_name")
-
-    def activityId = column[Int]("activity_id")
-
-    def stratumId = column[Int]("stratum_id")
-
-    def address = column[String]("address")
-
-    def phone = column[String]("phone_number")
-
-    def email = column[String]("email")
-
-    def website = column[String]("website")
-
-    def shopTypeID = column[Int]("shop_type_id")
-
-    def position = column[String]("position")
-
-    def activityFK =
-      foreignKey("activity_id", activityId, CActivityTQ)(_.activityId)
-    def shopTypeFK =
-      foreignKey("shop_type_id", shopTypeID, ShopTypeTQ)(_.shopTypeId)
-    def stratumFK =
-      foreignKey("stratum_id", stratumId, StratumTQ)(_.stratumId)
-
-    def * =
-      (shopId, name, business, activityId, stratumId, address, phone, email, website, shopTypeID, position) <>
-      ((Shop.apply _).tupled, Shop.unapply)
-  }
-
-  class ComercialActivityTable(tag: Tag) extends Table[ComercialActivity](tag, "comercial_activity") {
-    def activityId = column[Int]("id", O.PrimaryKey)
-
-    def name = column[String]("name")
-
-    def * = (activityId, name) <>
-      ((ComercialActivity.apply _).tupled, ComercialActivity.unapply)
-  }
-
-  class ShopTypeTable(tag: Tag) extends Table[ShopType](tag, "shop_type") {
-    def shopTypeId = column[Int]("id", O.PrimaryKey)
-
-    def name = column[String]("name")
-
-    def * = (shopTypeId, name) <>
-      ((ShopType.apply _).tupled, ShopType.unapply)
-  }
-
-  class StratumTable(tag: Tag) extends Table[Stratum](tag, "stratum") {
-    def stratumId = column[Int]("id", O.PrimaryKey)
-
-    def name = column[String]("name")
-
-    def * = (stratumId, name) <>
-      ((Stratum.apply _).tupled, Stratum.unapply)
-  }
-
-  val CActivityTQ = TableQuery[ComercialActivityTable]
-  val ShopTQ = TableQuery[ShopTable]
-  val ShopTypeTQ = TableQuery[ShopTypeTable]
-  val StratumTQ = TableQuery[StratumTable]
-
-  def createDatabase() = {
-    val db = Database.forConfig("inegi")
-    new ShopRepository(db)
-  }
-
-}

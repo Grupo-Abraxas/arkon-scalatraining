@@ -1,8 +1,8 @@
 package training.std
 
 import sangria.execution.deferred.{DeferredResolver, Fetcher, Relation}
-import sangria.macros.derive._
-import sangria.schema._
+import sangria.macros.derive.{AddFields, ExcludeFields, deriveObjectType}
+import sangria.schema.{Field, ListType, ObjectType}
 import training.std.Models._
 
 object SchemaDefinition {

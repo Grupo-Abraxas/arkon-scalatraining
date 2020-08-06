@@ -4,8 +4,6 @@ import cats.effect._
 import doobie.implicits._
 import training.std.Models._
 
-import scala.concurrent.Future
-
 class ShopRepository {
   val transactor = GlobalConnection().connect
 
@@ -174,4 +172,3 @@ class ShopRepository {
     transactor.use(rows.transact[IO]).unsafeToFuture
   }
 }
-

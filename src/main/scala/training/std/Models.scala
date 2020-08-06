@@ -15,7 +15,9 @@ object Models {
                   website: String,
                   shop_type_id: Int,
                   position: String) {}
+
   case class Position(x: Float, y: Float) {}
+
   case class CreateShopInput(id: Int,
                              name: String,
                              businessName: String,
@@ -38,7 +40,7 @@ object Models {
 
   case class Stratum(id: Int, name: String) {}
 
-  object CreateShopInput{
+  object CreateShopInput {
     implicit val hasId = HasId[Shop, Float](_.id)
   }
 

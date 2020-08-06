@@ -22,7 +22,6 @@ libraryDependencies ++= Seq(
 
   "org.scalatest" %% "scalatest" % "3.2.0" % Test,
 
-  "com.lihaoyi" %% "requests" % "0.1.8",
   //Cats
   "org.typelevel" %% "cats-core" % "2.1.1",
   //Doobie

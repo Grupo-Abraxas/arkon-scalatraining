@@ -20,7 +20,7 @@ object ServerScraper extends App {
   implicit val actorSystem = ActorSystem("graphql-server")
   implicit val materializer = ActorMaterializer()
 
-  logger("Starting GRAPHQL server...")
+  logger("Starting GRAPHQL Scraper Server...")
 
   //shutdown Hook
   scala.sys.addShutdownHook(() -> shutdown())
@@ -31,7 +31,7 @@ object ServerScraper extends App {
         GraphQLServer.endpoint(requestJson)
       }
     } ~ {
-      getFromResource("../../../../common/src/main/resources/graphiql.html")
+      getFromResource("graphiql.html")
     }
 
   Http().bindAndHandle(route, "0.0.0.0", PORT)

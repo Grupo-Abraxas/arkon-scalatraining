@@ -17,7 +17,7 @@ object GraphQLServer {
 
   case object TooComplexQuery extends Exception
 
-  val rejectComplexQueries = QueryReducer.rejectComplexQueries(100, (_: Double, _:ShopRepository) => TooComplexQuery)
+  val rejectComplexQueries = QueryReducer.rejectComplexQueries(300, (_: Double, _:ShopRepository) => TooComplexQuery)
 
   val exceptionHandler: Executor.ExceptionHandler = {
     case (_, TooComplexQuery) => HandledException("Too complex query. Please reduce the field selection")

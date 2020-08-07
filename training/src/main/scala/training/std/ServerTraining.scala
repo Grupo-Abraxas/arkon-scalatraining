@@ -32,7 +32,7 @@ object ServerTraining extends App {
         GraphQLServer.endpoint(requestJson)
       }
     } ~ {
-      getFromResource("../../../../common/src/main/resources/graphiql.html")
+      getFromResource("graphiql.html")
     }
 
   Http().bindAndHandle(route, "0.0.0.0", PORT)

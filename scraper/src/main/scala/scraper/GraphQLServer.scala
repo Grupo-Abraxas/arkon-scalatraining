@@ -54,7 +54,6 @@ object GraphQLServer {
       new ScraperRepository,
       variables = vars,
       operationName = op,
-      /*deferredResolver = SchemaDefinition.Resolver,*/
       exceptionHandler = exceptionHandler,
       queryReducers = rejectComplexQueries :: Nil
     ).map(OK -> _)

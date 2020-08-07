@@ -91,37 +91,37 @@ class ShopRepository {
 
   def nearByShop(idShop: Int) = {
     val position: Position = toCoordinates(idShop)
+    println(s"Position => $position")
     nearbyShops(lat = position.x, long = position.y)
+  }
+
+  def radiusByShop(idShop: Int) = {
+    val position: Position = toCoordinates(idShop)
+    println(s"Position => $position")
+    shopsInRadius(lat = position.x, long = position.y)
   }
 
   def nearbyShops(limit: Int = 5, lat: Float = 0L, long: Float = 0L) = {
     println(s"nearbyShops => limit: $limit - lat: $lat - long: $long")
-    val point = "POINT(" + lat + " " + long + ")"
     val query: doobie.ConnectionIO[List[Shop]] =
       sql"""
     select
       id, name, business_name, activity_id, stratum_id, address, phone_number, email, website, shop_type_id, position
     from shop
-    order by position <-> ST_GeogFromText($point)
+    order by position <-> ST_MakePoint($lat, $long)
     limit $limit
     """.query[Shop].to[List]
     transactor.use(query.transact[IO]).unsafeToFuture
   }
 
-  def radiusByShop(idShop: Int) = {
-    val position: Position = toCoordinates(idShop)
-    shopsInRadius(lat = position.x, long = position.y)
-  }
-
   def shopsInRadius(radius: Int = 50, lat: Float, long: Float) = {
-    println(s"shopsInRadius => limit: $radius - lat: $lat - long: $long")
-    val point = "ST_MakePoint(" + lat + "," + long + ")::geography"
+    println(s"shopsInRadius => radius: $radius - lat: $lat - long: $long")
     val query: doobie.ConnectionIO[List[Shop]] =
       sql"""
     select
       id, name, business_name, activity_id, stratum_id, address, phone_number, email, website, shop_type_id, position
     from shop
-    WHERE ST_DWithin(position, ST_MakePoint($lat,$long), $radius)
+    WHERE ST_DWithin(position, ST_MakePoint($lat, $long), $radius)
     """.query[Shop].to[List]
     transactor.use(query.transact[IO]).unsafeToFuture
   }
@@ -134,41 +134,5 @@ class ShopRepository {
     ${shop.address}, ${shop.phone_number}, ${shop.email}, ${shop.website}, ${shop.shop_type_id},
     ST_GeographyFromText(${shop.position}))
     """.update.run
-  }
-
-  def createComercialActivityTrx(ca: ComercialActivity) = {
-    sql"""
-      insert into comercial_activity (id, name) values (${ca.id}, ${ca.name})
-    """.update.run
-  }
-
-  def createShopTypeTrx(shop: ShopType) = {
-    sql"""
-      insert into shop_type (id, name) values (${
-      shop.id
-    }, ${
-      shop.name
-    })
-    """.update.run
-  }
-
-  def createStratumTrx(stratum: Stratum) = {
-    sql"""
-      insert into stratum (id, name) values (${
-      stratum.id
-    }, ${
-      stratum.name
-    })
-    """.update.run
-  }
-
-  def createAll(ca: ComercialActivity, st: ShopType, str: Stratum, shop: Shop) = {
-    val rows = for {
-      activity <- createComercialActivityTrx(ca)
-      shopType <- createShopTypeTrx(st)
-      stratum <- createStratumTrx(str)
-      shop <- createShopTrx(shop)
-    } yield activity + shopType + stratum + shop
-    transactor.use(rows.transact[IO]).unsafeToFuture
   }
 }

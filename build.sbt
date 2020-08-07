@@ -1,4 +1,3 @@
-
 name := "arkon-scalatraining"
 
 version := "0.1"
@@ -25,7 +24,7 @@ libraryDependencies ++= Seq(
   //Cats
   "org.typelevel" %% "cats-core" % "2.1.1",
   //Doobie
-  "org.tpolecat" %% "doobie-core"      % "0.8.8",
-  "org.tpolecat" %% "doobie-hikari"    % "0.8.8",
-  "org.tpolecat" %% "doobie-postgres"  % "0.8.8"
+  "org.tpolecat" %% "doobie-core" % "0.8.8",
+  "org.tpolecat" %% "doobie-hikari" % "0.8.8",
+  "org.tpolecat" %% "doobie-postgres" % "0.8.8"
 )

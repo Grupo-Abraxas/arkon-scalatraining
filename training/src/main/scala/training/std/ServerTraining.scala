@@ -8,21 +8,20 @@ import akka.http.scaladsl.server.Directives._
 import spray.json._
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport._
 
+import scala.concurrent.duration._
 import Console._
 import scala.concurrent.Await
 import scala.language.postfixOps
+import scala.concurrent.ExecutionContext.Implicits.global
 
-object Server extends App {
+object ServerTraining extends App {
 
   val PORT = 8080
 
   implicit val actorSystem = ActorSystem("graphql-server")
   implicit val materializer = ActorMaterializer()
 
-  import actorSystem.dispatcher
-  import scala.concurrent.duration._
-
-  logger("Starting GRAPHQL server...")
+  logger("Starting GRAPHQL Server Training...")
 
   //shutdown Hook
   scala.sys.addShutdownHook(() -> shutdown())
@@ -33,7 +32,7 @@ object Server extends App {
         GraphQLServer.endpoint(requestJson)
       }
     } ~ {
-      getFromResource("graphiql.html")
+      getFromResource("../../../../common/src/main/resources/graphiql.html")
     }
 
   Http().bindAndHandle(route, "0.0.0.0", PORT)

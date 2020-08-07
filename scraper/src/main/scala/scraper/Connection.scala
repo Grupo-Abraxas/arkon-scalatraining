@@ -1,9 +1,8 @@
-package training.std
+package scraper
 
 import cats.effect.{Blocker, IO, Resource}
 import doobie.hikari.HikariTransactor
 import doobie.util.ExecutionContexts
-
 import scala.concurrent.ExecutionContext
 
 case class GlobalConnection(

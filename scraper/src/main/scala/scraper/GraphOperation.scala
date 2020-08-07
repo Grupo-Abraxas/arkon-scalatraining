@@ -2,7 +2,7 @@ package scraper
 
 import sangria.macros.derive.deriveObjectType
 import sangria.schema.{Argument, Field, IntType, ObjectType, OptionInputType, Schema, StringType, fields}
-import scraper.Models.Response
+import common.Models.Response
 
 object GraphOperation {
   //Queries Argument Types

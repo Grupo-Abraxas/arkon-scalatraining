@@ -1,7 +1,7 @@
 package training.std
 
 import sangria.schema.{Argument, Field, FloatType, IntType, ListType, ObjectType, OptionInputType, OptionType, Schema, StringType, fields}
-import training.std.Models.CreateShopInput
+import common.Models.CreateShopInput
 import training.std.SchemaDefinition.{payloadType, shopType}
 
 object GraphOperation {

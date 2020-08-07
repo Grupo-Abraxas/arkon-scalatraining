@@ -2,7 +2,8 @@ package training.std
 
 import cats.effect._
 import doobie.implicits._
-import training.std.Models._
+import common.Models._
+import common.GlobalConnection
 
 class ShopRepository {
   val transactor = GlobalConnection().connect

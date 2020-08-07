@@ -1,8 +1,11 @@
 package scraper
 
-import scraper.Models._
+import common.Models._
+import common.GlobalConnection
+
 import cats.effect._
 import cats.implicits.catsStdInstancesForList
+
 import doobie.implicits._
 import doobie.util.update.Update
 import spray.json.DefaultJsonProtocol._
@@ -19,7 +22,7 @@ class ScraperRepository {
   def scrapeData(businessType: String, lat: String, long: String, radius: Int = 5000) = {
     println(s"businessType: $businessType => lat: $lat => long: $long => radius: $radius")
     val jsonRaw = requests.get(s"$inegiUrl/$businessType/$lat,$long/$radius/$token").text
-    var shopsList = new ListBuffer[Shop]()
+    var shopsList = new ListBuffer[ShopScrap]()
     var activitiesMap = Map[String, Int]()
     var shopTypesMap = Map[String, Int]()
     var stratumsMap = Map[String, Int]()
@@ -41,7 +44,7 @@ class ScraperRepository {
       val sKey = a(stratumsMap, data.Estrato, data)
 
       val address = s"${data.Ubicacion}, ${data.Colonia}, ${data.Calle}, ${data.Num_Exterior}, ${data.Num_Interior}, ${data.CP}"
-      shopsList += Shop(data.Id.toInt, data.Nombre, data.Razon_social, aKey.toInt, sKey.toInt, address, data.Telefono,
+      shopsList += ShopScrap(data.Id.toInt, data.Nombre, data.Razon_social, aKey.toInt, sKey.toInt, address, data.Telefono,
         data.Correo_e, data.Sitio_internet, spKey.toInt, data.Longitud.toFloat, data.Latitud.toFloat)
     }
 
@@ -120,14 +123,14 @@ class ScraperRepository {
     transactor.use(Update[Stratum](sql).updateMany(stratums).transact[IO])
   }
 
-  def createShops(shops: List[Shop]) = {
+  def createShops(shops: List[ShopScrap]) = {
     val sql = "insert into shop (id, name, business_name, activity_id, stratum_id, address, phone_number, email, website, " +
       "shop_type_id, position) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " +
       "ST_SetSRID(ST_Point(?,?), 4326)::geography)"
-    transactor.use(Update[Shop](sql).updateMany(shops).transact[IO])
+    transactor.use(Update[ShopScrap](sql).updateMany(shops).transact[IO])
   }
 
-  def createAll(ca: List[ComercialActivity], st: List[ShopType], str: List[Stratum], sps: List[Shop]) = {
+  def createAll(ca: List[ComercialActivity], st: List[ShopType], str: List[Stratum], sps: List[ShopScrap]) = {
     val rows = for {
       activities <- createComercialActivity(ca)
       shopTypes <- createShopType(st)

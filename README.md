@@ -51,6 +51,7 @@ query them based on their location.
 - [Sangria](https://sangria-graphql.org/): Scala library for GraphQL.
 - [ScalaTest](https://www.scalatest.org/): Scala testing library.
 - [ScalaCheck](https://www.scalacheck.org/): Library for random testing of program properties inspired by [QuickCheck](https://hackage.haskell.org/package/QuickCheck).
+- [http4s](https://http4s.org/): Library fot HTTP
 
 ## Exercises
 - [Std lib](https://www.scala-exercises.org/std_lib/asserts)

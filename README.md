@@ -48,7 +48,7 @@ query them based on their location.
 - [cats-effect](https://typelevel.org/cats-effect/): IO Monad in Scala.
 - [FS2](https://fs2.io/index.html): Functional streams.
 - [Doobie](https://tpolecat.github.io/doobie/): Functional layer for JDBC.
-- [Sangria](https://sangria-graphql.org/): Scala library for GraphQL.
+- [Sangria](https://sangria-graphql.github.io/): Scala library for GraphQL.
 - [ScalaTest](https://www.scalatest.org/): Scala testing library.
 - [ScalaCheck](https://www.scalacheck.org/): Library for random testing of program properties inspired by [QuickCheck](https://hackage.haskell.org/package/QuickCheck).
 - [http4s](https://http4s.org/): Library fot HTTP

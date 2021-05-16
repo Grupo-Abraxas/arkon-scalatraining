@@ -8,6 +8,6 @@ libraryDependencies ++= Seq(
   "io.circe"      %% "circe-core"   % "0.12.3",
   "io.circe"      %% "circe-parser" % "0.12.3",
   "org.tpolecat"  %% "doobie-core"  % "0.8.8",
-  "org.scalatest" %% "scalatest"    % "3.2.0" % "test"
+  "org.scalatest" %% "scalatest"    % "3.2.9" % "test"
 
 )

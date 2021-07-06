@@ -1,6 +1,5 @@
 # https://docs.djangoproject.com/en/3.2/ref/contrib/gis/model-api/
 from django.contrib.gis.db import models
-from django.db.models.fields import related
 from phonenumber_field.modelfields import PhoneNumberField
 
 
@@ -30,9 +29,9 @@ class Shop(models.Model):
         on_delete=models.CASCADE,
         related_name='shops'),
     address = models.CharField(max_length=250)
-    phone_number = models.PhoneNumberField(blank=True)
-    email = models.EmailAddressField(blank=True)
-    website = models.URLFiel(blank=True)
+    phone_number = PhoneNumberField(blank=True)
+    email = models.EmailField(blank=True)
+    website = models.URLField(blank=True)
     shop_type = models.ForeignKey(
         ShopType,
         on_delete=models.CASCADE,

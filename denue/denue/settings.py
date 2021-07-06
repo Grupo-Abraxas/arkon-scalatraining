@@ -10,16 +10,20 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 from pathlib import Path
+
+import environ
 import os
 
-# Load enviroment variables
-ENV_FILE = os.environ.setdefault('ENV_FILE', '.env.local')
+# Set env_file name
+ENV_FILE = os.environ.setdefault('ENV_FILE', '.env')
 
+# Set default variables
 env = environ.Env(
     DJANGO_DEBUG=(bool, False),
 )
 
-environ.Env.read_env()
+# Load enviroment variables
+environ.Env.read_env(env_file=ENV_FILE)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,12 +33,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-rdapam@i@earlr=9dd5_jinbiuip)$(x&^gzvx-6iz@*f5ojsk'
+SECRET_KEY = env('SECRET_KEY')
+GDAL_LIBRARY_PATH = env('GDAL_LIBRARY_PATH')
+GEOS_LIBRARY_PATH = env('GEOS_LIBRARY_PATH')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DJANGO_DEBUG')
 
-ALLOWED_HOSTS = [']']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -46,8 +52,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #
+    # Third party libraries
     'phonenumber_field',
+    # Denue libraries
+    'api'
 ]
 
 MIDDLEWARE = [
@@ -83,14 +91,20 @@ WSGI_APPLICATION = 'denue.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': env('DATABASE_ENGINE'),
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USERNAME'),
+        'PASSWORD': env('DATABASE_PASSWORD'),
+        'HOST': env('DATABASE_HOST'),
+        'PORT': env('DATABASE_PORT'),
+        'CONN_MAX_AGE': 120,
+        'OPTIONS': {
+            'connect_timeout': 30,
+        },
+    },
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

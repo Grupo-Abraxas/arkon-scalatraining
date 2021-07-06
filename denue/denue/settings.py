@@ -9,8 +9,17 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
 from pathlib import Path
+import os
+
+# Load enviroment variables
+ENV_FILE = os.environ.setdefault('ENV_FILE', '.env.local')
+
+env = environ.Env(
+    DJANGO_DEBUG=(bool, False),
+)
+
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +34,7 @@ SECRET_KEY = 'django-insecure-rdapam@i@earlr=9dd5_jinbiuip)$(x&^gzvx-6iz@*f5ojsk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [']']
 
 
 # Application definition
@@ -37,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [

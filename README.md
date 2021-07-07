@@ -64,6 +64,20 @@ $ python manage.py makemigrations api
 // Updates database schema
 $ python manage.py migrate api
 
+// Create virtual environment
+$ python -m venv env
+
+// Activate Virtual Environment
+$ source mypython/bin/activate
+
+// Deactivate the virtual environment
+$ deactivate
+
+// Install requiretements 
+$ pip install -r requirements.txt
+
+
+
 ```
 
 ## Requirements 

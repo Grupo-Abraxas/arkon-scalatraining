@@ -2,14 +2,17 @@
     <img src="./img/logo.jpg" align="right" height="80">
 </a>
 
-# Arkon's Scala Training
+# Arkon's Python Training
 
 ## Description
-Scala hands on training project. Looking to introduce new team members or anyone interested to the scala 
+Python hands on training project. Looking to introduce new team members or anyone interested to the python 
 programming language and the way it's used within the ArkonData team. 
 
 You'll implement a web server exposing a GraphQL API to expose business retrieved from the INEGI's API and 
 query them based on their location.
+
+# https://docs.djangoproject.com/en/3.2/ref/contrib/gis/install/geolibs/#gdalbuild
+# https://docs.djangoproject.com/en/3.2/ref/contrib/gis/model-api/
 
 * [Concepts](https://github.com/Grupo-Abraxas/arkon-scalatraining#concepts)
 * [Tools](https://github.com/Grupo-Abraxas/arkon-scalatraining#tools)
@@ -20,78 +23,53 @@ query them based on their location.
 
 ## Concepts
 - FP
-    - [Why functional programming?](http://book.realworldhaskell.org/read/why-functional-programming-why-haskell.html)
-- Referential transparency.
-- Immutability.
-- Recursion (FP).
-- Basic concurrency using [Scala's Future](https://docs.scala-lang.org/overviews/core/futures.html). 
-- Functor/Mondad (FP through [cats](https://typelevel.org/cats/)).
-- The real world/side effects using the [IO Monad](http://book.realworldhaskell.org/read/io.html).
-- Testing
-- [Types and type clases](http://learnyouahaskell.com/types-and-typeclasses)
-- [Implicits](https://docs.scala-lang.org/tour/implicit-parameters.html)
-- [hlists](https://www.scala-exercises.org/shapeless/heterogenous_lists)
+    - [Functional Programming HOWTO](https://docs.python.org/es/3/howto/functional.html#functional-programming-howto)
 
 ## Books
-- [https://underscore.io/books](https://underscore.io/books/)
+- Coming soon
 
 ## Videos
-- [Let’s Code Real World App Using Purely Functional Techniques (in Scala)](https://youtu.be/m40YOZr1nxQ)
+- Coming soon
 
 ## Tools
-- [Scala](https://www.scala-lang.org/2020/06/29/one-click-install.html)
-- [IntelliJ (IDE)](https://www.jetbrains.com/idea/download/)
-- [sbt](https://www.scala-sbt.org/)
+- [Python]https://www.python.org/)
+- [Code](https://code.visualstudio.com/)
 
 ## Libraries
-- [cats](https://typelevel.org/cats/): Library for FP.
-- [cats-effect](https://typelevel.org/cats-effect/): IO Monad in Scala.
-- [FS2](https://fs2.io/index.html): Functional streams.
-- [Doobie](https://tpolecat.github.io/doobie/): Functional layer for JDBC.
-- [Sangria](https://sangria-graphql.github.io/): Scala library for GraphQL.
-- [ScalaTest](https://www.scalatest.org/): Scala testing library.
-- [ScalaCheck](https://www.scalacheck.org/): Library for random testing of program properties inspired by [QuickCheck](https://hackage.haskell.org/package/QuickCheck).
-- [http4s](https://http4s.org/): Library fot HTTP
+- [Django](https://docs.djangoproject.com): Library for FP.
+- [Geospatial libraries](https://docs.djangoproject.com/en/3.2/ref/contrib/gis/install/geolibs/)
+- [GeoDjango Model API](https://docs.djangoproject.com/en/3.2/ref/contrib/gis/model-api/)
+- [Testing in Django](https://docs.djangoproject.com/en/3.2/topics/testing/): Python testing library.
 
 ## Exercises
-- [Std lib](https://www.scala-exercises.org/std_lib/asserts)
-- [Fp in Scala](https://www.scala-exercises.org/fp_in_scala/getting_started_with_functional_programming)
-- [Cats](https://www.scala-exercises.org/cats/semigroup)
-- [Circe](https://www.scala-exercises.org/circe/Json)
-- [Doobie](https://www.scala-exercises.org/doobie/connecting_to_database)
-- [ScalaCheck](https://www.scala-exercises.org/scalacheck/properties)
+
 
 ## Basic commands
-SBT console
+Django Shell
 ```
-$ sbt
+$ python manage.py shell
 ```
 
-Running sbt commands inside the SBT console
+Running test
 ```
-// sbt console
-$ sbt
+// running all tests
+$ python manage.py test
 
-// Scala REPL
-$ sbt console
+// running api test
+$ python manage.py test api.test
 
-// Compile the main module
-sbt:arkon-scalatraining> compile
+// Creates new migration(s) for api app
+$ python manage.py makemigrations api
 
-// Compile the test module
-sbt:arkon-scalatraining> test:compile
+// Updates database schema
+$ python manage.py migrate api
 
-// Run all tests
-sbt:arkon-scalatraining> test
-
-// Run a specific test
-sbt:arkon-scalatraining> testOnly training.std.OptionSpec
 ```
 
 ## Requirements 
 Implement a GraphQL API based on the given [schema](./schema.graphql) to expose the saved business and 
 query them based on their location. The database to be used should be [PostgreSQL](www.postgresql.org) with the 
-[PostGIS](http://postgis.net/) exitension to power the georeferenced queries. To fill the database you'll have 
+[PostGIS](http://postgis.net/) extension to power the georeferenced queries. To fill the database you'll have 
 to implement a web scrapper to retrieve data from the INEGI's DENUE [API](https://www.inegi.org.mx/servicios/api_denue.html) 
 and execute the `createShop` mutation defined on the implemented API.
 

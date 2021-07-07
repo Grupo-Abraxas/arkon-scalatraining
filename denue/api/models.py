@@ -1,3 +1,4 @@
+# https://docs.djangoproject.com/en/3.2/ref/contrib/gis/install/geolibs/#gdalbuild
 # https://docs.djangoproject.com/en/3.2/ref/contrib/gis/model-api/
 from django.contrib.gis.db import models
 from phonenumber_field.modelfields import PhoneNumberField
@@ -19,15 +20,15 @@ class ShopType(models.Model):
 class Shop(models.Model):
     name = models.CharField(max_length=100)
     business_name = models.CharField(max_length=100)
-    activity_id = models.ForeignKey(
+    activity = models.ForeignKey(
         ComercialActivity,
         on_delete=models.CASCADE,
         related_name='shops'
         )
-    stratum_id = models.ForeignKey(
+    stratum = models.ForeignKey(
         Stratum,
         on_delete=models.CASCADE,
-        related_name='shops'),
+        related_name='shops')
     address = models.CharField(max_length=250)
     phone_number = PhoneNumberField(blank=True)
     email = models.EmailField(blank=True)

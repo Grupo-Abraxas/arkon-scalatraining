@@ -47,10 +47,9 @@ object Main extends  IOApp {
     SangriaGraphQL[F](
       Schema(
         query    = QueryType[F],
-//        mutation = Some(MutationType[F])
+        mutation = Some(MutationType[F])
       ),
       WorldDeferredResolver[F],
-//      MasterRepo.fromTransactor(transactor).pure[F],
       MasterRepo.fromTransactor(transactor).pure[F],
       blockingContext
     )

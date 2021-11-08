@@ -4,7 +4,7 @@ version := "0.1"
 
 scalaVersion := "2.13.3"
 
-val http4sVersion = "1.0-28-62b0fb2-SNAPSHOT"
+val http4sVersion = "0.22.7"
 
 libraryDependencies ++= Seq(
   "io.circe" %% "circe-core" % "0.12.3",

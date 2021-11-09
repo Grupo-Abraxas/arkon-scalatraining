@@ -13,6 +13,10 @@ object QueryType {
   val OffsetType: Argument[Int] = Argument( "offset", IntType )
   val LimitType: Argument[Int] = Argument( "limit", IntType, defaultValue = 50 )
 
+  val LimitTypeNearbyShops: Argument[Int] = Argument( "limit", IntType, defaultValue = 5 )
+  val LongitudeType: Argument[Double] = Argument( "long", FloatType )
+  val LatitudeType: Argument[Double] = Argument( "lat", FloatType )
+
   def apply[F[_]: Effect]: ObjectType[MasterRepository[F], Unit] =
     ObjectType(
       name  = "Query",
@@ -33,6 +37,16 @@ object QueryType {
           description = Some( "Get shops  "),
           resolve     = c => c.ctx.shopRepository.getAll( c.arg( LimitType ), c.arg( OffsetType ) ).toIO.unsafeToFuture
         ),
+
+        Field(
+          name        = "nearbyShops",
+          fieldType   = ListType( ShopType[F] ),
+          arguments   = List( LatitudeType, LongitudeType, LimitTypeNearbyShops ),
+          description = Some( "Get shops  "),
+          resolve     = c => c.ctx.shopRepository.nearbyShops( c.arg( LimitTypeNearbyShops), c.arg( LatitudeType ), c.arg( LongitudeType ) ).toIO.unsafeToFuture
+        ),
+
+
 
 
       )

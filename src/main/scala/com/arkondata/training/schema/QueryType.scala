@@ -1,62 +1,33 @@
-// Copyright (c) 2018 by Rob Norris
-// This software is licensed under the MIT License (MIT).
-// For more information see LICENSE or https://opensource.org/licenses/MIT
+
 
 package com.arkondata.training.schema
 
 import cats.effect._
-import com.arkondata.training.repo.MasterRepo
+import cats.effect.implicits._
+import com.arkondata.training.repo.MasterRepository
 import sangria.schema._
 
 object QueryType {
 
-//  val NamePattern: Argument[String] =
-//    Argument(
-//      name         = "namePattern",
-//      argumentType = OptionInputType(StringType),
-//      description  = "SQL-style pattern for city name, like \"San %\".",
-//      defaultValue = "%"
-//    )
-//
-//  val Code: Argument[String] =
-//    Argument(
-//      name         = "code",
-//      argumentType = StringType,
-//      description  = "Unique code of a country."
-//    )
+  val IDType: Argument[Int] = Argument( "id", IntType )
 
-  def apply[F[_]: Effect]: ObjectType[MasterRepo[F], Unit] =
+  def apply[F[_]: Effect]: ObjectType[MasterRepository[F], Unit] =
     ObjectType(
       name  = "Query",
       fields = fields(
 
         Field(
-          name        = "hello",
-          fieldType   = StringType,
-          description = Some("Returns greetings "),
-//          arguments   = List(NamePattern),
-          resolve     = c => c.ctx.inegi.search()
+          name        = "shop",
+          fieldType   = OptionType( ShopType[F] ),
+          arguments   = IDType :: Nil,
+          description = Some( "Get shop by id  "),
+          resolve     = c => c.ctx.shopRepository.getById( c.arg( IDType ) ).toIO.unsafeToFuture
         ),
-//
-//        Field(
-//          name        = "country",
-//          fieldType   = OptionType(CountryType[F]),
-//          description = Some("Returns the country with the given code, if any."),
-//          arguments   = List(Code),
-//          resolve     = c => c.ctx.country.fetchByCode(c.arg(Code)).toIO.unsafeToFuture
-//        ),
-//
-//        Field(
-//          name        = "countries",
-//          fieldType   = ListType(CountryType[F]),
-//          description = Some("Returns all countries."),
-//          resolve     = c => c.ctx.country.fetchAll.toIO.unsafeToFuture
-//        ),
+
 
       )
     )
 
-  def schema[F[_]: Effect]: Schema[MasterRepo[F], Unit] =
-    Schema(QueryType[F])
+  def schema[F[_]: Effect]: Schema[MasterRepository[F], Unit] = Schema(QueryType[F])
 
 }

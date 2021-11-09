@@ -5,7 +5,7 @@ package com.arkondata.training.schema
 import cats.effect._
 import cats.effect.implicits._
 import cats.implicits._
-import com.arkondata.training.repo.MasterRepo
+import com.arkondata.training.repo.MasterRepository
 import sangria.execution.deferred.{Deferred, DeferredResolver}
 
 import scala.concurrent._
@@ -14,13 +14,13 @@ import scala.util.Success
 
 object WorldDeferredResolver {
 
-  def apply[F[_]: Effect]: DeferredResolver[MasterRepo[F]] =
-    new DeferredResolver[MasterRepo[F]] {
+  def apply[F[_]: Effect]: DeferredResolver[MasterRepository[F]] =
+    new DeferredResolver[MasterRepository[F]] {
 
       def resolve(
-        deferred:   Vector[Deferred[Any]],
-        ctx:        MasterRepo[F],
-        queryState: Any
+                   deferred:   Vector[Deferred[Any]],
+                   ctx:        MasterRepository[F],
+                   queryState: Any
       )(
         implicit ec: ExecutionContext
       ): Vector[Future[Any]] = {

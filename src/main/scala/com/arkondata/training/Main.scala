@@ -3,9 +3,9 @@ package com.arkondata.training
 import _root_.sangria.schema._
 import cats.effect._
 import cats.implicits._
-import com.arkondata.training.repo.MasterRepo
+import com.arkondata.training.repo.MasterRepository
 import com.arkondata.training.sangria.SangriaGraphQL
-import com.arkondata.training.schema.{MutationType, QueryType, WorldDeferredResolver}
+import com.arkondata.training.schema.{QueryType, WorldDeferredResolver}
 import doobie._
 import doobie.hikari._
 import doobie.util.ExecutionContexts
@@ -19,7 +19,6 @@ import org.http4s.server.Server
 import org.http4s.server.blaze.BlazeServerBuilder
 
 import scala.concurrent.ExecutionContext
-import scala.concurrent.ExecutionContext.global
 
 object Main extends  IOApp {
 
@@ -47,10 +46,10 @@ object Main extends  IOApp {
     SangriaGraphQL[F](
       Schema(
         query    = QueryType[F],
-        mutation = Some(MutationType[F])
+//        mutation = Some(MutationType[F])
       ),
       WorldDeferredResolver[F],
-      MasterRepo.fromTransactor(transactor).pure[F],
+      MasterRepository.fromTransactor(transactor).pure[F],
       blockingContext
     )
 

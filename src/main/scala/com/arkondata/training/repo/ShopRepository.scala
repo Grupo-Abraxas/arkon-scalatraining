@@ -11,6 +11,7 @@ import doobie.implicits._
 trait ShopRepository[F[_]] {
 
   def getById(id: Int) : F[ Option[ Shop ] ];
+  def getAll(limit: Int, offset: Int): F[ List[ Shop ]]
 
 }
 
@@ -21,16 +22,20 @@ object ShopRepository {
 
     new ShopRepository[ F ] {
 
+      val selectShop = sql""" select id, name, business_name, activity_id, address,
+                                              phone_number, email, website, shop_type_id, stratum_id,
+                                              ST_X(position::geometry) as long, ST_Y( position ::geometry ) as lat
+                                          from  shop """
+
       def getById(id: Int): F[ Option[ Shop ] ] = {
-        val selectShopById =  sql"""
-              select id, name, business_name, activity_id, address,
-                  phone_number, email, website, shop_type_id, stratum_id,
-                  ST_X(position::geometry) as long, ST_Y( position ::geometry ) as lat
-              from shop where id = $id
-                    """
+        val selectShopById = selectShop ++ sql""" where id = $id """
         selectShopById.query[ Shop ].option.transact( xa )
       }
 
+      def getAll(limit: Int, offset: Int): F[ List[Shop] ] = {
+        val selectAll = selectShop ++  sql""" order by id limit $limit offset $offset"""
+        selectAll.query[ Shop ].to[ List ].transact(xa)
+      }
 
     }
 

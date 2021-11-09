@@ -10,6 +10,8 @@ import sangria.schema._
 object QueryType {
 
   val IDType: Argument[Int] = Argument( "id", IntType )
+  val OffsetType: Argument[Int] = Argument( "offset", IntType )
+  val LimitType: Argument[Int] = Argument( "limit", IntType, defaultValue = 50 )
 
   def apply[F[_]: Effect]: ObjectType[MasterRepository[F], Unit] =
     ObjectType(
@@ -22,6 +24,14 @@ object QueryType {
           arguments   = IDType :: Nil,
           description = Some( "Get shop by id  "),
           resolve     = c => c.ctx.shopRepository.getById( c.arg( IDType ) ).toIO.unsafeToFuture
+        ),
+
+        Field(
+          name        = "shops",
+          fieldType   = ListType( ShopType[F] ),
+          arguments   = List( OffsetType, LimitType),
+          description = Some( "Get shops  "),
+          resolve     = c => c.ctx.shopRepository.getAll( c.arg( LimitType ), c.arg( OffsetType ) ).toIO.unsafeToFuture
         ),
 
 

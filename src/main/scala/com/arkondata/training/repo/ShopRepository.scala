@@ -13,6 +13,7 @@ trait ShopRepository[F[_]] {
   def getById(id: Int) : F[ Option[ Shop ] ]
   def getAll(limit: Int, offset: Int): F[ List[ Shop ]]
   def nearbyShops(limit: Int, latitude: Double, longitude: Double): F[ List[ Shop ]]
+  def shopsInRadius(radius: Int, latitude: Double, longitude: Double): F[ List[ Shop ]]
 
 }
 
@@ -40,8 +41,6 @@ object ShopRepository {
 
       def nearbyShops(limit: Int, latitude: Double, longitude: Double): F[List[Shop]] = {
         val point = "point(" ++ longitude.toString ++ " "  ++ latitude.toString  ++ ")"
-
-
         val selectNearestShops = sql"""
                 select id, name, business_name, activity_id, address,
                 phone_number, email, website, shop_type_id, stratum_id,
@@ -49,9 +48,21 @@ object ShopRepository {
                     st_distance( position, st_geographyfromtext( $point)  ) as distance
                     from shop  order by distance limit $limit """
 
-
         selectNearestShops.query[ Shop ].to[ List ].transact( xa )
 
+      }
+
+      def shopsInRadius(radius: Int, latitude: Double, longitude: Double): F[ List[Shop] ] = {
+        val selectyShopsInRadius = sql"""
+                    SELECT
+                     id, name, business_name, activity_id, address,
+                phone_number, email, website, shop_type_id, stratum_id,
+                ST_X(position::geometry) as long, ST_Y( position ::geometry ) as lat
+                    FROM shop
+                    WHERE ST_DWithin( position, ST_MakePoint($longitude,$latitude)::geography, $radius)
+                """
+
+        selectyShopsInRadius.query[ Shop ].to[ List ].transact( xa )
       }
     }
 

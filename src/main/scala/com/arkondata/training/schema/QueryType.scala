@@ -10,10 +10,13 @@ import sangria.schema._
 object QueryType {
 
   val IDType: Argument[Int] = Argument( "id", IntType )
-  val OffsetType: Argument[Int] = Argument( "offset", IntType )
-  val LimitType: Argument[Int] = Argument( "limit", IntType, defaultValue = 50 )
+  val OffsetType: Argument[Int] = Argument( "offset", IntType, defaultValue = 0 )
 
-  val LimitTypeNearbyShops: Argument[Int] = Argument( "limit", IntType, defaultValue = 5 )
+  val LimitShopsType: Argument[Int] = Argument( "limit", IntType, defaultValue = 50 )
+  val LimitNearbyShopsType: Argument[Int] = Argument( "limit", IntType, defaultValue = 5 )
+
+  val InRadiusType: Argument[Int] = Argument( "radius", IntType, defaultValue = 50 )
+
   val LongitudeType: Argument[Double] = Argument( "long", FloatType )
   val LatitudeType: Argument[Double] = Argument( "lat", FloatType )
 
@@ -33,17 +36,25 @@ object QueryType {
         Field(
           name        = "shops",
           fieldType   = ListType( ShopType[F] ),
-          arguments   = List( OffsetType, LimitType),
+          arguments   = List( OffsetType, LimitShopsType),
           description = Some( "Get shops  "),
-          resolve     = c => c.ctx.shopRepository.getAll( c.arg( LimitType ), c.arg( OffsetType ) ).toIO.unsafeToFuture
+          resolve     = c => c.ctx.shopRepository.getAll( c.arg( LimitShopsType ), c.arg( OffsetType ) ).toIO.unsafeToFuture
         ),
 
         Field(
           name        = "nearbyShops",
           fieldType   = ListType( ShopType[F] ),
-          arguments   = List( LatitudeType, LongitudeType, LimitTypeNearbyShops ),
+          arguments   = List( LatitudeType, LongitudeType, LimitNearbyShopsType ),
           description = Some( "Get shops  "),
-          resolve     = c => c.ctx.shopRepository.nearbyShops( c.arg( LimitTypeNearbyShops), c.arg( LatitudeType ), c.arg( LongitudeType ) ).toIO.unsafeToFuture
+          resolve     = c => c.ctx.shopRepository.nearbyShops( c.arg( LimitNearbyShopsType), c.arg( LatitudeType ), c.arg( LongitudeType ) ).toIO.unsafeToFuture
+        ),
+
+        Field(
+          name        = "shopsInRadius",
+          fieldType   = ListType( ShopType[F] ),
+          arguments   = List( LatitudeType, LongitudeType, InRadiusType ),
+          description = Some( "Get shops  "),
+          resolve     = c => c.ctx.shopRepository.shopsInRadius( c.arg( LimitNearbyShopsType), c.arg( LatitudeType ), c.arg( LongitudeType ) ).toIO.unsafeToFuture
         ),
 
 

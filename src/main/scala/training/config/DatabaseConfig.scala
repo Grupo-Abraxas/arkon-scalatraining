@@ -13,7 +13,7 @@ object DatabaseConfig {
       HikariTransactor
         .newHikariTransactor[F](
           "org.postgresql.Driver",
-          "jdbc:postgresql:world",
+          "jdbc:postgresql:training",
           "user",
           "password",
           ce,

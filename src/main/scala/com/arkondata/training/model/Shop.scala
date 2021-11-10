@@ -13,6 +13,6 @@ case class Shop (
                   website: String,
                   shopTypeId: Int,
                   stratumId: Int,
-                  lat: Double,
-                  long: Double
+                  long: Double,
+                  lat: Double
                 )

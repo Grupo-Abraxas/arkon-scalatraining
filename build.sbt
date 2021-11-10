@@ -33,7 +33,7 @@ libraryDependencies ++= Seq(
   "org.tpolecat"         %% "doobie-core"         % doobieVersion,
   "org.tpolecat"         %% "doobie-postgres"     % doobieVersion,
   "org.tpolecat"         %% "doobie-hikari"       % doobieVersion,
-  "org.tpolecat"         %% "doobie-quill"        % doobieVersion,          // Support for Quill 3.7.2
+
   "org.tpolecat"         %% "doobie-specs2"       % doobieVersion % "test", // Specs2 support for typechecking statements.
   "org.tpolecat"         %% "doobie-scalatest"    % doobieVersion % "test",  // ScalaTest support for typechecking statements.
 

@@ -15,6 +15,7 @@ libraryDependencies ++= Seq(
   "io.circe" %% "circe-parser" % "0.13.0",
   "org.tpolecat" %% "doobie-core" % "0.9.0",
   "org.tpolecat" %% "doobie-postgres" % "0.9.0",
+  "org.tpolecat" %% "doobie-hikari" % "0.9.0",
   "org.http4s" %% "http4s-dsl" % "0.21.4",
   "org.http4s" %% "http4s-blaze-server" % "0.21.4",
   "org.http4s" %% "http4s-circe" % "0.21.4",

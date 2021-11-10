@@ -1,3 +1,5 @@
+CREATE EXTENSION IF NOT EXISTS "postgis";
+
 DROP TABLE IF EXISTS comercial_activity;
 
 CREATE TABLE comercial_activity (

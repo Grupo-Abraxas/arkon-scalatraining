@@ -54,7 +54,7 @@ object QueryType {
           fieldType   = ListType( ShopType[F] ),
           arguments   = List( LatitudeType, LongitudeType, InRadiusType ),
           description = Some( "Get shops  "),
-          resolve     = c => c.ctx.shopRepository.shopsInRadius( c.arg( LimitNearbyShopsType), c.arg( LatitudeType ), c.arg( LongitudeType ) ).toIO.unsafeToFuture
+          resolve     = c => c.ctx.shopRepository.shopsInRadius( c.arg( InRadiusType), c.arg( LatitudeType ), c.arg( LongitudeType ) ).toIO.unsafeToFuture
         ),
 
 

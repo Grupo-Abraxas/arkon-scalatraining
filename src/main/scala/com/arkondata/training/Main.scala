@@ -5,7 +5,7 @@ import cats.effect._
 import cats.implicits._
 import com.arkondata.training.repo.MasterRepository
 import com.arkondata.training.sangria.SangriaGraphQL
-import com.arkondata.training.schema.{QueryType, WorldDeferredResolver}
+import com.arkondata.training.schema.{MutationType, QueryType, WorldDeferredResolver}
 import doobie._
 import doobie.hikari._
 import doobie.util.ExecutionContexts
@@ -46,7 +46,7 @@ object Main extends  IOApp {
     SangriaGraphQL[F](
       Schema(
         query    = QueryType[F],
-//        mutation = Some(MutationType[F])
+        mutation = Some(MutationType[F])
       ),
       WorldDeferredResolver[F],
       MasterRepository.fromTransactor(transactor).pure[F],

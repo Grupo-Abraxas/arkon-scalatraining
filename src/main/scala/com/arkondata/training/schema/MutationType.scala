@@ -4,17 +4,18 @@ import cats.effect.Effect.ops.toAllEffectOps
 import cats.effect._
 import com.arkondata.training.model.CreateShopInput
 import com.arkondata.training.repo.MasterRepository
+import io.circe.generic.decoding.DerivedDecoder.deriveDecoder
 import sangria.macros.derive.deriveInputObjectType
-import sangria.marshalling.sprayJson.sprayJsonReaderFromInput
+import sangria.marshalling.circe.circeDecoderFromInput
+
 import sangria.schema._
-import spray.json.DefaultJsonProtocol._
-import spray.json.RootJsonFormat
+
+
+
 
 object MutationType {
 
 
-
-  implicit val shopFormat: RootJsonFormat[ CreateShopInput ] = jsonFormat12( CreateShopInput )
   lazy val ValueShopInputType: InputType[ CreateShopInput ] = deriveInputObjectType[ CreateShopInput ]( )
 
   val ShopArg: Argument[ CreateShopInput ] = Argument( "input", ValueShopInputType )

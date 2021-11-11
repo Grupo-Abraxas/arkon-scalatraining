@@ -48,7 +48,9 @@ libraryDependencies ++= Seq(
   "org.slf4j"            %  "slf4j-simple"        % slf4jVersion,
 
   "net.postgis"         % "postgis-jdbc"          % "2.3.0",
-  "org.sangria-graphql" %% "sangria-spray-json"   % "1.0.2",
+  "org.sangria-graphql" %% "sangria-circe"        % "1.3.0",
+
+  "eu.timepit"          %% "fs2-cron-cron4s"      % "0.5.0",
 
   "org.scalatest" %% "scalatest"    % "3.2.0" % "test"
 )

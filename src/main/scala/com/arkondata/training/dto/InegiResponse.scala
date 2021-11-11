@@ -1,6 +1,7 @@
 package com.arkondata.training.dto
 
-import spray.json.{DeserializationException, JsObject, JsString, JsValue, RootJsonFormat}
+import io.circe._
+
 
 case class InegiResponse(
                           clee : String,
@@ -25,93 +26,39 @@ case class InegiResponse(
                           tipoCorredorIndustrial : String,
                           nomCorredorIndustrial : String,
                           numeroLocal : String
-                          ) {
-}
-
+                          )
 
 object InegiResponse {
-  implicit object InegiResponseFormat extends RootJsonFormat[InegiResponse] {
-    def write(c: InegiResponse): JsValue = JsObject(
-      "CLEE" -> JsString( c.clee ),
-      "Id" -> JsString( c.id ),
-      "Nombre" -> JsString( c.nombre ),
-      "Razon_social" -> JsString( c.razonSocial ),
-      "Clase_actividad" -> JsString( c.claseActividad ),
-      "Estrato" -> JsString( c.estrato ),
-      "Tipo_vialidad" -> JsString( c.tipoVialidad ),
-      "Calle" -> JsString( c.calle ),
-      "Num_Exterior" -> JsString( c.numExterior ),
-      "Num_Interior" -> JsString( c.numInterior ),
-      "Colonia" -> JsString( c.colonia ),
-      "CP" -> JsString( c.cp ),
-      "Ubicacion" -> JsString( c.ubicacion ),
-      "Telefono" -> JsString( c.telefono ),
-      "Correo_e" -> JsString( c.correoE ),
-      "Sitio_internet" -> JsString( c.sitioInternet ),
-      "Tipo" -> JsString( c.tipo ),
-      "Longitud" -> JsString( c.longitud ),
-      "Latitud" -> JsString( c.latitud ),
-      "tipo_corredor_industrial" -> JsString( c.tipoCorredorIndustrial ),
-      "nom_corredor_industrial" -> JsString( c.nomCorredorIndustrial ),
-      "numero_local" -> JsString( c.numeroLocal ),
-    )
-    def read(value: JsValue): InegiResponse = {
-      value.asJsObject.getFields(
-        "CLEE",
-                  "Id",
-                  "Nombre",
-                  "Razon_social",
-                  "Clase_actividad",
-                  "Estrato",
-                  "Tipo_vialidad",
-                  "Calle",
-                  "Num_Exterior",
-                  "Num_Interior",
-                  "Colonia",
-                  "CP",
-                  "Ubicacion",
-                  "Telefono",
-                  "Correo_e",
-                  "Sitio_internet",
-                  "Tipo",
-                  "Longitud",
-                  "Latitud",
-                  "tipo_corredor_industrial",
-                  "nom_corredor_industrial",
-                  "numero_local"
-      ) match {
 
-        case Seq(
-                JsString( clee ),
-                JsString( id ),
-                JsString( name ),
-                JsString( razonSocial ),
-                JsString( claseActividad ),
-                JsString( estrato ),
-                JsString( tipoVialidad ),
-                JsString( calle ),
-                JsString( numExterior ),
-                JsString( numInterior ),
-                JsString( colonia ),
-                JsString( cp ),
-                JsString( ubicacion ),
-                JsString( telefono ),
-                JsString( correoE ),
-                JsString( sitioInternet ),
-                JsString( tipo ),
-                JsString( longitud ),
-                JsString( latitud ),
-                JsString( tipoCorredorIndustrial ),
-                JsString( nomCorredorIndustrial ),
-                JsString( numeroLocal )
 
-        ) =>
-          new InegiResponse( clee, id, name, razonSocial, claseActividad, estrato, tipoVialidad, calle,
-            numExterior, numInterior, colonia, cp, ubicacion, telefono, correoE, sitioInternet, tipo, longitud, latitud,
-            tipoCorredorIndustrial, nomCorredorIndustrial, numeroLocal)
-        case _ => throw DeserializationException("ClassInfo expected")
+  implicit val decode0: Decoder[InegiResponse] = (hCursor: HCursor) =>
+    for {
+      clee <- hCursor.get[ String ]( "CLEE" )
+      id <- hCursor.get[String]( "Id" )
+      nombre <- hCursor.get[String]( "Nombre" )
+      razonSocial <- hCursor.get[String]( "Razon_social" )
+      claseActividad <- hCursor.get[String]( "Clase_actividad" )
+      estrato <- hCursor.get[String]( "Estrato" )
+      tipoVialidad <- hCursor.get[String]( "Tipo_vialidad" )
+      calle <- hCursor.get[String]( "Calle" )
+      numExterior <- hCursor.get[String]( "Num_Exterior" )
+      numInterior <- hCursor.get[String]( "Num_Interior" )
+      colonia <- hCursor.get[String]( "Colonia" )
+      cp <- hCursor.get[String]( "CP" )
+      ubicacion <- hCursor.get[String]( "Ubicacion" )
+      telefono <- hCursor.get[String]( "Telefono" )
+      correoE <- hCursor.get[String]( "Correo_e" )
+      sitioInternet <- hCursor.get[String]( "Sitio_internet" )
+      tipo <- hCursor.get[String]( "Tipo" )
+      latitud <- hCursor.get[String]( "Longitud" )
+      longitud <- hCursor.get[String]( "Latitud" )
+      tipoCorredorIndustrial <- hCursor.get[String]( "tipo_corredor_industrial" )
+      nomCorredorIndustrial <- hCursor.get[String]( "nom_corredor_industrial" )
+      numeroLocal <- hCursor.get[String]( "numero_local" )
 
-      }
-    }
-  }
+    } yield InegiResponse( clee, id, nombre, razonSocial , claseActividad , estrato , tipoVialidad , calle ,
+      numExterior , numInterior , colonia , cp , ubicacion , telefono , correoE , sitioInternet , tipo ,
+      longitud , latitud , tipoCorredorIndustrial , nomCorredorIndustrial , numeroLocal  )
+
+
 }

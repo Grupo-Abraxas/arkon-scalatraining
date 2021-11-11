@@ -22,7 +22,8 @@ trait ShopRepository[F[_]] {
 
 object ShopRepository {
 
-  def fromTransactor[F[_]: Effect] (xa: Transactor[F]): ShopRepository[ F ] =
+//  def fromTransactor[F[_]: Effect: Traverse ](xa: Transactor[F]): ShopRepository[ F ] =
+  def fromTransactor[F[_]: Effect ](xa: Transactor[F]): ShopRepository[ F ] =
 
     new ShopRepository[ F ] {
 
@@ -73,6 +74,9 @@ object ShopRepository {
 
         def createShop(input: CreateShopInput): F[ CreateShopPayload ]  = {
 
+//          ( activityRepository.getOrCreate( input.activity ), stratumRepository.getOrCreate( input.stratum), shopTypeRepository.getOrCreate( input.shopType ) )
+//            .traverseN { ( activity, stratum, shopType ) => create( input, shopType.id, activity.id, stratum.id ) }
+//            .flatten
           val activity =  activityRepository.getOrCreate( input.activity ).toIO.unsafeRunSync
           val stratum = stratumRepository.getOrCreate( input.stratum ).toIO.unsafeRunSync
           val shopType = shopTypeRepository.getOrCreate( input.shopType ).toIO.unsafeRunSync
@@ -98,7 +102,7 @@ object ShopRepository {
                                 website, shop_type_id, position )
               values ( $name, $businessName, $idActivity, $idStratum, $address, $phoneNumber, $email,
                                   $webSite, $idShopType,
-                      sT_SetSRID( ST_POINT( $long, $lat), 4326)::geography) returning id
+                      sT_SetSRID( ST_POINT( $long, $lat), 4326 )::geography) returning id
                """
 
           insertShop.query[CreateShopPayload].unique.transact( xa )

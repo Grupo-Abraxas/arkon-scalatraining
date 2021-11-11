@@ -33,7 +33,7 @@ object ShopTypeRepository {
       }
 
       def create(name: String): F[ TypeShop ] = {
-        val insertActivitySql = sql""" insert into shop_type (name) values ( $name ) returning id"""
+        val insertActivitySql = sql""" insert into shop_type (name) values ( $name ) returning id, name """
         insertActivitySql.query[ TypeShop ].unique.transact( xa )
       }
 

@@ -34,7 +34,7 @@ object StratumRepository {
       }
 
       def create(name: String): F[ Stratum ] = {
-        val insertStratumSql = sql""" insert into stratum (name) values ( $name ) returning id"""
+        val insertStratumSql = sql""" insert into stratum (name) values ( $name ) returning id, name"""
         insertStratumSql.query[ Stratum ].unique.transact( xa )
       }
 

@@ -34,7 +34,7 @@ object ActivityRepository {
       }
 
       def create(name: String): F[ Activity ] = {
-        val insertActivitySql = sql""" insert into comercial_activity (name) values ( $name ) returning id"""
+        val insertActivitySql = sql""" insert into comercial_activity (name) values ( $name ) returning id, name"""
         insertActivitySql.query[ Activity ].unique.transact( xa )
       }
 

@@ -4,6 +4,8 @@
 
 # Arkon's Scala Training
 
+### Template taken from [tpolecat](https://github.com/tpolecat/doobie-http4s-sangria-graphql-example)
+
 ## Description
 Scala hands on training project. Looking to introduce new team members or anyone interested to the scala 
 programming language and the way it's used within the ArkonData team. 

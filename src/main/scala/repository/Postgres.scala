@@ -21,11 +21,13 @@ object Postgres {
   )
 
   def getShops(): List[Shop] = {
-    sql"""SELECT id, name, business_name, activity_id, stratum_id, address, phone_number, email, website, shop_type_id from shop"""
+    val res = sql"""SELECT id, name, business_name, activity_id, stratum_id, address, phone_number, email, website, shop_type_id from shop"""
       .query[Shop]
       .to[List]
       .transact(transactor)
       .unsafeRunSync()
+    print(res)
+    res
   }
 
   def getShopById(id: Int): Shop = {

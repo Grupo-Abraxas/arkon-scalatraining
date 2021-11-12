@@ -4,9 +4,11 @@ import cats.effect._
 import cats.effect.implicits._
 import com.arkondata.training.model.Shop
 import com.arkondata.training.repo.MasterRepository
-import sangria.schema.{Field, IntType, ObjectType, StringType, fields, FloatType}
+import com.arkondata.training.schema.QueryType.{InRadiusType, LimitNearbyShopsType}
+import sangria.schema.{Field, FloatType, IntType, ListType, ObjectType, StringType, fields}
 
 object  ShopType {
+
 
   def apply[F[_]: Effect]: ObjectType[ MasterRepository[F], Shop ] =
     ObjectType(
@@ -26,6 +28,19 @@ object  ShopType {
         Field( "stratum", StratumType[ F ], resolve =  c => c.ctx.stratumRepository.getById( c.value.stratumId ).toIO.unsafeToFuture() ),
         Field( "lat", FloatType, resolve = _.value.lat ),
         Field( "long", FloatType, resolve = _.value.long ),
+        Field(
+          name        = "nearbyShops",
+          fieldType   = ListType( ShopType[F] ),
+          arguments   = List(  LimitNearbyShopsType ),
+          resolve     = c => c.ctx.shopRepository.nearbyShops( c.arg( LimitNearbyShopsType), c.value.lat, c.value.long ).toIO.unsafeToFuture
+        ),
+        Field(
+          name        = "shopsInRadius",
+          fieldType   = ListType( ShopType[F] ),
+          arguments   = List( InRadiusType ),
+          description = Some( "Get shops  "),
+          resolve     = c => c.ctx.shopRepository.shopsInRadius( c.arg( InRadiusType), c.value.lat, c.value.long  ).toIO.unsafeToFuture
+        )
 
 
 

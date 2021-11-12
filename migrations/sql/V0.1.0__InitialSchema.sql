@@ -1,8 +1,8 @@
 CREATE EXTENSION IF NOT EXISTS "postgis";
 
-DROP TABLE IF EXISTS comercial_activity;
+DROP TABLE IF EXISTS commercial_activity;
 
-CREATE TABLE comercial_activity (
+CREATE TABLE commercial_activity (
     id INT PRIMARY KEY
     , name TEXT NOT NULL
 );
@@ -27,7 +27,7 @@ CREATE TABLE shop (
     id INT PRIMARY KEY
     , name TEXT NOT NULL
     , business_name TEXT
-    , activity_id INT REFERENCES comercial_activity (id)
+    , activity_id INT REFERENCES commercial_activity (id)
     , stratum_id INT REFERENCES stratum (id)
     , address TEXT NOT NULL
     , phone_number TEXT

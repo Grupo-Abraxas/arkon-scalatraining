@@ -92,7 +92,7 @@ object ShopRepository {
           val stratum = stratumRepository.getOrCreate( inegiResponse.estrato ).toIO.unsafeRunSync
           val shopType = shopTypeRepository.getOrCreate( inegiResponse.tipo ).toIO.unsafeRunSync
 
-          createFromInegi( inegiResponse, shopType.id, stratum.id, activity.id )
+          createFromInegi( inegiResponse, shopType.id, activity.id, stratum.id )
 
           Effect.apply.pure()
         }
@@ -105,15 +105,16 @@ object ShopRepository {
           val phoneNumber = inegiResponse.telefono
           val email = inegiResponse.correoE
           val webSite = inegiResponse.sitioInternet
-          val long = inegiResponse.longitud
-          val lat = inegiResponse.latitud
+          val long = inegiResponse.longitud.toDouble
+          val lat = inegiResponse.latitud.toDouble
+
 
           val insertShop = sql"""
                 insert into shop ( name, business_name, activity_id, stratum_id, address, phone_number, email,
                                   website, shop_type_id, position )
                 values ( $name, $businessName, $idActivity, $idStratum, $address, $phoneNumber, $email,
                                     $webSite, $idShopType,
-                        sT_SetSRID( ST_POINT( $long, $lat), 4326 )::geography)
+                        sT_SetSRID( ST_POINT( $long, $lat), 4326 )::geography )
                  """
           insertShop.update.run.transact( xa ).toIO.unsafeRunSync
         }

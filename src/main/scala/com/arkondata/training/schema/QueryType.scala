@@ -33,6 +33,14 @@ object QueryType {
           resolve     = c => c.ctx.shopRepository.getById( c.arg( IDType ) ).toIO.unsafeToFuture
         ),
 
+//        Field(
+//          name        = "test",
+//          fieldType   = StringType,
+//          arguments   = List( IDType ),
+//          description = Some( "test api  "),
+//          resolve     = c => c.ctx.inegi.createData( c.arg( IDType ) ).toIO.unsafeToFuture
+//        ),
+
         Field(
           name        = "shops",
           fieldType   = ListType( ShopType[F] ),

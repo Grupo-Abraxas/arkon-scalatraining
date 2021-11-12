@@ -1,9 +1,11 @@
 package com.arkondata.training
 
 import _root_.sangria.schema._
+import scala.language.postfixOps
+import fs2.Stream
 import cats.effect._
 import cats.implicits._
-import com.arkondata.training.repo.MasterRepository
+import com.arkondata.training.repo.{InegiRepo, MasterRepository}
 import com.arkondata.training.sangria.SangriaGraphQL
 import com.arkondata.training.schema.{MutationType, QueryType, WorldDeferredResolver}
 import doobie._
@@ -17,8 +19,8 @@ import org.http4s.headers.Location
 import org.http4s.implicits._
 import org.http4s.server.Server
 import org.http4s.server.blaze.BlazeServerBuilder
-
 import scala.concurrent.ExecutionContext
+import scala.concurrent.duration.DurationInt
 
 object Main extends  IOApp {
 
@@ -81,16 +83,24 @@ object Main extends  IOApp {
       .resource
 
   // Resource that constructs our final server.
-  def resource[F[_]: ConcurrentEffect: ContextShift: Timer](
-                                                             implicit L: Logger[F]
-                                                           ): Resource[F, Server[F]] =
+  def resource[F[_]: ContextShift: Timer](
+                                         implicit L: Logger[F], ce: ConcurrentEffect[ F ]
+                                                           ): Resource[F, Server[F]] = {
+
+
+    val inegiRepo: InegiRepo[ F ] = InegiRepo.fromTransactor
+    def consumeApiInegi(xa: Transactor[ F ]): F[Unit] =  inegiRepo.consumer( xa )
+    def executor( xa: Transactor[ F ]): F[ Unit ] = Stream.awakeEvery[ F ]( 5 seconds ).evalMap( _ => consumeApiInegi( xa ) ).compile.drain
+
     for {
       b   <- Blocker[F]
       xa  <- transactor[F](b)
       gql  = graphQL[F](xa, b.blockingContext)
       rts  = GraphQLRoutes[F](gql) <+> playgroundOrElse(b)
+      app <- ce.background( executor( xa ) )
       svr <- server[F](rts)
     } yield svr
+  }
 
   // Our entry point starts the server and blocks forever.
   def run(args: List[String]): IO[ExitCode] = {

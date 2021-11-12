@@ -1,6 +1,8 @@
 package domain
 
+import sangria.macros.derive.GraphQLField
+
 case class ShopType(
-                     id: Int,
-                     name: String,
+                     @GraphQLField id: Int,
+                     @GraphQLField name: String,
                    )

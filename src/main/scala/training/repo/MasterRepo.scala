@@ -7,9 +7,17 @@ package training.repo
 import cats.effect._
 import doobie._
 
-final case class MasterRepo[F[_]]()
+final case class MasterRepo[F[_]](
+    activity: ActivityRepo[F],
+    shopType: ShopTypeRepo[F],
+    stratum: StratumRepo[F]
+)
 
 object MasterRepo {
   def fromTransactor[F[_]: Sync](xa: Transactor[F]): MasterRepo[F] =
-    MasterRepo()
+    MasterRepo(
+      ActivityRepo.fromTransactor(xa),
+      ShopTypeRepo.fromTransactor(xa),
+      StratumRepo.fromTransactor(xa)
+    )
 }

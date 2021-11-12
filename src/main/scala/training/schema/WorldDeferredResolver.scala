@@ -5,7 +5,7 @@
 package training.schema
 
 import cats.effect.Effect
-import cats.implicits.toFunctorOps
+import cats.implicits._
 import sangria.execution.deferred.{Deferred, DeferredResolver}
 import training.repo.MasterRepo
 

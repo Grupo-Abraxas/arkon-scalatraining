@@ -18,29 +18,12 @@ import org.http4s.{HttpRoutes, StaticFile, Uri}
 import sangria.schema.Schema
 import training.graphql.SangriaGraphQL
 import training.repo.MasterRepo
-import training.schema.{MutationType, QueryType, WorldDeferredResolver}
+import training.schema.{QueryType, WorldDeferredResolver}
 
 import scala.concurrent.ExecutionContext
 import scala.concurrent.ExecutionContext.global
 
 object Main extends IOApp {
-
-  // Our entry point starts the server and blocks forever.
-  def run(args: List[String]): IO[ExitCode] = {
-    resource[IO].use(_ => IO.never.as(ExitCode.Success))
-  }
-
-  // Resource that constructs our final server.
-  def resource[F[_]: ConcurrentEffect: ContextShift: Timer]
-      : Resource[F, Server[F]] =
-    for {
-      b <- Blocker[F]
-      xa <- transactor[F](b)
-      gql = graphQL[F](xa, b.blockingContext)
-      rts = GraphQLRoutes[F](gql) <+> playgroundOrElse(b)
-      svr <- server[F](rts)
-    } yield svr
-
   // Construct a transactor for connecting to the database.
   def transactor[F[_]: Async: ContextShift](
       blocker: Blocker
@@ -63,8 +46,7 @@ object Main extends IOApp {
   ): GraphQL[F] =
     SangriaGraphQL[F](
       Schema(
-        query = QueryType[F],
-        mutation = Some(MutationType[F])
+        query = QueryType[F]
       ),
       WorldDeferredResolver[F],
       MasterRepo.fromTransactor(transactor).pure[F],
@@ -84,7 +66,6 @@ object Main extends IOApp {
 
       case _ =>
         PermanentRedirect(Location(Uri.uri("/playground.html")))
-
     }
   }
 
@@ -97,4 +78,19 @@ object Main extends IOApp {
       .withHttpApp(routes.orNotFound)
       .resource
   }
+
+  // Resource that constructs our final server.
+  def resource[F[_]: ConcurrentEffect: ContextShift: Timer]
+      : Resource[F, Server[F]] =
+    for {
+      b <- Blocker[F]
+      xa <- transactor[F](b)
+      gql = graphQL[F](xa, b.blockingContext)
+      rts = GraphQLRoutes[F](gql) <+> playgroundOrElse(b)
+      svr <- server[F](rts)
+    } yield svr
+
+  // Our entry point starts the server and blocks forever.
+  def run(args: List[String]): IO[ExitCode] =
+    resource[IO].use(_ => IO.never.as(ExitCode.Success))
 }

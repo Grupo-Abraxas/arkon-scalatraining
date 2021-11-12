@@ -6,6 +6,7 @@ import cats.effect.implicits.toEffectOps
 import com.arkondata.training.model.Activity
 import doobie.Transactor
 import doobie.implicits._
+import cats.implicits.toFlatMapOps
 
 trait ActivityRepository[F[_]] {
 
@@ -39,11 +40,9 @@ object ActivityRepository {
       }
 
       def getOrCreate(name: String): F[ Activity ] = {
-        val activityOption = getByName( name ).toIO.unsafeRunSync
-        if ( activityOption.isEmpty ) {
-          create( name )
-        } else {
-          getById( activityOption.get.id )
+        getByName( name ).flatMap {
+          case Some( activity  ) => getById( activity.id )
+          case None => create( name )
         }
       }
 

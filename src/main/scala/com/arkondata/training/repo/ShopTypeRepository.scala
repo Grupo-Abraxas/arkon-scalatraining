@@ -1,7 +1,7 @@
 package com.arkondata.training.repo
 
 import cats.effect.Effect
-import cats.effect.implicits.toEffectOps
+import cats.implicits.toFlatMapOps
 import com.arkondata.training.model.TypeShop
 import doobie.util.transactor.Transactor
 import doobie.implicits._
@@ -38,11 +38,10 @@ object ShopTypeRepository {
       }
 
       def getOrCreate(name: String): F[ TypeShop ] = {
-        val stratumOption = getByName( name ).toIO.unsafeRunSync
-        if ( stratumOption.isEmpty ) {
-          create( name )
-        } else {
-          getById( stratumOption.get.id )
+
+        getByName( name ).flatMap {
+          case Some ( typeShop ) => getById( typeShop.id )
+          case None =>  create( name )
         }
       }
 

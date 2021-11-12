@@ -1,10 +1,11 @@
 package com.arkondata.training.repo
 
-import cats.effect.Effect.ops.toAllEffectOps
+
 import cats.effect._
 import com.arkondata.training.model.Stratum
 import doobie.Transactor
 import doobie.implicits._
+import cats.implicits.toFlatMapOps
 
 trait StratumRepository[F[_]] {
 
@@ -39,11 +40,10 @@ object StratumRepository {
       }
 
       def getOrCreate(name: String): F[ Stratum ] = {
-        val stratumOption = getByName( name ).toIO.unsafeRunSync
-        if ( stratumOption.isEmpty ) {
-          create( name )
-        } else {
-          getById( stratumOption.get.id )
+
+        getByName( name ).flatMap {
+          case Some( stratum  ) => getById( stratum.id )
+          case None => create( name )
         }
       }
 

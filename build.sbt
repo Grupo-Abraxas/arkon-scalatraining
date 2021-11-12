@@ -12,6 +12,7 @@ libraryDependencies ++= Seq(
   "org.sangria-graphql" %% "sangria" % "2.1.4",
   "org.sangria-graphql" %% "sangria-circe" % "1.3.0",
   "io.circe" %% "circe-core" % "0.13.0",
+  "io.circe" %% "circe-optics" % "0.13.0",
   "io.circe" %% "circe-parser" % "0.13.0",
   "org.tpolecat" %% "doobie-core" % "0.9.0",
   "org.tpolecat" %% "doobie-postgres" % "0.9.0",

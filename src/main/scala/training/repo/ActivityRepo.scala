@@ -8,6 +8,7 @@ import training.model.Activity
 
 trait ActivityRepo[F[_]] {
   def fetchAll: F[List[Activity]]
+  def fetchById(id: String): F[Option[Activity]]
 }
 
 object ActivityRepo {
@@ -21,5 +22,11 @@ object ActivityRepo {
 
       def fetchAll: F[List[Activity]] =
         select.query[Activity].to[List].transact(xa)
+
+      def fetchById(id: String): F[Option[Activity]] =
+        (select ++ fr"WHERE id = $id::INTEGER")
+          .query[Activity]
+          .option
+          .transact(xa)
     }
 }

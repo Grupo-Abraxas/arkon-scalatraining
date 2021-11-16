@@ -8,6 +8,7 @@ import training.model.Stratum
 
 trait StratumRepo[F[_]] {
   def fetchAll: F[List[Stratum]]
+  def fetchById(id: String): F[Option[Stratum]]
 }
 
 object StratumRepo {
@@ -21,5 +22,11 @@ object StratumRepo {
 
       def fetchAll: F[List[Stratum]] =
         select.query[Stratum].to[List].transact(xa)
+
+      def fetchById(id: String): F[Option[Stratum]] =
+        (select ++ fr"WHERE id = $id::INTEGER")
+          .query[Stratum]
+          .option
+          .transact(xa)
     }
 }

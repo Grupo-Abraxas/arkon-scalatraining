@@ -14,13 +14,11 @@ object ShopTypeType {
           Field(
             name = "id",
             fieldType = IntType,
-            description = Some("Shop type id."),
             resolve = _.value.id
           ),
           Field(
             name = "name",
             fieldType = StringType,
-            description = Some("Shop type name."),
             resolve = _.value.name
           )
         )

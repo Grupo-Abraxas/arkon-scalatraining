@@ -14,13 +14,11 @@ object ActivityType {
           Field(
             name = "id",
             fieldType = IntType,
-            description = Some("Activity id."),
             resolve = _.value.id
           ),
           Field(
             name = "name",
             fieldType = StringType,
-            description = Some("Activity name."),
             resolve = _.value.name
           )
         )

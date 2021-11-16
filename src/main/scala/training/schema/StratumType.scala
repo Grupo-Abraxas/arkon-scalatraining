@@ -14,13 +14,11 @@ object StratumType {
           Field(
             name = "id",
             fieldType = IntType,
-            description = Some("Stratum id."),
             resolve = _.value.id
           ),
           Field(
             name = "name",
             fieldType = StringType,
-            description = Some("Stratum name."),
             resolve = _.value.name
           )
         )

@@ -6,10 +6,16 @@ package training.schema
 
 import cats.effect.Effect
 import cats.effect.implicits._
-import sangria.schema.{Field, ListType, ObjectType, Schema, fields}
+import sangria.schema._
 import training.repo.MasterRepo
 
 object QueryType {
+  val ID: Argument[String] = Argument(
+    name = "id",
+    argumentType = IDType,
+    description = "Id of the model"
+  )
+
   def apply[F[_]: Effect]: ObjectType[MasterRepo[F], Unit] =
     ObjectType(
       name = "Query",
@@ -18,6 +24,12 @@ object QueryType {
           name = "activities",
           fieldType = ListType(ActivityType[F]),
           resolve = c => c.ctx.activity.fetchAll.toIO.unsafeToFuture
+        ),
+        Field(
+          name = "shop",
+          fieldType = OptionType(ShopType[F]),
+          arguments = List(ID),
+          resolve = c => c.ctx.shop.fetchById(c.arg(ID)).toIO.unsafeToFuture
         ),
         Field(
           name = "shopTypes",

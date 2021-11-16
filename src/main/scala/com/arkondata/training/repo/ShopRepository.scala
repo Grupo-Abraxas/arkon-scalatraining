@@ -2,7 +2,6 @@ package com.arkondata.training.repo
 
 import cats.effect.Effect.ops.toAllEffectOps
 import cats.effect._
-import com.arkondata.training.dto.InegiResponse
 import com.arkondata.training.model.{CreateShopInput, CreateShopPayload, Shop}
 import doobie.Transactor
 import doobie.implicits._
@@ -13,11 +12,11 @@ import doobie.implicits._
 trait ShopRepository[F[_]] {
 
   def getById(id: Int) : F[ Option[ Shop ] ]
+  def getByIdInegi(idInegi: Int) : F[ Option[ Shop ] ]
   def getAll(limit: Int, offset: Int): F[ List[ Shop ]]
   def nearbyShops(limit: Int, latitude: Double, longitude: Double): F[ List[ Shop ]]
   def shopsInRadius(radius: Int, latitude: Double, longitude: Double): F[ List[ Shop ]]
   def createShop(input: CreateShopInput): F[ CreateShopPayload ]
-  def createShopFromInegi(inegiResponse: InegiResponse): F[ Unit ]
 }
 
 
@@ -37,8 +36,16 @@ object ShopRepository {
                                               ST_X(position::geometry) as long, ST_Y( position ::geometry ) as lat
                                           from  shop """
 
+
+
+
         def getById(id: Int): F[ Option[ Shop ] ] = {
           val selectShopById = selectShop ++ sql""" where id = $id """
+          selectShopById.query[ Shop ].option.transact( xa )
+        }
+
+        def getByIdInegi(idInegi: Int): F[ Option[ Shop ] ] = {
+          val selectShopById = selectShop ++ sql""" where id_inegi = $idInegi """
           selectShopById.query[ Shop ].option.transact( xa )
         }
 
@@ -67,7 +74,7 @@ object ShopRepository {
                   phone_number, email, website, shop_type_id, stratum_id,
                   ST_X(position::geometry) as long, ST_Y( position ::geometry ) as lat
                       FROM shop
-                      WHERE ST_DWithin( position, ST_MakePoint($longitude,$latitude)::geography, $radius)
+                      WHERE ST_DWithin( position, ST_MakePoint($latitude,$longitude)::geography, $radius)
                   """
 
           selectyShopsInRadius.query[ Shop ].to[ List ].transact( xa )
@@ -85,40 +92,6 @@ object ShopRepository {
           create( input, shopType.id, activity.id, stratum.id )
         }
 
-
-        def createShopFromInegi(inegiResponse: InegiResponse): F[ Unit ] = {
-
-          val activity =  activityRepository.getOrCreate( inegiResponse.claseActividad ).toIO.unsafeRunSync
-          val stratum = stratumRepository.getOrCreate( inegiResponse.estrato ).toIO.unsafeRunSync
-          val shopType = shopTypeRepository.getOrCreate( inegiResponse.tipo ).toIO.unsafeRunSync
-
-          createFromInegi( inegiResponse, shopType.id, activity.id, stratum.id )
-
-          Effect.apply.pure()
-        }
-
-        def createFromInegi(inegiResponse: InegiResponse, idShopType: Int, idActivity: Int, idStratum: Int ): Int  = {
-
-          val name = inegiResponse.nombre
-          val businessName = inegiResponse.razonSocial
-          val address = inegiResponse.ubicacion
-          val phoneNumber = inegiResponse.telefono
-          val email = inegiResponse.correoE
-          val webSite = inegiResponse.sitioInternet
-          val long = inegiResponse.longitud.toDouble
-          val lat = inegiResponse.latitud.toDouble
-
-
-          val insertShop = sql"""
-                insert into shop ( name, business_name, activity_id, stratum_id, address, phone_number, email,
-                                  website, shop_type_id, position )
-                values ( $name, $businessName, $idActivity, $idStratum, $address, $phoneNumber, $email,
-                                    $webSite, $idShopType,
-                        sT_SetSRID( ST_POINT( $long, $lat), 4326 )::geography )
-                 """
-          insertShop.update.run.transact( xa ).toIO.unsafeRunSync
-        }
-
         def create(input: CreateShopInput, idShopType: Int, idActivity: Int, idStratum: Int ): F[ CreateShopPayload ] = {
 
           val name = input.name
@@ -129,16 +102,17 @@ object ShopRepository {
           val webSite = input.website
           val long = input.long
           val lat = input.lat
+          val idInegi = input.id
 
           val insertShop = sql"""
-              insert into shop ( name, business_name, activity_id, stratum_id, address, phone_number, email,
-                                website, shop_type_id, position )
-              values ( $name, $businessName, $idActivity, $idStratum, $address, $phoneNumber, $email,
+                      insert into shop ( id_inegi, name, business_name, activity_id, stratum_id, address, phone_number, email,
+                                                                website, shop_type_id, position )
+              values ( $idInegi, $name, $businessName, $idActivity, $idStratum, $address, $phoneNumber, $email,
                                   $webSite, $idShopType,
-                      sT_SetSRID( ST_POINT( $long, $lat), 4326 )::geography) returning id
+                      sT_SetSRID( ST_POINT(  $lat, $long ), 4326 )::geography) returning id
                """
 
-          insertShop.query[CreateShopPayload].unique.transact( xa )
+          insertShop.query[ CreateShopPayload ].unique.transact( xa )
 
         }
     }

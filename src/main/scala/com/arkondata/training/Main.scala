@@ -90,7 +90,7 @@ object Main extends  IOApp {
 
     val inegiRepo: InegiRepo[ F ] = InegiRepo.fromTransactor
     def consumeApiInegi(xa: Transactor[ F ]): F[Unit] =  inegiRepo.consumer( xa )
-    def executor( xa: Transactor[ F ]): F[ Unit ] = Stream.awakeEvery[ F ]( 5 seconds ).evalMap( _ => consumeApiInegi( xa ) ).compile.drain
+    def executor( xa: Transactor[ F ]): F[ Unit ] = Stream.awakeEvery[ F ]( 30 seconds ).evalMap( _ => consumeApiInegi( xa ) ).compile.drain
 
     for {
       b   <- Blocker[F]

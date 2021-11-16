@@ -2,7 +2,8 @@ package com.arkondata.training.repo
 
 import cats.effect.implicits.toEffectOps
 import cats.effect.{Blocker, _}
-import com.arkondata.training.dto.InegiResponse
+import com.arkondata.training.model.CreateShopInput
+import com.arkondata.training.model.InegiResponse.decode2
 import doobie.util.transactor.Transactor
 import org.http4s.circe.jsonOf
 import org.http4s.client._
@@ -34,13 +35,20 @@ object InegiRepo {
         val uri = Uri( path = "https://www.inegi.org.mx/app/api/denue/v1/consulta/BuscarEntidad/todos/20/1/100/" ++ tokenInegi )
         val request = Request[F] ( method = Method.GET, uri = uri )
 
-        implicit val inegiDecoder: EntityDecoder[ F, List[InegiResponse] ] = jsonOf[ F , List[InegiResponse] ]
+        implicit val inegiDecoder: EntityDecoder[ F, List[CreateShopInput] ] = jsonOf[ F , List[CreateShopInput] ]
         val shopRepository = ShopRepository.fromTransactor( xa )
 
-        httpClient.expect[ List[ InegiResponse] ]( request )
+        httpClient.expect[ List[ CreateShopInput] ]( request )
             .toIO
             .unsafeToFuture
-            .onComplete( v => v.get.foreach( shopRepository.createShopFromInegi ) )
+            .onComplete( v => v.get.foreach( v => {
+              val previousShopOption =  shopRepository.getByIdInegi( v.id ).toIO.unsafeRunSync
+
+//              println( v.id, "exists" , previousShopOption.isDefined )
+              if  ( previousShopOption.isEmpty ) {
+                  shopRepository.createShop( v ).toIO.unsafeRunSync
+              }
+            } ) )
 
         Effect.apply.pure()
       }

@@ -3,7 +3,7 @@ package com.arkondata.training.repo
 import cats.effect.implicits.toEffectOps
 import cats.effect.{Blocker, _}
 import com.arkondata.training.model.CreateShopInput
-import com.arkondata.training.model.InegiResponse.decode2
+import com.arkondata.training.model.CreateShopInput.decode2
 import doobie.util.transactor.Transactor
 import org.http4s.circe.jsonOf
 import org.http4s.client._

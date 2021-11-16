@@ -19,7 +19,7 @@ case class CreateShopInput (
   )
 
 
-object InegiResponse {
+object CreateShopInput {
 
 
   implicit val decode2: Decoder[CreateShopInput] = (hCursor: HCursor) =>

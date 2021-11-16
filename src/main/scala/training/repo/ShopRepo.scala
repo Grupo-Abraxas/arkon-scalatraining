@@ -7,12 +7,18 @@ import doobie.util.transactor.Transactor
 import training.model.Shop
 
 trait ShopRepo[F[_]] {
-  def fetchAll(limit: Int = 50, offset: Int = 0): F[List[Shop]]
+  def fetchAll(limit: Int, offset: Int): F[List[Shop]]
   def fetchById(id: String): F[Option[Shop]]
   def fetchNearbyShopsByShopId(
       shopId: String,
       radius: Int = 50,
       limit: Int = 0
+  ): F[List[Shop]]
+  def fetchShopsByPosition(
+      lat: Double,
+      long: Double,
+      radius: Option[Int] = None,
+      limit: Option[Int] = None
   ): F[List[Shop]]
 }
 
@@ -63,6 +69,29 @@ object ShopRepo {
         }
 
         (select ++ fr"WHERE" ++ radiusCondition ++ limitCondition)
+          .query[Shop]
+          .to[List]
+          .transact(xa)
+      }
+
+      def fetchShopsByPosition(
+          lat: Double,
+          long: Double,
+          radius: Option[Int] = None,
+          limit: Option[Int] = None
+      ): F[List[Shop]] = {
+        val radiusCondition: Fragment = radius match {
+          case None => fr""
+          case r =>
+            fr"WHERE ST_Distance(ST_MakePoint($long, $lat), position) < $r"
+        }
+
+        val limitCondition: Fragment = (limit) match {
+          case None => fr""
+          case l    => fr"LIMIT $l::INTEGER"
+        }
+
+        (select ++ radiusCondition ++ limitCondition)
           .query[Shop]
           .to[List]
           .transact(xa)

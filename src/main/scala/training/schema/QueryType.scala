@@ -15,7 +15,23 @@ object QueryType {
     argumentType = IDType
   )
 
-  val LimitArg: Argument[Int] = Argument(
+  val LatArg: Argument[Double] = Argument(
+    name = "lat",
+    argumentType = FloatType
+  )
+
+  val LongArg: Argument[Double] = Argument(
+    name = "long",
+    argumentType = FloatType
+  )
+
+  val LimitArg5: Argument[Int] = Argument(
+    name = "limit",
+    argumentType = OptionInputType(IntType),
+    defaultValue = 5
+  )
+
+  val LimitArg50: Argument[Int] = Argument(
     name = "limit",
     argumentType = OptionInputType(IntType),
     defaultValue = 50
@@ -25,6 +41,12 @@ object QueryType {
     name = "offset",
     argumentType = OptionInputType(IntType),
     defaultValue = 0
+  )
+
+  val RadiusArg: Argument[Int] = Argument(
+    name = "radius",
+    argumentType = OptionInputType(IntType),
+    defaultValue = 50
   )
 
   def apply[F[_]: Effect]: ObjectType[MasterRepo[F], Unit] =
@@ -37,6 +59,20 @@ object QueryType {
           resolve = c => c.ctx.activity.fetchAll.toIO.unsafeToFuture
         ),
         Field(
+          name = "nearbyShops",
+          fieldType = ListType(ShopType[F]),
+          arguments = List(LimitArg5, LatArg, LongArg),
+          resolve = c =>
+            c.ctx.shop
+              .fetchShopsByPosition(
+                c.arg(LatArg),
+                c.arg(LongArg),
+                limit = c.argOpt(LimitArg5)
+              )
+              .toIO
+              .unsafeToFuture
+        ),
+        Field(
           name = "shop",
           fieldType = OptionType(ShopType[F]),
           arguments = List(IdArg),
@@ -45,10 +81,24 @@ object QueryType {
         Field(
           name = "shops",
           fieldType = ListType(ShopType[F]),
-          arguments = List(LimitArg, OffsetArg),
+          arguments = List(LimitArg50, OffsetArg),
           resolve = c =>
             c.ctx.shop
-              .fetchAll(c.arg(LimitArg), c.arg(OffsetArg))
+              .fetchAll(c.arg(LimitArg50), c.arg(OffsetArg))
+              .toIO
+              .unsafeToFuture
+        ),
+        Field(
+          name = "shopsInRadius",
+          fieldType = ListType(ShopType[F]),
+          arguments = List(RadiusArg, LatArg, LongArg),
+          resolve = c =>
+            c.ctx.shop
+              .fetchShopsByPosition(
+                c.arg(LatArg),
+                c.arg(LongArg),
+                radius = c.argOpt(RadiusArg)
+              )
               .toIO
               .unsafeToFuture
         ),

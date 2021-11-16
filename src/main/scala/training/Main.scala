@@ -18,7 +18,7 @@ import org.http4s.{HttpRoutes, StaticFile, Uri}
 import sangria.schema.Schema
 import training.graphql.SangriaGraphQL
 import training.repo.MasterRepo
-import training.schema.{QueryType, WorldDeferredResolver}
+import training.schema.QueryType
 
 import scala.concurrent.ExecutionContext
 import scala.concurrent.ExecutionContext.global
@@ -48,7 +48,6 @@ object Main extends IOApp {
       Schema(
         query = QueryType[F]
       ),
-      WorldDeferredResolver[F],
       MasterRepo.fromTransactor(transactor).pure[F],
       blockingContext
     )

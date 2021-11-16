@@ -7,18 +7,17 @@ package graphql
 
 import _root_.sangria.ast._
 import _root_.sangria.execution._
-import _root_.sangria.execution.deferred._
-import _root_.sangria.execution.WithViolations
 import _root_.sangria.marshalling.circe._
 import _root_.sangria.parser.{QueryParser, SyntaxError}
 import _root_.sangria.schema._
 import _root_.sangria.validation._
 import cats.effect._
 import cats.implicits._
-import io.circe.{Json, JsonObject}
 import io.circe.optics.JsonPath.root
+import io.circe.{Json, JsonObject}
+
 import scala.concurrent.ExecutionContext
-import scala.util.{Success, Failure}
+import scala.util.{Failure, Success}
 
 /** A GraphQL implementation based on Sangria. */
 object SangriaGraphQL {
@@ -82,7 +81,6 @@ object SangriaGraphQL {
     // The rest of the constructor
     def apply[A](
         schema: Schema[A, Unit],
-        deferredResolver: DeferredResolver[A],
         userContext: F[A],
         blockingExecutionContext: ExecutionContext
     )(implicit
@@ -139,7 +137,6 @@ object SangriaGraphQL {
                 Executor
                   .execute(
                     schema = schema,
-                    deferredResolver = deferredResolver,
                     queryAst = query,
                     userContext = ctx,
                     variables = Json.fromJsonObject(variables),

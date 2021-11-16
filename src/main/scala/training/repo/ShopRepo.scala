@@ -7,7 +7,7 @@ import doobie.util.transactor.Transactor
 import training.model.Shop
 
 trait ShopRepo[F[_]] {
-  def fetchAll: F[List[Shop]]
+  def fetchAll(limit: Int = 50, offset: Int = 0): F[List[Shop]]
   def fetchById(id: String): F[Option[Shop]]
   def fetchNearbyShopsByShopId(
       shopId: String,
@@ -33,8 +33,11 @@ object ShopRepo {
           FROM shop
           """
 
-      def fetchAll: F[List[Shop]] =
-        select.query[Shop].to[List].transact(xa)
+      def fetchAll(limit: Int = 50, offset: Int = 0): F[List[Shop]] =
+        (select ++ fr"LIMIT $limit::INTEGER OFFSET $offset::INTEGER")
+          .query[Shop]
+          .to[List]
+          .transact(xa)
 
       def fetchById(id: String): F[Option[Shop]] =
         (select ++ fr"WHERE id = $id::INTEGER").query[Shop].option.transact(xa)

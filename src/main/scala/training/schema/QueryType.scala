@@ -10,10 +10,21 @@ import sangria.schema._
 import training.repo.MasterRepo
 
 object QueryType {
-  val ID: Argument[String] = Argument(
+  val IdArg: Argument[String] = Argument(
     name = "id",
-    argumentType = IDType,
-    description = "Id of the model"
+    argumentType = IDType
+  )
+
+  val LimitArg: Argument[Int] = Argument(
+    name = "limit",
+    argumentType = OptionInputType(IntType),
+    defaultValue = 50
+  )
+
+  val OffsetArg: Argument[Int] = Argument(
+    name = "offset",
+    argumentType = OptionInputType(IntType),
+    defaultValue = 0
   )
 
   def apply[F[_]: Effect]: ObjectType[MasterRepo[F], Unit] =
@@ -28,8 +39,18 @@ object QueryType {
         Field(
           name = "shop",
           fieldType = OptionType(ShopType[F]),
-          arguments = List(ID),
-          resolve = c => c.ctx.shop.fetchById(c.arg(ID)).toIO.unsafeToFuture
+          arguments = List(IdArg),
+          resolve = c => c.ctx.shop.fetchById(c.arg(IdArg)).toIO.unsafeToFuture
+        ),
+        Field(
+          name = "shops",
+          fieldType = ListType(ShopType[F]),
+          arguments = List(LimitArg, OffsetArg),
+          resolve = c =>
+            c.ctx.shop
+              .fetchAll(c.arg(LimitArg), c.arg(OffsetArg))
+              .toIO
+              .unsafeToFuture
         ),
         Field(
           name = "shopTypes",

@@ -8,7 +8,7 @@ import training.model.ShopType
 
 trait ShopTypeRepo[F[_]] {
   def fetchAll: F[List[ShopType]]
-  def fetchById(id: String): F[Option[ShopType]]
+  def fetchById(id: Option[String]): F[Option[ShopType]]
 }
 
 object ShopTypeRepo {
@@ -23,7 +23,7 @@ object ShopTypeRepo {
       def fetchAll: F[List[ShopType]] =
         select.query[ShopType].to[List].transact(xa)
 
-      def fetchById(id: String): F[Option[ShopType]] =
+      def fetchById(id: Option[String]): F[Option[ShopType]] =
         (select ++ fr"WHERE id = $id::INTEGER")
           .query[ShopType]
           .option

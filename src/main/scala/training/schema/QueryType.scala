@@ -53,11 +53,11 @@ object QueryType {
     ObjectType(
       name = "Query",
       fields = fields(
-        Field(
-          name = "activities",
-          fieldType = ListType(ActivityType[F]),
-          resolve = c => c.ctx.activity.fetchAll.toIO.unsafeToFuture
-        ),
+        // Field(
+        //   name = "activities",
+        //   fieldType = ListType(ActivityType[F]),
+        //   resolve = c => c.ctx.activity.fetchAll.toIO.unsafeToFuture
+        // ),
         Field(
           name = "nearbyShops",
           fieldType = ListType(ShopType[F]),
@@ -102,16 +102,16 @@ object QueryType {
               .toIO
               .unsafeToFuture
         ),
-        Field(
-          name = "shopTypes",
-          fieldType = ListType(ShopTypeType[F]),
-          resolve = c => c.ctx.shopType.fetchAll.toIO.unsafeToFuture
-        ),
-        Field(
-          name = "stratums",
-          fieldType = ListType(StratumType[F]),
-          resolve = c => c.ctx.stratum.fetchAll.toIO.unsafeToFuture
-        )
+        // Field(
+        //   name = "shopTypes",
+        //   fieldType = ListType(ShopTypeType[F]),
+        //   resolve = c => c.ctx.shopType.fetchAll.toIO.unsafeToFuture
+        // )
+        // Field(
+        //  name = "stratums",
+        //  fieldType = ListType(StratumType[F]),
+        //  resolve = c => c.ctx.stratum.fetchAll.toIO.unsafeToFuture
+        // )
       )
     )
 

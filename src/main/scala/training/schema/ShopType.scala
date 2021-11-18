@@ -33,7 +33,7 @@ object ShopType {
             name = "activity",
             fieldType = OptionType(ActivityType[F]),
             resolve = c =>
-              c.ctx.activity.fetchById(c.value.activityId).toIO.unsafeToFuture
+              c.ctx.activity.fetchById(c.value.activity).toIO.unsafeToFuture
           ),
           Field(
             name = "address",
@@ -94,13 +94,13 @@ object ShopType {
             name = "shopType",
             fieldType = OptionType(ShopTypeType[F]),
             resolve = c =>
-              c.ctx.shopType.fetchById(c.value.shopTypeId).toIO.unsafeToFuture
+              c.ctx.shopType.fetchById(c.value.shopType).toIO.unsafeToFuture
           ),
           Field(
             name = "stratum",
             fieldType = OptionType(StratumType[F]),
             resolve = c =>
-              c.ctx.stratum.fetchById(c.value.stratumId).toIO.unsafeToFuture
+              c.ctx.stratum.fetchById(c.value.stratum).toIO.unsafeToFuture
           ),
           Field(
             name = "website",

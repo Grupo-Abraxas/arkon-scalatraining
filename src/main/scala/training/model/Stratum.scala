@@ -1,6 +1,6 @@
 package training.model
 
 final case class Stratum(
-    id: Int,
+    id: String,
     name: String
 )

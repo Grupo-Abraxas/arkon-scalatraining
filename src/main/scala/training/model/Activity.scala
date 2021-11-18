@@ -1,6 +1,6 @@
 package training.model
 
 final case class Activity(
-    id: Int,
+    id: String,
     name: String
 )

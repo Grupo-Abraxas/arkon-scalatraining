@@ -1,7 +1,7 @@
 package training.schema
 
 import cats.effect.Effect
-import sangria.schema.{Field, IntType, ObjectType, StringType, fields}
+import sangria.schema.{Field, IDType, ObjectType, StringType, fields}
 import training.model.ShopType
 import training.repo.MasterRepo
 
@@ -13,7 +13,7 @@ object ShopTypeType {
         fields(
           Field(
             name = "id",
-            fieldType = IntType,
+            fieldType = IDType,
             resolve = _.value.id
           ),
           Field(

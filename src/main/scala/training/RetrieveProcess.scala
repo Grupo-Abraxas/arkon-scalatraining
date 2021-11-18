@@ -10,7 +10,7 @@ import org.http4s.client.Client
 import org.http4s.client.blaze.BlazeClientBuilder
 import org.http4s.client.dsl.Http4sClientDsl
 import org.http4s.{Request, Uri}
-import training.inegi.Shop
+import training.model.inegi.Shop
 
 import scala.concurrent.ExecutionContext.global
 
@@ -22,18 +22,19 @@ object RetrieveProcess extends IOApp with Http4sClientDsl[IO] {
           "query": "mutation CreateShop($$input, CreateShopInput) {createShop(input: $$input) {id}}",
           "variables": {
             "input": {
-              "id": "${shop.Id}",
-              "name": "${shop.Nombre}",
-              "businessName": "${shop.Razon_social}",
-              "activity": "${shop.Clase_actividad}",
-              "stratum": "${shop.Estrato}",
-              "address": "${shop.Calle + shop.Num_Exterior + shop.Colonia + shop.Ubicacion}",
-              "phoneNumber": "${shop.Telefono}",
-              "email": "${shop.Correo_e}",
-              "website": "${shop.Sitio_internet}",
-              "shopType": "${shop.Tipo}",
-              "lat": "${shop.Latitud}",
-              "long": "${shop.Longitud}"
+              "id": ${shop.Id},
+              "name": ${shop.Nombre},
+              "businessName": ${shop.Razon_social},
+              "activity": ${shop.Clase_actividad},
+              "stratum": ${shop.Estrato},
+              "address": ${shop.Calle + shop.Num_Exterior + shop.Colonia + shop.Ubicacion},
+              "phoneNumber": ${shop.Telefono},
+              "email": ${shop.Correo_e},
+              "website": ${shop.Sitio_internet},
+              "shopType": ${shop.Tipo},
+              "lat": ${shop.Latitud},
+              "long": ${shop.Longitud}
+            }
           }
         }
       """,
@@ -47,12 +48,11 @@ object RetrieveProcess extends IOApp with Http4sClientDsl[IO] {
       lat: Float,
       lng: Float
   ): IO[Unit] = IO {
+    val url =
+      Uri.uri("https://www.inegi.org.mx/app/api/denue/v1/consulta/Buscar")
     val shops = client
       .get(
-        Uri.uri(
-          s"https://www.inegi.org.mx/app/api/denue/v1/consulta/Buscar" +
-            s"/todos/$lat,$lng/5000/${System.getenv("INEGI_TOKEN")}"
-        )
+        url.withPath(s"/todos/$lat,$lng/5000/${System.getenv("INEGI_TOKEN")}")
       ) { case Successful(resp) => resp.decodeJson[List[Shop]] }
       .unsafeRunSync()
 

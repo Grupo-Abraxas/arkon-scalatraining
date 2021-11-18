@@ -1,4 +1,4 @@
-package training.inegi
+package training.model.inegi
 
 final case class Shop(
     CLEE: String,

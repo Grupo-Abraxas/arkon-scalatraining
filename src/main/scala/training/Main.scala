@@ -18,7 +18,7 @@ import org.http4s.{HttpRoutes, StaticFile, Uri}
 import sangria.schema.Schema
 import training.graphql.SangriaGraphQL
 import training.repo.MasterRepo
-import training.schema.QueryType
+import training.schema.{MutationType, QueryType}
 
 import scala.concurrent.ExecutionContext
 import scala.concurrent.ExecutionContext.global
@@ -46,7 +46,8 @@ object Main extends IOApp {
   ): GraphQL[F] =
     SangriaGraphQL[F](
       Schema(
-        query = QueryType[F]
+        query = QueryType[F],
+        mutation = Some(MutationType[F])
       ),
       MasterRepo.fromTransactor(transactor).pure[F],
       blockingContext

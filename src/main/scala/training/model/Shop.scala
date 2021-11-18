@@ -1,6 +1,6 @@
 package training.model
 
-final case class Shop(
+case class Shop(
     id: String,
     address: String,
     businessName: String,

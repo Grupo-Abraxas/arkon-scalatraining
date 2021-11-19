@@ -38,7 +38,7 @@ object RetrieveProcess extends IOApp with Http4sClientDsl[IO] {
           }
         }
       """,
-      Uri.uri("http://127.0.0.1:8080/graphql")
+      Uri.uri("http://localhost:8080/graphql")
     )
     client.expect[String](request)
   }
@@ -48,12 +48,13 @@ object RetrieveProcess extends IOApp with Http4sClientDsl[IO] {
       lat: Float,
       lng: Float
   ): IO[Unit] = IO {
-    val url =
-      Uri.uri("https://www.inegi.org.mx/app/api/denue/v1/consulta/Buscar")
+    val url = Uri(
+      path = "https://www.inegi.org.mx/app/api/denue/v1/consulta/Buscar" +
+        s"/todos/$lat,$lng/100/${System.getenv("INEGI_TOKEN")}"
+    )
+
     val shops = client
-      .get(
-        url.withPath(s"/todos/$lat,$lng/5000/${System.getenv("INEGI_TOKEN")}")
-      ) { case Successful(resp) => resp.decodeJson[List[Shop]] }
+      .get(url.path) { case Successful(resp) => resp.decodeJson[List[Shop]] }
       .unsafeRunSync()
 
     for (shop <- shops) {

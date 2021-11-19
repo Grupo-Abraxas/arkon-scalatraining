@@ -19,21 +19,21 @@ object RetrieveProcess extends IOApp with Http4sClientDsl[IO] {
     val request: IO[Request[IO]] = POST(
       json"""
         {
-          "query": "mutation CreateShop($$input, CreateShopInput) {createShop(input: $$input) {id}}",
+          "query": "mutation($$input: CreateShopInput!) {createShop(input: $$input) {id}}",
           "variables": {
             "input": {
               "id": ${shop.Id},
-              "name": ${shop.Nombre},
-              "businessName": ${shop.Razon_social},
               "activity": ${shop.Clase_actividad},
-              "stratum": ${shop.Estrato},
               "address": ${shop.Calle + shop.Num_Exterior + shop.Colonia + shop.Ubicacion},
-              "phoneNumber": ${shop.Telefono},
+              "businessName": ${shop.Razon_social},
               "email": ${shop.Correo_e},
-              "website": ${shop.Sitio_internet},
+              "lat": ${shop.Latitud.toDouble},
+              "long": ${shop.Longitud.toDouble},
+              "name": ${shop.Nombre},
+              "phoneNumber": ${shop.Telefono},
               "shopType": ${shop.Tipo},
-              "lat": ${shop.Latitud},
-              "long": ${shop.Longitud}
+              "stratum": ${shop.Estrato},
+              "website": ${shop.Sitio_internet}
             }
           }
         }

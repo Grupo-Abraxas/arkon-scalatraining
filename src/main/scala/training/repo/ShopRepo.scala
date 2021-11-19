@@ -4,9 +4,10 @@ import cats.effect.Sync
 import doobie.implicits._
 import doobie.util.fragment.Fragment
 import doobie.util.transactor.Transactor
-import training.model.Shop
+import training.model.{CreatedPayload, Shop}
 
 trait ShopRepo[F[_]] {
+  def create(data: Shop): F[CreatedPayload]
   def fetchAll(limit: Int, offset: Int): F[List[Shop]]
   def fetchById(id: String): F[Option[Shop]]
   def fetchNearbyShopsByShopId(
@@ -38,6 +39,19 @@ object ShopRepo {
             activity_id, shop_type_id, stratum_id
           FROM shop
           """
+
+      def create(data: Shop): F[CreatedPayload] = sql"""
+          INSERT INTO shop (
+            id, activity_id, address, business_name, email, name,
+            position, phone_number, shop_type_id, stratum_id
+          )
+          VALUES (
+            ${data.id}::INTEGER, ${data.activity}::INTEGER, ${data.address}, ${data.businessName},
+            ${data.email}, ${data.name},
+            ST_SetSRID(ST_Point(${data.long}, ${data.lat}), 4326),
+            ${data.phoneNumber}, ${data.shopType}::INTEGER, ${data.stratum}::INTEGER
+          )
+           """.update.withUniqueGeneratedKeys[CreatedPayload]("id").transact(xa)
 
       def fetchAll(limit: Int = 50, offset: Int = 0): F[List[Shop]] =
         (select ++ fr"LIMIT $limit::INTEGER OFFSET $offset::INTEGER")

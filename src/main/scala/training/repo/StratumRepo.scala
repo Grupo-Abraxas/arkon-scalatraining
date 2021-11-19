@@ -1,5 +1,6 @@
 package training.repo
 
+import cats.data.OptionT
 import cats.effect.Sync
 import doobie.implicits._
 import doobie.util.fragment.Fragment
@@ -9,6 +10,7 @@ import training.model.Stratum
 trait StratumRepo[F[_]] {
   def fetchAll: F[List[Stratum]]
   def fetchById(id: Option[String]): F[Option[Stratum]]
+  def fetchOrCreateByName(name: Option[String]): F[Stratum]
 }
 
 object StratumRepo {
@@ -28,5 +30,16 @@ object StratumRepo {
           .query[Stratum]
           .option
           .transact(xa)
+
+      def fetchOrCreateByName(name: Option[String]): F[Stratum] =
+        OptionT(
+          (select ++ fr"WHERE name = $name").query[Stratum].option
+        ).getOrElseF(
+          sql"""
+               INSERT INTO stratum(id, name) 
+               VALUES((SELECT MAX(id) + 1 FROM stratum), $name)
+          """.update
+            .withUniqueGeneratedKeys[Stratum]("id", "name")
+        ).transact(xa)
     }
 }

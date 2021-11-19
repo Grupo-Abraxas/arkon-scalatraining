@@ -1,5 +1,6 @@
 package training.repo
 
+import cats.data.OptionT
 import cats.effect.Sync
 import doobie.implicits._
 import doobie.util.fragment.Fragment
@@ -9,6 +10,7 @@ import training.model.ShopType
 trait ShopTypeRepo[F[_]] {
   def fetchAll: F[List[ShopType]]
   def fetchById(id: Option[String]): F[Option[ShopType]]
+  def fetchOrCreateByName(name: Option[String]): F[ShopType]
 }
 
 object ShopTypeRepo {
@@ -28,5 +30,16 @@ object ShopTypeRepo {
           .query[ShopType]
           .option
           .transact(xa)
+
+      def fetchOrCreateByName(name: Option[String]): F[ShopType] =
+        OptionT(
+          (select ++ fr"WHERE name = $name").query[ShopType].option
+        ).getOrElseF(
+          sql"""
+               INSERT INTO shop_type(id, name) 
+               VALUES((SELECT MAX(id) + 1 FROM shop_type), $name)
+          """.update
+            .withUniqueGeneratedKeys[ShopType]("id", "name")
+        ).transact(xa)
     }
 }

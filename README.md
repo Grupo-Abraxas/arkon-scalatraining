@@ -27,6 +27,8 @@ query them based on their location.
 - Functor/Mondad (FP through [cats](https://typelevel.org/cats/)).
 - The real world/side effects using the [IO Monad](https://medium.com/walmartglobaltech/understanding-io-monad-in-scala-b495ca572174).
 - Testing
+- [Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/)
+
 - [Types and type clases](https://scalac.io/blog/typeclasses-in-scala/)
 - [Implicits](https://docs.scala-lang.org/tour/implicit-parameters.html)
 - [hlists](https://www.scala-exercises.org/shapeless/heterogenous_lists)

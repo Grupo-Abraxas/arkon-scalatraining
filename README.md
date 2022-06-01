@@ -19,16 +19,15 @@ query them based on their location.
 * [Requirements](https://github.com/Grupo-Abraxas/arkon-scalatraining#requirements)
 
 ## Concepts
-- FP
-    - [Why functional programming?](http://book.realworldhaskell.org/read/why-functional-programming-why-haskell.html)
+- [Functional Programming](https://www.baeldung.com/scala/functional-programming)
 - Referential transparency.
 - Immutability.
 - Recursion (FP).
 - Basic concurrency using [Scala's Future](https://docs.scala-lang.org/overviews/core/futures.html). 
 - Functor/Mondad (FP through [cats](https://typelevel.org/cats/)).
-- The real world/side effects using the [IO Monad](http://book.realworldhaskell.org/read/io.html).
+- The real world/side effects using the [IO Monad](https://medium.com/walmartglobaltech/understanding-io-monad-in-scala-b495ca572174).
 - Testing
-- [Types and type clases](http://learnyouahaskell.com/types-and-typeclasses)
+- [Types and type clases](https://scalac.io/blog/typeclasses-in-scala/)
 - [Implicits](https://docs.scala-lang.org/tour/implicit-parameters.html)
 - [hlists](https://www.scala-exercises.org/shapeless/heterogenous_lists)
 

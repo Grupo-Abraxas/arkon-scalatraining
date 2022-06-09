@@ -30,6 +30,7 @@ object Server {
           .build >>
           Resource.eval(Async[F].never)
       )
+
     } yield exitCode
   }.drain
 }

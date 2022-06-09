@@ -1,0 +1,36 @@
+# Use postgres/example user/password credentials
+version: '3.9'
+
+volumes:
+  postgis-data:
+
+services:
+
+  db:
+    image: postgis/postgis:13-master
+    volumes:
+      - postgis-data:/var/lib/postgresql
+      - ./migrations/sql/V0.1.0__InitialSchema.sql:/docker-entrypoint-initdb.d/V0.1.0__InitialSchema.sql
+    environment:
+      # If you need to create multiple database you can add coma separated databases eg gis,data
+      - POSTGRES_DB=gis
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - ALLOW_IP_RANGE=127.0.0.1/0
+      # Add extensions you need to be enabled by default in the DB. Default are the five specified below
+      - POSTGRES_MULTIPLE_EXTENSIONS=postgis,hstore,postgis_topology,postgis_raster,pgrouting
+    ports:
+      - "25432:5432"
+    restart: on-failure
+    healthcheck:
+      test: "exit 0"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+    ports:
+      - "80:80"
+    depends_on:
+      - db

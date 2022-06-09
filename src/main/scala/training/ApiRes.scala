@@ -12,8 +12,6 @@ trait ApiRes[F[_]]{
 }
 
 object ApiRes {
-  implicit def apply[F[_]](implicit ev: ApiRes[F]): ApiRes[F] = ev
-
   final case class Message(message: String) extends AnyVal
 
   object Message {

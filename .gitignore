@@ -4,6 +4,7 @@ bin/
 project/target
 target/
 build/
+.bsp
 
 # eclipse
 build

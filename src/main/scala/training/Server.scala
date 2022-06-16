@@ -18,7 +18,9 @@ object Server {
 
       //Implementation Routes for Server
       httpApp = (
-        Routes.apiRoutes[F](apiResAlg)).orNotFound
+        Routes.apiRoutes[F](apiResAlg) <+>
+          Routes.apiGraphqlRoutes[F]
+        ).orNotFound
 
       finalHttpApp = Logger.httpApp(true, true)(httpApp)
 

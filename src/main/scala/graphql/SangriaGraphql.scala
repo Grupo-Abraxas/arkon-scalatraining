@@ -1,14 +1,15 @@
 package graphql
 
-import model.Estatus
-import repository.EstatusRepo
+import model.Estado
+import repository.EstadoRepo
+import sangria.schema.Args.empty.arg
 import sangria.schema._
 object SangriaGraphql {
 
-  val EstatusType = ObjectType(
-    "Estatus",
+  val EstadoType = ObjectType(
+    "Estado",
     "descripcion",
-    fields[Unit, Estatus](
+    fields[Unit, Estado](
       Field("id", IntType, resolve = _.value.id),
       Field("Description", StringType, resolve = _.value.Description)
     )
@@ -16,24 +17,22 @@ object SangriaGraphql {
 
   val IdEstatus = Argument("id", IntType)
 
-  val QueryType  = ObjectType(
+  val QueryType  = ObjectType[EstadoRepo, Unit](
     "Query",
     "consultas",
-    fields[EstatusRepo, Unit](
-      Field(
-        "estatus",
-        OptionType(EstatusType),
+    fields[EstadoRepo, Unit](
+      Field( "estado", EstadoType,
         description = Some("Entrega un estatus x id"),
         arguments = IdEstatus :: Nil,
-        resolve = c => c.ctx.findEstatusById(c arg IdEstatus)
+        resolve = ctx => ctx.ctx.findEstadoById(ctx.arg(IdEstatus))
       ),
-      Field(
-        "estatusList",
-        ListType(EstatusType),
+      Field( "estados", ListType(EstadoType),
         description = Some("Entrega el listado de estatus existentes"),
-        resolve = c => c.ctx.findAllEstatus()
+        resolve = c => c.ctx.findAllEstado()
       )
     )
   )
-
+  val estadoSchema = Schema(QueryType)
 }
+
+

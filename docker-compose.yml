@@ -1,0 +1,27 @@
+services :
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment :
+      - DATABASE_HOST=127.0.0.1
+      - POSTGRES_USER=userApp
+      - POSTGRES_PASSWORD=userAppPs
+      - POSTGRES_DB=mtbMX
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=no.dezpair@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports :
+      - "80:80"
+    depends_on :
+      - postgres
+
+volumes:
+  database-data:

@@ -1,0 +1,19 @@
+type Estatus {
+    id: Int!,
+    description: String!
+}
+
+type Query {
+    findEstatusById(id : Int):Estatus
+    findAllEstatus:[Estatus]
+}
+input EstatusInput {
+    id: Int!,
+    description: String!
+}
+
+
+type Mutation {
+    addEstatus(estatus: EstatusInput!) : Estatus
+}
+

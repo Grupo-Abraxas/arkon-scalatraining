@@ -1,3 +1,3 @@
 package model
 
-case class Estado (id: Int, Description :String)
+case class Estado (id: Int, description :String)

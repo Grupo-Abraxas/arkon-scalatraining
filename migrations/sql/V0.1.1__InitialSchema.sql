@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS t_alcaldia (
   id serial PRIMARY KEY NOT NULL,
   name TEXT NOT NULL,
   geopolygon polygon,
-  status int DEFAULT '1'
+  estado int DEFAULT '1'
 ) ;
 
 
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS t_mb (
     point_latitude DOUBLE PRECISION,
     point_longitude DOUBLE PRECISION,
     geopoint Point,
-    status int DEFAULT '1'
+    estado int DEFAULT '1'
 );
 
 

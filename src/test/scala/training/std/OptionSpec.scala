@@ -3,13 +3,21 @@ package training.std
 import training.{BaseSpec, DoobieDemo}
 import io.circe._
 import org.scalatest.EitherValues
-import cats.effect.unsafe.implicits.global
 import cats._
 import cats.implicits._
 import cats.Semigroup
+import graphql.SangriaGraphql.SchemaEstado
+import repository.EstadoRepo
+import sangria.execution.Executor
+import sangria.macros.LiteralGraphQLStringContext
+
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.duration.DurationInt
+import scala.concurrent.{Await, Future}
 
 
 class OptionSpec extends BaseSpec with EitherValues {
+
 
   "Json parsing" should {
     "parsing" in {
@@ -85,7 +93,7 @@ class OptionSpec extends BaseSpec with EitherValues {
     "evaluacion  " in {
       val l = List(1, 2, 3, 4, 5)
 
-      assert(l.foldMap(i => i.toString)  == 15)
+      assert(l.foldMap(i => i.toString)  == "12345")
     }
   }
   "Prueba cat8" should {
@@ -95,6 +103,5 @@ class OptionSpec extends BaseSpec with EitherValues {
       assert(l.foldMap(i => (i, i.toString)) == (15,12345))
     }
   }
-
 
 }

@@ -5,15 +5,11 @@ import io.circe._
 import org.scalatest.EitherValues
 import cats._
 import cats.implicits._
+import io.circe.syntax._
 import cats.Semigroup
-import graphql.SangriaGraphql.SchemaEstado
-import repository.EstadoRepo
-import sangria.execution.Executor
-import sangria.macros.LiteralGraphQLStringContext
+import model.Estado
 
-import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.duration.DurationInt
-import scala.concurrent.{Await, Future}
+import scala.collection.immutable.ListMap
 
 
 class OptionSpec extends BaseSpec with EitherValues {
@@ -100,7 +96,18 @@ class OptionSpec extends BaseSpec with EitherValues {
     "evaluacion  " in {
       val l = List(1, 2, 3, 4, 5)
 
-      assert(l.foldMap(i => (i, i.toString)) == (15,12345))
+      assert(l.foldMap(i => (i, i.toString)) == (15,"12345"))
+    }
+  }
+
+
+  "Prueba cat9" should {
+    "evaluacion  " in {
+
+      val l = ListMap("data" -> ListMap("estados" -> Vector(ListMap("id" -> 1, "description" -> "Activo"), ListMap("id" -> 2, "description" -> "Inactivo"))))
+      val jsonStr = Json.fromString(l.toString())
+      println(jsonStr)
+      assert(l == (15,12345))
     }
   }
 

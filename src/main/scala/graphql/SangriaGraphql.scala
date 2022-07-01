@@ -2,8 +2,6 @@ package graphql
 
 import model.Estado
 import repository.EstadoRepo
-import sangria.macros.derive.{ObjectTypeName, deriveObjectType}
-import sangria.schema.Args.empty.arg
 import sangria.schema._
 object SangriaGraphql {
 
@@ -19,19 +17,33 @@ object SangriaGraphql {
     )
   )
 
+  val AlcaldiaType = ObjectType("Alcaldia",
+    fields[Unit, Alcaldia](
+      Field("id", IntType, resolve = _.value.id),
+      Field("name", StringType, resolve = _.value.name),
+      Field("geopolygon", StringType, resolve = _.value.geopolygon),
+      Field("estado", StringType, resolve = _.value.name)
+
+    )
+  )
+
+
+  case class Alcaldia(id: Int, name: String, geopolygon: String, estado: Int)
+
+
   val IdEstatus = Argument("id", IntType)
   val Descripcion = Argument("description", StringType)
 
   val QueryType  = ObjectType("Query", "consultas",
-    fields[Unit, Unit](
+    fields[EstadoRepo, Unit](
       Field( "estado", EstadoType,
         description = Some("Entrega un estatus x id"),
         arguments = IdEstatus :: Nil,
-        resolve = sangriaContext => new EstadoRepo().findEstadoById(sangriaContext.arg(IdEstatus))
+        resolve = ctx => ctx.ctx.findEstadoById(ctx.arg(IdEstatus))
       ),
       Field( "estados", ListType(EstadoType),
         description = Some("Entrega el listado de estatus existentes"),
-        resolve = sangriaContext => new EstadoRepo().findAllEstado()
+        resolve = ctx => ctx.ctx.findAllEstado()
       )
     )
   )
@@ -47,7 +59,7 @@ object SangriaGraphql {
     )
   )
 
-  val SchemaEstado  = Schema(QueryType, Some(MutationType))
+  val SchemaEstado  = Schema(QueryType)
 
 }
 

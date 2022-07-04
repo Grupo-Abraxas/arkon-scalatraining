@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS t_alcaldia;
 CREATE TABLE IF NOT EXISTS t_alcaldia (
   id serial PRIMARY KEY NOT NULL,
   name TEXT NOT NULL,
-  geopolygon polygon,
+  geopolygon geometry(POLYGON),
   estado int DEFAULT '1'
 ) ;
 

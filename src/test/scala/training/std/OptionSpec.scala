@@ -1,13 +1,19 @@
 package training.std
 
-import training.{BaseSpec, DoobieDemo}
+import training.BaseSpec
 import io.circe._
 import org.scalatest.EitherValues
 import cats._
 import cats.implicits._
 import io.circe.syntax._
 import cats.Semigroup
+import cats.effect.IO
+import cats.effect.unsafe.implicits.global
+import graphql.SangriaGraphExec.httpClient
 import model.Estado
+import org.http4s.circe.jsonDecoder
+import org.http4s.implicits.http4sLiteralsSyntax
+import sangria.marshalling.circe._
 
 import scala.collection.immutable.ListMap
 
@@ -22,12 +28,7 @@ class OptionSpec extends BaseSpec with EitherValues {
       json.value shouldBe Json.obj("a" -> Json.fromInt(10))
     }
   }
-/*
-  "Consulta BD" should {
-    "Lista  estatus vacio" in {
-      assert(DoobieDemo.findAllEstatus.unsafeRunSync().nonEmpty)
-    }
-  }*/
+
 
   "Prueba" should {
     "evaluacion" in {
@@ -101,13 +102,28 @@ class OptionSpec extends BaseSpec with EitherValues {
   }
 
 
-  "Prueba cat9" should {
-    "evaluacion  " in {
 
-      val l = ListMap("data" -> ListMap("estados" -> Vector(ListMap("id" -> 1, "description" -> "Activo"), ListMap("id" -> 2, "description" -> "Inactivo"))))
-      val jsonStr = Json.fromString(l.toString())
-      println(jsonStr)
-      assert(l == (15,12345))
+  def unidadesDataCdmx(): IO[Json] = {
+    val target = uri"https://datos.cdmx.gob.mx/api/3/action/datastore_search?resource_id=ad360a0e-b42f-482c-af12-1fd72140032e"
+    httpClient.expect[Json](target)
+  }
+  def alcaldiasDataCdmx(): IO[Json] = {
+    val target = uri"https://datos.cdmx.gob.mx/api/3/action/datastore_search?resource_id=e4a9b05f-c480-45fb-a62c-6d4e39c5180e"
+    httpClient.expect[Json](target)
+  }
+
+  "consumir endpoint Data" should {
+    "  consume unidades " in {
+
+      val program: IO[Json] = for {
+        a <- unidadesDataCdmx
+      } yield a
+      val data = program.unsafeRunSync();
+      val result = data.findAllByKey("result")
+      val records = result.asJson.findAllByKey("records")
+
+      println(records)
+      assert("1" == "")
     }
   }
 

@@ -1,6 +1,7 @@
 services :
   postgres:
-    image: postgres
+    image: postgis/postgis
+    container_name: postgis
     restart: always
     ports:
       - "5432:5432"
@@ -14,6 +15,7 @@ services :
 
   pgadmin:
     image: dpage/pgadmin4
+    container_name: pgadmin4
     restart: always
     environment:
       - PGADMIN_DEFAULT_EMAIL=no.dezpair@gmail.com

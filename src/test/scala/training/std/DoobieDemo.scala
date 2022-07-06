@@ -2,11 +2,19 @@ package training.std
 
 import cats.effect.IO
 import cats.effect.unsafe.implicits.global
+import cats.implicits.toFoldableOps
+import doobie.Update
 import doobie.implicits._
+import doobie.util.fragment.Fragment
 import doobie.util.transactor.Transactor
-import model.{Alcaldia, Estado, Unidad}
+import graphql.SangriaGraphExec.httpClient
+import io.circe._
+import model.{Alcaldia, Unidad}
+import model.JsonCdmx.{AlcaldiaJson, UnidadJson}
+import org.http4s.implicits.http4sLiteralsSyntax
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.must.Matchers
+
 
 class DoobieDemo extends AnyFunSuite with  Matchers {
 
@@ -53,5 +61,114 @@ class DoobieDemo extends AnyFunSuite with  Matchers {
     assert(query.unsafeRunSync() == 1)
 
   }
+
+
+  def findUnidadesByIdAlcaldia(ids: Seq[Int]): IO[List[Unidad]] = {
+    val fragmentIn : Fragment = fr"IN (" ++ ids.toList.map(n =>fr"$n").intercalate(fr" , ") ++ fr")"
+    val queryFr =
+      fr"""select a.id, a.vehicle_id,a.point_latitude, a.point_longitude, a.geopoint,a.estado from t_mb a, t_alcaldia b
+      where ST_Contains(b.geopolygon,ST_SetSRID(ST_MakePoint(a.point_longitude,a.point_latitude), 4326)  ) =true
+      and b.id """ ++ fragmentIn
+    println(queryFr)
+    val action = queryFr.query[Unidad].stream.compile.toList
+    action.transact(xa)
+  }
+
+  def findAlcaldiaByIdVehiculo(ids: Seq[Int]): IO[List[Alcaldia]] = {
+    val fragmentIn : Fragment = fr"IN (" ++ ids.toList.map(n =>fr"$n").intercalate(fr" , ") ++ fr")"
+    val queryFr =
+      fr"""select b.id, b.name, b.geopolygon, b.estado from t_mb a, t_alcaldia b
+      where ST_Contains(b.geopolygon,ST_SetSRID(ST_MakePoint(a.point_longitude,a.point_latitude), 4326)  ) =true
+      and a.id """.stripMargin ++ fragmentIn
+    println(queryFr)
+    val action = queryFr.query[Alcaldia].stream.compile.toList
+    action.transact(xa)
+  }
+
+    test("consulta  unidades by id Alcaldia"){
+      val result =findUnidadesByIdAlcaldia(Seq(1,2,3)).unsafeRunSync()
+      println(result)
+      println(result.size)
+      assert( result.size>=1)
+
+    }
+
+    test("consulta  Alcaldia by id unidad") {
+      val result = findAlcaldiaByIdVehiculo(Seq(10, 12, 14)).unsafeRunSync()
+      println(result)
+      println(result.size)
+      assert(result.size>=1)
+    }
+    test("elimina  unidades test"){
+    val query = sql"delete from t_mb".update.run.transact(xa)
+    assert(query.unsafeRunSync() >=0)
+
+  }
+
+  test("elimina  alcaldias test"){
+    val query = sql"delete from t_alcaldia".update.run.transact(xa)
+    assert(query.unsafeRunSync() >=0)
+
+  }
+
+  def unidadesDataCdmx(): IO[String] = {
+    val target = uri"https://datos.cdmx.gob.mx/api/3/action/datastore_search?resource_id=ad360a0e-b42f-482c-af12-1fd72140032e"
+    httpClient.expect[String](target)
+  }
+
+
+
+  test("alta  unidad batch test"){
+
+    val program: IO[String] = for {
+      a <- unidadesDataCdmx
+    } yield a
+
+
+
+    val jsonStrUnidad =   parser.parse(program.unsafeRunSync()).getOrElse(Json.Null).hcursor.downField("result").downField("records").as[Json].getOrElse(Json.Null).noSpaces
+    val decodeUnidad =parser.decode[List[UnidadJson]](jsonStrUnidad).getOrElse(List[UnidadJson]())
+    println(decodeUnidad)
+
+
+    val sql = "insert into t_mb (id, vehicle_id, point_latitude, point_longitude, geopoint,estado) values(?,?,?,?,Point(?),1)"
+    val queryExec =Update[UnidadJson](sql).updateMany(decodeUnidad)
+    val exec= queryExec.transact(xa).unsafeRunSync()
+    println(exec)
+    assert(exec >=1)
+
+  }
+
+
+  def alcaldiasDataCdmx(): IO[String] = {
+    val target = uri"https://datos.cdmx.gob.mx/api/3/action/datastore_search?resource_id=e4a9b05f-c480-45fb-a62c-6d4e39c5180e"
+    httpClient.expect[String](target)
+  }
+
+
+
+
+  test("alta  alcaldia batch test"){
+
+    val program: IO[String] = for {
+      a <- alcaldiasDataCdmx
+    } yield a
+
+
+
+    val jsonStrAlcaldia =   parser.parse(program.unsafeRunSync()).getOrElse(Json.Null).hcursor.downField("result").downField("records").as[Json].getOrElse(Json.Null).noSpaces
+
+    val decodeUnidad =parser.decode[List[AlcaldiaJson]](jsonStrAlcaldia).getOrElse(List[AlcaldiaJson]())
+    println(decodeUnidad)
+
+
+    val sql = "INSERT INTO t_alcaldia (id,name, geopolygon,estado)  values (?, ?, ST_GeomFromGeoJSON (?),  1)"
+    val queryExec =Update[AlcaldiaJson](sql).updateMany(decodeUnidad)
+    val exec= queryExec.transact(xa).unsafeRunSync()
+    println(exec)
+    assert(exec >=1)
+
+  }
+
 
 }

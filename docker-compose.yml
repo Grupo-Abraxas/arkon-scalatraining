@@ -12,6 +12,7 @@ services :
       - POSTGRES_DB=mtbMX
     volumes:
       - database-data:/var/lib/postgresql/data/
+      - ./migrations/sql/V0.1.1__InitialSchema.sql:/docker-entrypoint-initdb.d/V0.1.1__InitialSchema.sql
 
   pgadmin:
     image: dpage/pgadmin4

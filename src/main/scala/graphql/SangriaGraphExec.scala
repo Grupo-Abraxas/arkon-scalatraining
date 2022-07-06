@@ -1,7 +1,7 @@
 package graphql
 
 import cats.effect.IO
-import graphql.SangriaGraphql.SchemaEstado
+import graphql.SangriaGraphql.{SchemaEstado}
 import io.circe.Json
 import org.http4s.HttpRoutes
 import org.http4s.circe.CirceEntityCodec.circeEntityEncoder
@@ -20,6 +20,7 @@ import scala.language.postfixOps
 import scala.util.{Failure, Success, Try}
 import sangria.marshalling.circe._
 import org.http4s.implicits.http4sLiteralsSyntax
+import sangria.execution.deferred.DeferredResolver
 
 import java.util.concurrent.Executors
 
@@ -53,16 +54,12 @@ object SangriaGraphExec {
 
         println("query : ".concat(query))
 
-        //val resultado  =Executor.execute( schema,query)
-        /*QueryParser.parse(query) match {
-          case Success(query) =>
-            Ok("saludos!".concat(query.toString) )
-          case Failure(error: SyntaxError) =>
-            BadRequest("erorr!".concat(error.getMessage()) )
-        }*/
         QueryParser.parse(query) match {
 
           case Success(query) =>
+            print("SchemaEstado")
+            print(SchemaEstado)
+
             val result :Future[Json] = Executor.execute(SchemaEstado, query,  new RepoMbMxImpl)
             Try(Await.result(result, 10 seconds)) match {
               case Success(result) => {

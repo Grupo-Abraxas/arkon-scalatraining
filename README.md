@@ -6,8 +6,8 @@
 
 Unidades Metrobus y ubicacion en Alcaldias
 
-![image](https://github.com/Grupo-Abraxas/arkon-scalatraining/blob/tanuki-main-Training/images/docker-compose%20up%20-d.png?raw=true)
 
+![image](https://github.com/Grupo-Abraxas/arkon-scalatraining/blob/tanuki-main-Training/images/graphqlApi%203.png?raw=true)
 
 ## Descripción
 
@@ -35,7 +35,7 @@ Run
 ```
 docker-compose up -d
 ```
-![image](https://github.com/Grupo-Abraxas/arkon-scalatraining/blob/tanuki-main-Training/images/graphqlApi%203.png?raw=true)
+![image](https://github.com/Grupo-Abraxas/arkon-scalatraining/blob/tanuki-main-Training/images/docker-compose%20up%20-d.png?raw=true)
 
 ### Imagenes
 * [postgis/postgis](https://hub.docker.com/search?q=postgis%2Fpostgis)

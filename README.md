@@ -27,7 +27,7 @@ unidades de Metro-bus de la Ciudad de México en función de su ubicación en la
 
 Se implementa docker-compose para configurar los contenedores necesarios,
 por lo cual para ejecutar el siguiente comando
-se requiere ubicarse en la carpeta raíz del proyecto, en donde se encuentra el archhivo docker-compose.yml
+se requiere ubicarse en la carpeta raíz del proyecto, en donde se encuentra el archivo *docker-compose.yml*
 
 Run 
 ```

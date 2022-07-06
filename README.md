@@ -6,6 +6,9 @@
 
 Unidades Metrobus y ubicacion en Alcaldias
 
+![image](https://github.com/Grupo-Abraxas/arkon-scalatraining/blob/tanuki-main-Training/images/docker-compose%20up%20-d.png?raw=true)
+
+
 ## Descripción
 
 Implementación de un servidor web exponeniendo una API GraphQL para consultar información de 
@@ -32,6 +35,7 @@ Run
 ```
 docker-compose up -d
 ```
+![image](https://github.com/Grupo-Abraxas/arkon-scalatraining/blob/tanuki-main-Training/images/graphqlApi%203.png?raw=true)
 
 ### Imagenes
 * [postgis/postgis](https://hub.docker.com/search?q=postgis%2Fpostgis)
@@ -46,12 +50,12 @@ Los  siguientes comandos se ejecutan dentro del proyecto  en donde se encyentra 
 // Run a specific test
 sbt run
 ```
+![image](https://github.com/Grupo-Abraxas/arkon-scalatraining/blob/tanuki-main-Training/images/sbt%20run.png?raw=true)
+
 
 Con esta ultimo comando se despliega el servicio WEB
 
 ## Api GraphQL EndPoint
 localhost:8080/graphql
 
-```
-
-```
+![image](https://github.com/Grupo-Abraxas/arkon-scalatraining/blob/tanuki-main-Training/images/graphqlApi.png?raw=true)

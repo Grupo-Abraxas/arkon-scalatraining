@@ -43,7 +43,6 @@ docker-compose up -d
 ## Comandos SBT
 Los siguientes comandos se ejecutan dentro del proyecto  en donde se encuentra el archivo buil.sbt
 ```
-// Run a specific test
 sbt run
 ```
 ![image](https://github.com/Grupo-Abraxas/arkon-scalatraining/blob/tanuki-main-Training/images/sbt%20run.png?raw=true)

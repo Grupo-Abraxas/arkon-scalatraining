@@ -1,33 +1,74 @@
-# sbt
-# (may want to keep parts of 'project')
-bin/
-project/target
-target/
-build/
+## generic files to ignore
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
 
-# eclipse
-build
+# rails specific
+*.sqlite3
+config/database.yml
+log/*
+tmp/*
+
+# java specific
+*.class
+
+# python specific
+*.pyc
+
+# xcode/iphone specific
+build/*
+*.pbxuser
+*.mode2v3
+*.mode1v3
+*.perspective
+*.perspectivev3
+*~.nib
+
+# sbt specific
+target/
+project/boot
+lib_managed/*
+project/build/target
+project/build/lib_managed
+project/build/src_managed
+project/plugins/lib_managed
+project/plugins/target
+project/plugins/src_managed
+project/plugins/project
+
+core/lib_managed
+core/target
+pubsub/lib_managed
+pubsub/target
+
+# eclipse specific
+.metadata
+jrebel.lic
+.settings
 .classpath
 .project
-.settings
-.worksheet
 
-# intellij idea
-*.log
+.ensime*
+*.sublime-*
+.cache
+
+# intellij
+*.eml
 *.iml
 *.ipr
 *.iws
+.*.sw?
 .idea
 
-# mac
-.DS_Store
+# visual studio code
+.vscode
 
-# other?
-.history
-.scala_dependencies
-.cache
-.cache-main
+# metals
 .metals
+.bloop
+project/metals.sbt
 
-#general
-*.class
+# paulp script
+/.lib/

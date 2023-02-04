@@ -2,9 +2,13 @@ package training.graphql
 
 import cats.effect._
 
-import scala.concurrent.Future
+import scala.util.{Failure, Success, Try}
+
+import scala.concurrent.{Await, Future}
 import scala.concurrent.ExecutionContext
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.duration._
+import scala.language.postfixOps
 
 import io.circe._
 import io.circe.generic.auto._
@@ -28,8 +32,16 @@ object Executor {
         
         Parser.parse(qs) match {
             case Right(document) => {
-                val exec: Future[Json] = Ex.execute(schema, document,  new Repo)
-                Ok(IO.fromFuture(IO(exec)))
+                val result: Future[Json] = Ex.execute(schema, document,  new Repo)
+                // Ok(IO.fromFuture(IO(exec)))
+                Try(Await.result(result, 10 seconds)) match {
+                    case Success(result) => {
+                        Ok(result)
+                    }
+                    case Failure(error) => {
+                        BadRequest(s"Error: ${error.getMessage}")
+                    }
+                }
             }
             case Left(err) => {
                 BadRequest(s"Syntax error: ${err.getMessage}")

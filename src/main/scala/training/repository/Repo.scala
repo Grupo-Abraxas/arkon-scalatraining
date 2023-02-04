@@ -3,13 +3,13 @@ package training.repository
 import cats._
 import cats.effect._
 
-import training.models.{Product}
-import training.db.Database
+import training.models.{Shop, Product}
+import database.Services
 
 class Repo {
-    def product(id: Int): IO[Option[Product]] = Database.find(id)
+    def shop(id: Long): IO[Option[Shop]] = Services.findShopById(id)
 
-    def products: IO[List[Product]] = Database.findAll()
+    // def products: IO[List[Product]] = ProductService.findAll()
 
-    def addProduct(name: String, description: String): IO[Product] = Database.addProduct(name, description)
+    // def addProduct(name: String, description: String): IO[Product] = ProductService.addProduct(name, description)
 }

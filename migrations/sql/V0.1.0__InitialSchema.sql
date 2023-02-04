@@ -1,28 +1,28 @@
 DROP TABLE IF EXISTS comercial_activity;
 
 CREATE TABLE comercial_activity (
-    id INT PRIMARY KEY
+    id SERIAL PRIMARY KEY
     , name TEXT NOT NULL
 );
 
 DROP TABLE IF EXISTS stratum;
 
 CREATE TABLE stratum (
-    id INT PRIMARY KEY
+    id SERIAL PRIMARY KEY
     , name TEXT NOT NULL
 );
 
 DROP TABLE IF EXISTS shop_type;
 
 CREATE TABLE shop_type (
-    id INT PRIMARY KEY
+    id SERIAL PRIMARY KEY
     , name TEXT NOT NULL
 );
 
 DROP TABLE IF EXISTS shop;
 
 CREATE TABLE shop (
-    id INT PRIMARY KEY
+    id SERIAL PRIMARY KEY
     , name TEXT NOT NULL
     , business_name TEXT
     , activity_id INT REFERENCES comercial_activity (id)
@@ -34,4 +34,3 @@ CREATE TABLE shop (
     , shop_type_id INT REFERENCES shop_type (id)
     , position GEOGRAPHY (POINT) NOT NULL
 );
-

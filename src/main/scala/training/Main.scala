@@ -1,13 +1,15 @@
+package training
+
 import cats.effect._
 
-import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.ExecutionContext.global
 
 import io.circe.generic.auto._
 
 import org.http4s._
 import org.http4s.circe._
 import org.http4s.dsl.io._
-import org.http4s.server.blaze._
+import org.http4s.server.blaze.BlazeServerBuilder
 
 import training.models.{RequestJson}
 import training.graphql.Executor

@@ -20,36 +20,40 @@
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\tpolecat\\doobie-core_2.13\\1.0.0-RC2\\doobie-core_2.13-1.0.0-RC2.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\tpolecat\\doobie-hikari_2.13\\1.0.0-RC2\\doobie-hikari_2.13-1.0.0-RC2.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\tpolecat\\doobie-postgres_2.13\\1.0.0-RC2\\doobie-postgres_2.13-1.0.0-RC2.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-ast_2.13\\3.0.0\\sangria-ast_2.13-3.0.0.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-parser_2.13\\3.0.0\\sangria-parser_2.13-3.0.0.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-core_2.13\\3.0.0\\sangria-core_2.13-3.0.0.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-derivation_2.13\\3.0.0\\sangria-derivation_2.13-3.0.0.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-ast_2.13\\3.2.0\\sangria-ast_2.13-3.2.0.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-parser_2.13\\3.2.0\\sangria-parser_2.13-3.2.0.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-core_2.13\\3.2.0\\sangria-core_2.13-3.2.0.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-derivation_2.13\\3.2.0\\sangria-derivation_2.13-3.2.0.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-circe_2.13\\1.3.2\\sangria-circe_2.13-1.3.2.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-generic_2.13\\0.14.1\\circe-generic_2.13-0.14.1.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-parser_2.13\\0.14.1\\circe-parser_2.13-0.14.1.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-blaze-server_2.13\\0.23.11\\http4s-blaze-server_2.13-0.23.11.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-circe_2.13\\0.23.11\\http4s-circe_2.13-0.23.11.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-dsl_2.13\\0.23.11\\http4s-dsl_2.13-0.23.11.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-generic_2.13\\0.14.3\\circe-generic_2.13-0.14.3.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-parser_2.13\\0.14.3\\circe-parser_2.13-0.14.3.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-blaze-server_2.13\\0.23.13\\http4s-blaze-server_2.13-0.23.13.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-blaze-client_2.13\\0.23.13\\http4s-blaze-client_2.13-0.23.13.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-circe_2.13\\0.23.13\\http4s-circe_2.13-0.23.13.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-dsl_2.13\\0.23.13\\http4s-dsl_2.13-0.23.13.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\postgis\\postgis-jdbc\\1.3.3\\postgis-jdbc-1.3.3.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest_2.13\\3.2.9\\scalatest_2.13-3.2.9.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\tpolecat\\doobie-free_2.13\\1.0.0-RC2\\doobie-free_2.13-1.0.0-RC2.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\modules\\scala-collection-compat_2.13\\2.6.0\\scala-collection-compat_2.13-2.6.0.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\chuusai\\shapeless_2.13\\2.3.7\\shapeless_2.13-2.3.7.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\chuusai\\shapeless_2.13\\2.3.10\\shapeless_2.13-2.3.10.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\tpolecat\\typename_2.13\\1.0.0\\typename_2.13-1.0.0.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\zaxxer\\HikariCP\\4.0.3\\HikariCP-4.0.3.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\slf4j\\slf4j-api\\1.7.36\\slf4j-api-1.7.36.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\co\\fs2\\fs2-io_2.13\\3.2.5\\fs2-io_2.13-3.2.5.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\co\\fs2\\fs2-io_2.13\\3.3.0\\fs2-io_2.13-3.3.0.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\postgresql\\postgresql\\42.3.1\\postgresql-42.3.1.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\parboiled\\parboiled_2.13\\2.3.0\\parboiled_2.13-2.3.0.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\parboiled\\parboiled_2.13\\2.4.0\\parboiled_2.13-2.4.0.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\macro-visit_2.13\\0.1.3\\macro-visit_2.13-0.1.3.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-marshalling-api_2.13\\1.0.7\\sangria-marshalling-api_2.13-1.0.7.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-marshalling-api_2.13\\1.0.8\\sangria-marshalling-api_2.13-1.0.8.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-streaming-api_2.13\\1.0.3\\sangria-streaming-api_2.13-1.0.3.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala-reflect\\2.13.3\\scala-reflect-2.13.3.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-core_2.13\\0.14.1\\circe-core_2.13-0.14.1.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-jawn_2.13\\0.14.1\\circe-jawn_2.13-0.14.1.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-blaze-core_2.13\\0.23.11\\http4s-blaze-core_2.13-0.23.11.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-server_2.13\\0.23.11\\http4s-server_2.13-0.23.11.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-core_2.13\\0.23.11\\http4s-core_2.13-0.23.11.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-jawn_2.13\\0.23.11\\http4s-jawn_2.13-0.23.11.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-core_2.13\\0.14.3\\circe-core_2.13-0.14.3.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-jawn_2.13\\0.14.3\\circe-jawn_2.13-0.14.3.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-blaze-core_2.13\\0.23.13\\http4s-blaze-core_2.13-0.23.13.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-server_2.13\\0.23.16\\http4s-server_2.13-0.23.16.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-client_2.13\\0.23.16\\http4s-client_2.13-0.23.16.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-core_2.13\\0.23.16\\http4s-core_2.13-0.23.16.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-jawn_2.13\\0.23.13\\http4s-jawn_2.13-0.23.13.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\postgis\\postgis-stubs\\1.3.3\\postgis-stubs-1.3.3.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-core_2.13\\3.2.9\\scalatest-core_2.13-3.2.9.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-featurespec_2.13\\3.2.9\\scalatest-featurespec_2.13-3.2.9.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-flatspec_2.13\\3.2.9\\scalatest-flatspec_2.13-3.2.9.jar",
@@ -63,32 +67,35 @@
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-matchers-core_2.13\\3.2.9\\scalatest-matchers-core_2.13-3.2.9.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-shouldmatchers_2.13\\3.2.9\\scalatest-shouldmatchers_2.13-3.2.9.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-mustmatchers_2.13\\3.2.9\\scalatest-mustmatchers_2.13-3.2.9.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\co\\fs2\\fs2-core_2.13\\3.2.5\\fs2-core_2.13-3.2.5.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-core_2.13\\2.7.0\\cats-core_2.13-2.7.0.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\co\\fs2\\fs2-core_2.13\\3.3.0\\fs2-core_2.13-3.3.0.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-core_2.13\\2.8.0\\cats-core_2.13-2.8.0.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-free_2.13\\2.7.0\\cats-free_2.13-2.7.0.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-effect_2.13\\3.3.5\\cats-effect_2.13-3.3.5.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\comcast\\ip4s-core_2.13\\3.1.2\\ip4s-core_2.13-3.1.2.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-effect_2.13\\3.3.14\\cats-effect_2.13-3.3.14.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\comcast\\ip4s-core_2.13\\3.2.0\\ip4s-core_2.13-3.2.0.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\checkerframework\\checker-qual\\3.5.0\\checker-qual-3.5.0.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-numbers_2.13\\0.14.1\\circe-numbers_2.13-0.14.1.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\jawn-parser_2.13\\1.3.2\\jawn-parser_2.13-1.3.2.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\blaze-http_2.13\\0.15.3\\blaze-http_2.13-0.15.3.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\case-insensitive_2.13\\1.2.0\\case-insensitive_2.13-1.2.0.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-effect-std_2.13\\3.3.7\\cats-effect-std_2.13-3.3.7.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-parse_2.13\\0.3.6\\cats-parse_2.13-0.3.6.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-crypto_2.13\\0.2.2\\http4s-crypto_2.13-0.2.2.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\literally_2.13\\1.0.2\\literally_2.13-1.0.2.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-numbers_2.13\\0.14.3\\circe-numbers_2.13-0.14.3.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\jawn-parser_2.13\\1.4.0\\jawn-parser_2.13-1.4.0.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\blaze-http_2.13\\0.23.13\\blaze-http_2.13-0.23.13.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\case-insensitive_2.13\\1.3.0\\case-insensitive_2.13-1.3.0.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-effect-std_2.13\\3.3.14\\cats-effect-std_2.13-3.3.14.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-parse_2.13\\0.3.8\\cats-parse_2.13-0.3.8.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-crypto_2.13\\0.2.4\\http4s-crypto_2.13-0.2.4.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\literally_2.13\\1.1.0\\literally_2.13-1.1.0.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scodec\\scodec-bits_2.13\\1.1.34\\scodec-bits_2.13-1.1.34.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\vault_2.13\\3.3.0\\vault_2.13-3.3.0.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\log4s\\log4s_2.13\\1.10.0\\log4s_2.13-1.10.0.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scodec\\scodec-bits_2.13\\1.1.30\\scodec-bits_2.13-1.1.30.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\vault_2.13\\3.1.0\\vault_2.13-3.1.0.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\log4cats-slf4j_2.13\\2.5.0\\log4cats-slf4j_2.13-2.5.0.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\jawn-fs2_2.13\\2.2.0\\jawn-fs2_2.13-2.2.0.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\postgresql\\postgresql\\8.3-603.jdbc4\\postgresql-8.3-603.jdbc4.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalatest\\scalatest-compatible\\3.2.9\\scalatest-compatible-3.2.9.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalactic\\scalactic_2.13\\3.2.9\\scalactic_2.13-3.2.9.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\modules\\scala-xml_2.13\\1.3.0\\scala-xml_2.13-1.3.0.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-kernel_2.13\\2.7.0\\cats-kernel_2.13-2.7.0.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-kernel_2.13\\2.8.0\\cats-kernel_2.13-2.8.0.jar",
             "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\simulacrum-scalafix-annotations_2.13\\0.5.4\\simulacrum-scalafix-annotations_2.13-0.5.4.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-effect-kernel_2.13\\3.3.7\\cats-effect-kernel_2.13-3.3.7.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\blaze-core_2.13\\0.15.3\\blaze-core_2.13-0.15.3.jar",
-            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\twitter\\hpack\\1.0.2\\hpack-1.0.2.jar"
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-effect-kernel_2.13\\3.3.14\\cats-effect-kernel_2.13-3.3.14.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\blaze-core_2.13\\0.23.13\\blaze-core_2.13-0.23.13.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\twitter\\hpack\\1.0.2\\hpack-1.0.2.jar",
+            "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\log4cats-core_2.13\\2.5.0\\log4cats-core_2.13-2.5.0.jar"
         ],
         "out": "C:\\Users\\moral\\arkon\\arkon-scalatraining\\.bloop\\arkon-scalatraining",
         "classesDir": "C:\\Users\\moral\\arkon\\arkon-scalatraining\\.bloop\\arkon-scalatraining\\scala-2.13\\test-classes",
@@ -253,68 +260,68 @@
                 {
                     "organization": "org.sangria-graphql",
                     "name": "sangria-ast_2.13",
-                    "version": "3.0.0",
+                    "version": "3.2.0",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "sangria-ast_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-ast_2.13\\3.0.0\\sangria-ast_2.13-3.0.0.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-ast_2.13\\3.2.0\\sangria-ast_2.13-3.2.0.jar"
                         },
                         {
                             "name": "sangria-ast_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-ast_2.13\\3.0.0\\sangria-ast_2.13-3.0.0-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-ast_2.13\\3.2.0\\sangria-ast_2.13-3.2.0-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "org.sangria-graphql",
                     "name": "sangria-parser_2.13",
-                    "version": "3.0.0",
+                    "version": "3.2.0",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "sangria-parser_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-parser_2.13\\3.0.0\\sangria-parser_2.13-3.0.0.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-parser_2.13\\3.2.0\\sangria-parser_2.13-3.2.0.jar"
                         },
                         {
                             "name": "sangria-parser_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-parser_2.13\\3.0.0\\sangria-parser_2.13-3.0.0-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-parser_2.13\\3.2.0\\sangria-parser_2.13-3.2.0-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "org.sangria-graphql",
                     "name": "sangria-core_2.13",
-                    "version": "3.0.0",
+                    "version": "3.2.0",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "sangria-core_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-core_2.13\\3.0.0\\sangria-core_2.13-3.0.0.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-core_2.13\\3.2.0\\sangria-core_2.13-3.2.0.jar"
                         },
                         {
                             "name": "sangria-core_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-core_2.13\\3.0.0\\sangria-core_2.13-3.0.0-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-core_2.13\\3.2.0\\sangria-core_2.13-3.2.0-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "org.sangria-graphql",
                     "name": "sangria-derivation_2.13",
-                    "version": "3.0.0",
+                    "version": "3.2.0",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "sangria-derivation_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-derivation_2.13\\3.0.0\\sangria-derivation_2.13-3.0.0.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-derivation_2.13\\3.2.0\\sangria-derivation_2.13-3.2.0.jar"
                         },
                         {
                             "name": "sangria-derivation_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-derivation_2.13\\3.0.0\\sangria-derivation_2.13-3.0.0-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-derivation_2.13\\3.2.0\\sangria-derivation_2.13-3.2.0-sources.jar"
                         }
                     ]
                 },
@@ -338,85 +345,119 @@
                 {
                     "organization": "io.circe",
                     "name": "circe-generic_2.13",
-                    "version": "0.14.1",
+                    "version": "0.14.3",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "circe-generic_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-generic_2.13\\0.14.1\\circe-generic_2.13-0.14.1.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-generic_2.13\\0.14.3\\circe-generic_2.13-0.14.3.jar"
                         },
                         {
                             "name": "circe-generic_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-generic_2.13\\0.14.1\\circe-generic_2.13-0.14.1-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-generic_2.13\\0.14.3\\circe-generic_2.13-0.14.3-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "io.circe",
                     "name": "circe-parser_2.13",
-                    "version": "0.14.1",
+                    "version": "0.14.3",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "circe-parser_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-parser_2.13\\0.14.1\\circe-parser_2.13-0.14.1.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-parser_2.13\\0.14.3\\circe-parser_2.13-0.14.3.jar"
                         },
                         {
                             "name": "circe-parser_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-parser_2.13\\0.14.1\\circe-parser_2.13-0.14.1-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-parser_2.13\\0.14.3\\circe-parser_2.13-0.14.3-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "org.http4s",
                     "name": "http4s-blaze-server_2.13",
-                    "version": "0.23.11",
+                    "version": "0.23.13",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "http4s-blaze-server_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-blaze-server_2.13\\0.23.11\\http4s-blaze-server_2.13-0.23.11.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-blaze-server_2.13\\0.23.13\\http4s-blaze-server_2.13-0.23.13.jar"
                         },
                         {
                             "name": "http4s-blaze-server_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-blaze-server_2.13\\0.23.11\\http4s-blaze-server_2.13-0.23.11-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-blaze-server_2.13\\0.23.13\\http4s-blaze-server_2.13-0.23.13-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.http4s",
+                    "name": "http4s-blaze-client_2.13",
+                    "version": "0.23.13",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "http4s-blaze-client_2.13",
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-blaze-client_2.13\\0.23.13\\http4s-blaze-client_2.13-0.23.13.jar"
+                        },
+                        {
+                            "name": "http4s-blaze-client_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-blaze-client_2.13\\0.23.13\\http4s-blaze-client_2.13-0.23.13-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "org.http4s",
                     "name": "http4s-circe_2.13",
-                    "version": "0.23.11",
+                    "version": "0.23.13",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "http4s-circe_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-circe_2.13\\0.23.11\\http4s-circe_2.13-0.23.11.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-circe_2.13\\0.23.13\\http4s-circe_2.13-0.23.13.jar"
                         },
                         {
                             "name": "http4s-circe_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-circe_2.13\\0.23.11\\http4s-circe_2.13-0.23.11-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-circe_2.13\\0.23.13\\http4s-circe_2.13-0.23.13-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "org.http4s",
                     "name": "http4s-dsl_2.13",
-                    "version": "0.23.11",
+                    "version": "0.23.13",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "http4s-dsl_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-dsl_2.13\\0.23.11\\http4s-dsl_2.13-0.23.11.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-dsl_2.13\\0.23.13\\http4s-dsl_2.13-0.23.13.jar"
                         },
                         {
                             "name": "http4s-dsl_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-dsl_2.13\\0.23.11\\http4s-dsl_2.13-0.23.11-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-dsl_2.13\\0.23.13\\http4s-dsl_2.13-0.23.13-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.postgis",
+                    "name": "postgis-jdbc",
+                    "version": "1.3.3",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "postgis-jdbc",
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\postgis\\postgis-jdbc\\1.3.3\\postgis-jdbc-1.3.3.jar"
+                        },
+                        {
+                            "name": "postgis-jdbc",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\postgis\\postgis-jdbc\\1.3.3\\postgis-jdbc-1.3.3-sources.jar"
                         }
                     ]
                 },
@@ -457,17 +498,17 @@
                 {
                     "organization": "com.chuusai",
                     "name": "shapeless_2.13",
-                    "version": "2.3.7",
+                    "version": "2.3.10",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "shapeless_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\chuusai\\shapeless_2.13\\2.3.7\\shapeless_2.13-2.3.7.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\chuusai\\shapeless_2.13\\2.3.10\\shapeless_2.13-2.3.10.jar"
                         },
                         {
                             "name": "shapeless_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\chuusai\\shapeless_2.13\\2.3.7\\shapeless_2.13-2.3.7-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\chuusai\\shapeless_2.13\\2.3.10\\shapeless_2.13-2.3.10-sources.jar"
                         }
                     ]
                 },
@@ -525,17 +566,17 @@
                 {
                     "organization": "co.fs2",
                     "name": "fs2-io_2.13",
-                    "version": "3.2.5",
+                    "version": "3.3.0",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "fs2-io_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\co\\fs2\\fs2-io_2.13\\3.2.5\\fs2-io_2.13-3.2.5.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\co\\fs2\\fs2-io_2.13\\3.3.0\\fs2-io_2.13-3.3.0.jar"
                         },
                         {
                             "name": "fs2-io_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\co\\fs2\\fs2-io_2.13\\3.2.5\\fs2-io_2.13-3.2.5-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\co\\fs2\\fs2-io_2.13\\3.3.0\\fs2-io_2.13-3.3.0-sources.jar"
                         }
                     ]
                 },
@@ -559,17 +600,17 @@
                 {
                     "organization": "org.parboiled",
                     "name": "parboiled_2.13",
-                    "version": "2.3.0",
+                    "version": "2.4.0",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "parboiled_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\parboiled\\parboiled_2.13\\2.3.0\\parboiled_2.13-2.3.0.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\parboiled\\parboiled_2.13\\2.4.0\\parboiled_2.13-2.4.0.jar"
                         },
                         {
                             "name": "parboiled_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\parboiled\\parboiled_2.13\\2.3.0\\parboiled_2.13-2.3.0-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\parboiled\\parboiled_2.13\\2.4.0\\parboiled_2.13-2.4.0-sources.jar"
                         }
                     ]
                 },
@@ -593,17 +634,17 @@
                 {
                     "organization": "org.sangria-graphql",
                     "name": "sangria-marshalling-api_2.13",
-                    "version": "1.0.7",
+                    "version": "1.0.8",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "sangria-marshalling-api_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-marshalling-api_2.13\\1.0.7\\sangria-marshalling-api_2.13-1.0.7.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-marshalling-api_2.13\\1.0.8\\sangria-marshalling-api_2.13-1.0.8.jar"
                         },
                         {
                             "name": "sangria-marshalling-api_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-marshalling-api_2.13\\1.0.7\\sangria-marshalling-api_2.13-1.0.7-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\sangria-graphql\\sangria-marshalling-api_2.13\\1.0.8\\sangria-marshalling-api_2.13-1.0.8-sources.jar"
                         }
                     ]
                 },
@@ -644,136 +685,170 @@
                 {
                     "organization": "io.circe",
                     "name": "circe-core_2.13",
-                    "version": "0.14.1",
+                    "version": "0.14.3",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "circe-core_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-core_2.13\\0.14.1\\circe-core_2.13-0.14.1.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-core_2.13\\0.14.3\\circe-core_2.13-0.14.3.jar"
                         },
                         {
                             "name": "circe-core_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-core_2.13\\0.14.1\\circe-core_2.13-0.14.1-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-core_2.13\\0.14.3\\circe-core_2.13-0.14.3-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "io.circe",
                     "name": "circe-jawn_2.13",
-                    "version": "0.14.1",
+                    "version": "0.14.3",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "circe-jawn_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-jawn_2.13\\0.14.1\\circe-jawn_2.13-0.14.1.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-jawn_2.13\\0.14.3\\circe-jawn_2.13-0.14.3.jar"
                         },
                         {
                             "name": "circe-jawn_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-jawn_2.13\\0.14.1\\circe-jawn_2.13-0.14.1-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-jawn_2.13\\0.14.3\\circe-jawn_2.13-0.14.3-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "org.http4s",
                     "name": "http4s-blaze-core_2.13",
-                    "version": "0.23.11",
+                    "version": "0.23.13",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "http4s-blaze-core_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-blaze-core_2.13\\0.23.11\\http4s-blaze-core_2.13-0.23.11.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-blaze-core_2.13\\0.23.13\\http4s-blaze-core_2.13-0.23.13.jar"
                         },
                         {
                             "name": "http4s-blaze-core_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-blaze-core_2.13\\0.23.11\\http4s-blaze-core_2.13-0.23.11-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-blaze-core_2.13\\0.23.13\\http4s-blaze-core_2.13-0.23.13-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "org.http4s",
                     "name": "http4s-server_2.13",
-                    "version": "0.23.11",
+                    "version": "0.23.16",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "http4s-server_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-server_2.13\\0.23.11\\http4s-server_2.13-0.23.11.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-server_2.13\\0.23.16\\http4s-server_2.13-0.23.16.jar"
                         },
                         {
                             "name": "http4s-server_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-server_2.13\\0.23.11\\http4s-server_2.13-0.23.11-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-server_2.13\\0.23.16\\http4s-server_2.13-0.23.16-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.http4s",
+                    "name": "http4s-client_2.13",
+                    "version": "0.23.16",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "http4s-client_2.13",
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-client_2.13\\0.23.16\\http4s-client_2.13-0.23.16.jar"
+                        },
+                        {
+                            "name": "http4s-client_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-client_2.13\\0.23.16\\http4s-client_2.13-0.23.16-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "org.http4s",
                     "name": "http4s-core_2.13",
-                    "version": "0.23.11",
+                    "version": "0.23.16",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "http4s-core_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-core_2.13\\0.23.11\\http4s-core_2.13-0.23.11.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-core_2.13\\0.23.16\\http4s-core_2.13-0.23.16.jar"
                         },
                         {
                             "name": "http4s-core_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-core_2.13\\0.23.11\\http4s-core_2.13-0.23.11-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-core_2.13\\0.23.16\\http4s-core_2.13-0.23.16-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "org.http4s",
                     "name": "http4s-jawn_2.13",
-                    "version": "0.23.11",
+                    "version": "0.23.13",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "http4s-jawn_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-jawn_2.13\\0.23.11\\http4s-jawn_2.13-0.23.11.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-jawn_2.13\\0.23.13\\http4s-jawn_2.13-0.23.13.jar"
                         },
                         {
                             "name": "http4s-jawn_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-jawn_2.13\\0.23.11\\http4s-jawn_2.13-0.23.11-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-jawn_2.13\\0.23.13\\http4s-jawn_2.13-0.23.13-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.postgis",
+                    "name": "postgis-stubs",
+                    "version": "1.3.3",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "postgis-stubs",
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\postgis\\postgis-stubs\\1.3.3\\postgis-stubs-1.3.3.jar"
+                        },
+                        {
+                            "name": "postgis-stubs",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\postgis\\postgis-stubs\\1.3.3\\postgis-stubs-1.3.3-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "co.fs2",
                     "name": "fs2-core_2.13",
-                    "version": "3.2.5",
+                    "version": "3.3.0",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "fs2-core_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\co\\fs2\\fs2-core_2.13\\3.2.5\\fs2-core_2.13-3.2.5.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\co\\fs2\\fs2-core_2.13\\3.3.0\\fs2-core_2.13-3.3.0.jar"
                         },
                         {
                             "name": "fs2-core_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\co\\fs2\\fs2-core_2.13\\3.2.5\\fs2-core_2.13-3.2.5-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\co\\fs2\\fs2-core_2.13\\3.3.0\\fs2-core_2.13-3.3.0-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "org.typelevel",
                     "name": "cats-core_2.13",
-                    "version": "2.7.0",
+                    "version": "2.8.0",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "cats-core_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-core_2.13\\2.7.0\\cats-core_2.13-2.7.0.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-core_2.13\\2.8.0\\cats-core_2.13-2.8.0.jar"
                         },
                         {
                             "name": "cats-core_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-core_2.13\\2.7.0\\cats-core_2.13-2.7.0-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-core_2.13\\2.8.0\\cats-core_2.13-2.8.0-sources.jar"
                         }
                     ]
                 },
@@ -797,34 +872,34 @@
                 {
                     "organization": "org.typelevel",
                     "name": "cats-effect_2.13",
-                    "version": "3.3.5",
+                    "version": "3.3.14",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "cats-effect_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-effect_2.13\\3.3.5\\cats-effect_2.13-3.3.5.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-effect_2.13\\3.3.14\\cats-effect_2.13-3.3.14.jar"
                         },
                         {
                             "name": "cats-effect_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-effect_2.13\\3.3.5\\cats-effect_2.13-3.3.5-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-effect_2.13\\3.3.14\\cats-effect_2.13-3.3.14-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "com.comcast",
                     "name": "ip4s-core_2.13",
-                    "version": "3.1.2",
+                    "version": "3.2.0",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "ip4s-core_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\comcast\\ip4s-core_2.13\\3.1.2\\ip4s-core_2.13-3.1.2.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\comcast\\ip4s-core_2.13\\3.2.0\\ip4s-core_2.13-3.2.0.jar"
                         },
                         {
                             "name": "ip4s-core_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\comcast\\ip4s-core_2.13\\3.1.2\\ip4s-core_2.13-3.1.2-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\comcast\\ip4s-core_2.13\\3.2.0\\ip4s-core_2.13-3.2.0-sources.jar"
                         }
                     ]
                 },
@@ -848,136 +923,170 @@
                 {
                     "organization": "io.circe",
                     "name": "circe-numbers_2.13",
-                    "version": "0.14.1",
+                    "version": "0.14.3",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "circe-numbers_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-numbers_2.13\\0.14.1\\circe-numbers_2.13-0.14.1.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-numbers_2.13\\0.14.3\\circe-numbers_2.13-0.14.3.jar"
                         },
                         {
                             "name": "circe-numbers_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-numbers_2.13\\0.14.1\\circe-numbers_2.13-0.14.1-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\circe\\circe-numbers_2.13\\0.14.3\\circe-numbers_2.13-0.14.3-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "org.typelevel",
                     "name": "jawn-parser_2.13",
-                    "version": "1.3.2",
+                    "version": "1.4.0",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "jawn-parser_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\jawn-parser_2.13\\1.3.2\\jawn-parser_2.13-1.3.2.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\jawn-parser_2.13\\1.4.0\\jawn-parser_2.13-1.4.0.jar"
                         },
                         {
                             "name": "jawn-parser_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\jawn-parser_2.13\\1.3.2\\jawn-parser_2.13-1.3.2-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\jawn-parser_2.13\\1.4.0\\jawn-parser_2.13-1.4.0-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "org.http4s",
                     "name": "blaze-http_2.13",
-                    "version": "0.15.3",
+                    "version": "0.23.13",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "blaze-http_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\blaze-http_2.13\\0.15.3\\blaze-http_2.13-0.15.3.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\blaze-http_2.13\\0.23.13\\blaze-http_2.13-0.23.13.jar"
                         },
                         {
                             "name": "blaze-http_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\blaze-http_2.13\\0.15.3\\blaze-http_2.13-0.15.3-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\blaze-http_2.13\\0.23.13\\blaze-http_2.13-0.23.13-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "org.typelevel",
                     "name": "case-insensitive_2.13",
-                    "version": "1.2.0",
+                    "version": "1.3.0",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "case-insensitive_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\case-insensitive_2.13\\1.2.0\\case-insensitive_2.13-1.2.0.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\case-insensitive_2.13\\1.3.0\\case-insensitive_2.13-1.3.0.jar"
                         },
                         {
                             "name": "case-insensitive_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\case-insensitive_2.13\\1.2.0\\case-insensitive_2.13-1.2.0-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\case-insensitive_2.13\\1.3.0\\case-insensitive_2.13-1.3.0-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "org.typelevel",
                     "name": "cats-effect-std_2.13",
-                    "version": "3.3.7",
+                    "version": "3.3.14",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "cats-effect-std_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-effect-std_2.13\\3.3.7\\cats-effect-std_2.13-3.3.7.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-effect-std_2.13\\3.3.14\\cats-effect-std_2.13-3.3.14.jar"
                         },
                         {
                             "name": "cats-effect-std_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-effect-std_2.13\\3.3.7\\cats-effect-std_2.13-3.3.7-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-effect-std_2.13\\3.3.14\\cats-effect-std_2.13-3.3.14-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "org.typelevel",
                     "name": "cats-parse_2.13",
-                    "version": "0.3.6",
+                    "version": "0.3.8",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "cats-parse_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-parse_2.13\\0.3.6\\cats-parse_2.13-0.3.6.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-parse_2.13\\0.3.8\\cats-parse_2.13-0.3.8.jar"
                         },
                         {
                             "name": "cats-parse_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-parse_2.13\\0.3.6\\cats-parse_2.13-0.3.6-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-parse_2.13\\0.3.8\\cats-parse_2.13-0.3.8-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "org.http4s",
                     "name": "http4s-crypto_2.13",
-                    "version": "0.2.2",
+                    "version": "0.2.4",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "http4s-crypto_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-crypto_2.13\\0.2.2\\http4s-crypto_2.13-0.2.2.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-crypto_2.13\\0.2.4\\http4s-crypto_2.13-0.2.4.jar"
                         },
                         {
                             "name": "http4s-crypto_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-crypto_2.13\\0.2.2\\http4s-crypto_2.13-0.2.2-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\http4s-crypto_2.13\\0.2.4\\http4s-crypto_2.13-0.2.4-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "org.typelevel",
                     "name": "literally_2.13",
-                    "version": "1.0.2",
+                    "version": "1.1.0",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "literally_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\literally_2.13\\1.0.2\\literally_2.13-1.0.2.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\literally_2.13\\1.1.0\\literally_2.13-1.1.0.jar"
                         },
                         {
                             "name": "literally_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\literally_2.13\\1.0.2\\literally_2.13-1.0.2-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\literally_2.13\\1.1.0\\literally_2.13-1.1.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scodec",
+                    "name": "scodec-bits_2.13",
+                    "version": "1.1.34",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scodec-bits_2.13",
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scodec\\scodec-bits_2.13\\1.1.34\\scodec-bits_2.13-1.1.34.jar"
+                        },
+                        {
+                            "name": "scodec-bits_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scodec\\scodec-bits_2.13\\1.1.34\\scodec-bits_2.13-1.1.34-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "vault_2.13",
+                    "version": "3.3.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "vault_2.13",
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\vault_2.13\\3.3.0\\vault_2.13-3.3.0.jar"
+                        },
+                        {
+                            "name": "vault_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\vault_2.13\\3.3.0\\vault_2.13-3.3.0-sources.jar"
                         }
                     ]
                 },
@@ -999,36 +1108,19 @@
                     ]
                 },
                 {
-                    "organization": "org.scodec",
-                    "name": "scodec-bits_2.13",
-                    "version": "1.1.30",
-                    "configurations": "default",
-                    "artifacts": [
-                        {
-                            "name": "scodec-bits_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scodec\\scodec-bits_2.13\\1.1.30\\scodec-bits_2.13-1.1.30.jar"
-                        },
-                        {
-                            "name": "scodec-bits_2.13",
-                            "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scodec\\scodec-bits_2.13\\1.1.30\\scodec-bits_2.13-1.1.30-sources.jar"
-                        }
-                    ]
-                },
-                {
                     "organization": "org.typelevel",
-                    "name": "vault_2.13",
-                    "version": "3.1.0",
+                    "name": "log4cats-slf4j_2.13",
+                    "version": "2.5.0",
                     "configurations": "default",
                     "artifacts": [
                         {
-                            "name": "vault_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\vault_2.13\\3.1.0\\vault_2.13-3.1.0.jar"
+                            "name": "log4cats-slf4j_2.13",
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\log4cats-slf4j_2.13\\2.5.0\\log4cats-slf4j_2.13-2.5.0.jar"
                         },
                         {
-                            "name": "vault_2.13",
+                            "name": "log4cats-slf4j_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\vault_2.13\\3.1.0\\vault_2.13-3.1.0-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\log4cats-slf4j_2.13\\2.5.0\\log4cats-slf4j_2.13-2.5.0-sources.jar"
                         }
                     ]
                 },
@@ -1050,19 +1142,31 @@
                     ]
                 },
                 {
+                    "organization": "postgresql",
+                    "name": "postgresql",
+                    "version": "8.3-603.jdbc4",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "postgresql",
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\postgresql\\postgresql\\8.3-603.jdbc4\\postgresql-8.3-603.jdbc4.jar"
+                        }
+                    ]
+                },
+                {
                     "organization": "org.typelevel",
                     "name": "cats-kernel_2.13",
-                    "version": "2.7.0",
+                    "version": "2.8.0",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "cats-kernel_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-kernel_2.13\\2.7.0\\cats-kernel_2.13-2.7.0.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-kernel_2.13\\2.8.0\\cats-kernel_2.13-2.8.0.jar"
                         },
                         {
                             "name": "cats-kernel_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-kernel_2.13\\2.7.0\\cats-kernel_2.13-2.7.0-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-kernel_2.13\\2.8.0\\cats-kernel_2.13-2.8.0-sources.jar"
                         }
                     ]
                 },
@@ -1086,34 +1190,34 @@
                 {
                     "organization": "org.typelevel",
                     "name": "cats-effect-kernel_2.13",
-                    "version": "3.3.7",
+                    "version": "3.3.14",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "cats-effect-kernel_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-effect-kernel_2.13\\3.3.7\\cats-effect-kernel_2.13-3.3.7.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-effect-kernel_2.13\\3.3.14\\cats-effect-kernel_2.13-3.3.14.jar"
                         },
                         {
                             "name": "cats-effect-kernel_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-effect-kernel_2.13\\3.3.7\\cats-effect-kernel_2.13-3.3.7-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\cats-effect-kernel_2.13\\3.3.14\\cats-effect-kernel_2.13-3.3.14-sources.jar"
                         }
                     ]
                 },
                 {
                     "organization": "org.http4s",
                     "name": "blaze-core_2.13",
-                    "version": "0.15.3",
+                    "version": "0.23.13",
                     "configurations": "default",
                     "artifacts": [
                         {
                             "name": "blaze-core_2.13",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\blaze-core_2.13\\0.15.3\\blaze-core_2.13-0.15.3.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\blaze-core_2.13\\0.23.13\\blaze-core_2.13-0.23.13.jar"
                         },
                         {
                             "name": "blaze-core_2.13",
                             "classifier": "sources",
-                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\blaze-core_2.13\\0.15.3\\blaze-core_2.13-0.15.3-sources.jar"
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\http4s\\blaze-core_2.13\\0.23.13\\blaze-core_2.13-0.23.13-sources.jar"
                         }
                     ]
                 },
@@ -1131,6 +1235,23 @@
                             "name": "hpack",
                             "classifier": "sources",
                             "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\twitter\\hpack\\1.0.2\\hpack-1.0.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "log4cats-core_2.13",
+                    "version": "2.5.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "log4cats-core_2.13",
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\log4cats-core_2.13\\2.5.0\\log4cats-core_2.13-2.5.0.jar"
+                        },
+                        {
+                            "name": "log4cats-core_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\moral\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\typelevel\\log4cats-core_2.13\\2.5.0\\log4cats-core_2.13-2.5.0-sources.jar"
                         }
                     ]
                 },

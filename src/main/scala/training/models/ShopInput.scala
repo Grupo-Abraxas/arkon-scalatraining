@@ -1,7 +1,6 @@
 package training.models
 
-case class Shop(
-    id: Long,
+case class ShopInput(
     name: String,
     businessName: Option[String],
     activity: String,

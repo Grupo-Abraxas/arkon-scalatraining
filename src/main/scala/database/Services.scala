@@ -5,10 +5,20 @@ import cats.effect.unsafe.implicits.global
 
 import doobie.implicits._
 
-import training.models.{Activity, Stratum, ShopType, Shop}
+import training.models.{Activity, Stratum, ShopType, Shop, ShopInput}
 
 object Services {
-    def findShopById(id: Long): IO[Option[Shop]] = Query.findShopById(id).transact(Database.tx)
+    def findShopById(id: Long): IO[Option[Shop]] =
+        Query.findShopById(id).transact(Database.tx)
+
+    def listShops(limit: Int, offset: Int): IO[List[Shop]] =
+        Query.listShops(limit, offset).transact(Database.tx)
+
+    def nearbyShops(limit: Int, lat: Double, lng: Double): IO[List[Shop]] =
+        Query.nearbyShops(limit, lat, lng).transact(Database.tx)
+
+    def shopsInRadius(radius: Int, lat: Double, lng: Double): IO[List[Shop]] =
+        Query.shopsInRadius(radius, lat, lng).transact(Database.tx)
 
     def getActivity(name: String): Activity = {
         val findActivity: Option[Activity] = findActivityByName(name).unsafeRunSync()
@@ -25,38 +35,26 @@ object Services {
         findShopType getOrElse insertShopType(name).unsafeRunSync()
     }
 
-    def insertShop(
-        name: String,
-        businessName: Option[String],
-        activity: Activity,
-        stratum: Stratum,
-        roadType: String,
-        street: String,
-        extNum: String,
-        intNum: String,
-        settlement: String,
-        postalCode: String,
-        location: String,
-        phoneNumber: Option[String],
-        email: Option[String],
-        website: Option[String],
-        shopType: ShopType,
-        longitude: String,
-        latitude: String
-    ): IO[Shop] =
+    def insertShop(shopInput: ShopInput
+    ): IO[Shop] = {
+        val activity: Activity = Services.getActivity(shopInput.activity)
+        val stratum: Stratum = Services.getStratum(shopInput.stratum)
+        val shopType: ShopType = Services.getShopType(shopInput.shopType)
+
         Query.insertShop(
-            name,
-            businessName,
+            shopInput.name,
+            shopInput.businessName,
             activity.id,
             stratum.id,
-            s"$roadType $street $settlement $postalCode",
-            phoneNumber,
-            email,
-            website,
+            shopInput.address,
+            shopInput.phoneNumber,
+            shopInput.email,
+            shopInput.website,
             shopType.id,
-            longitude,
-            latitude
+            shopInput.latitude,
+            shopInput.longitude
         ).transact(Database.tx)
+    }
 
     def findActivityByName(name: String): IO[Option[Activity]] =
         Query.findActivityByName(name).transact(Database.tx)

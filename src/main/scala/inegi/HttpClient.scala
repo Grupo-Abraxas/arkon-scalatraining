@@ -12,7 +12,7 @@ import io.circe.generic.auto._
 
 import database.Services
 import inegi.models.InegiResponse
-import training.models.{Activity, Stratum, ShopType, Shop}
+import training.models.{Shop, ShopInput}
 object HttpClient extends IOApp {
   implicit val decoder = jsonOf[IO, List[InegiResponse]]
 
@@ -25,30 +25,23 @@ object HttpClient extends IOApp {
         val r = callApi(client, "1ba9b452-4631-45f5-9452-bd31b03bdf8b").unsafeRunSync()
 
         for (item <- r){
-          val activity: Activity = Services.getActivity(item.Clase_actividad)
-          val stratum: Stratum = Services.getStratum(item.Estrato)
-          val shopType: ShopType = Services.getShopType(item.Tipo)
-
-          val shop: Shop = Services.insertShop(
+          val shopInput = ShopInput(
             name = item.Nombre,
             businessName = item.Razon_social,
-            activity = activity,
-            stratum = stratum,
-            roadType = item.Tipo_vialidad,
-            street = item.Calle,
-            extNum = item.Num_Exterior,
-            intNum = item.Num_Exterior,
-            settlement = item.Colonia,
-            postalCode = item.CP,
-            location = item.Ubicacion,
+            activity = item.Clase_actividad,
+            stratum = item.Estrato,
+            address = s"${item.Tipo_vialidad} ${item.Calle} ${item.Colonia} ${item.CP}",
             phoneNumber = item.Telefono,
             email = item.Correo_e,
             website = item.Sitio_internet,
-            shopType = shopType,
-            longitude = item.Longitud,
-            latitude = item.Latitud).unsafeRunSync()
+            shopType = item.Tipo,
+            longitude = item.Longitud.toFloat,
+            latitude = item.Latitud.toFloat
+          )
           
-          println(shop)
+          val shop: Shop = Services.insertShop(shopInput).unsafeRunSync()
+          
+          println(s"${shop.name} <- Cargado!")
         }
         
         IO.unit

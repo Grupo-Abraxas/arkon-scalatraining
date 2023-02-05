@@ -12,6 +12,7 @@ import scala.language.postfixOps
 
 import io.circe._
 import io.circe.generic.auto._
+import io.circe.syntax._
 
 import sangria.execution.{ Executor => Ex }
 import sangria.marshalling.circe._
@@ -25,8 +26,6 @@ import training.repository.{Repo}
 import training.graphql.Parser
 
 object Executor {
-    implicit val decoder = jsonOf[IO, RequestJson]
-
     def execute(requestJson: RequestJson) = {
         val qs = requestJson.query.stripMargin
         

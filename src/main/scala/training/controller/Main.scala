@@ -1,4 +1,4 @@
-package training
+package training.controller
 
 import cats.effect._
 
@@ -11,21 +11,12 @@ import org.http4s.circe._
 import org.http4s.dsl.io._
 import org.http4s.server.blaze.BlazeServerBuilder
 
-import doobie._
-import doobie.implicits._
-import doobie.hikari._
-
+import database.Database.{transactor}
 import training.models.{RequestJson}
 import training.graphql.Executor
 
 object Main extends IOApp {
   implicit val decoder = jsonOf[IO, RequestJson]
-
-  val transactor: Resource[IO, HikariTransactor[IO]] =
-  for {
-    ce <- ExecutionContexts.fixedThreadPool[IO](32)
-    xa <- HikariTransactor.newHikariTransactor[IO]("org.postgresql.Driver", "jdbc:postgresql:inegi", "postgres", "secret", ce)
-  } yield xa
 
   val app = HttpRoutes.of[IO] {
     case request @ POST -> Root / "graphql" =>

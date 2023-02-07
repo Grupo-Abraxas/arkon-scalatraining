@@ -39,9 +39,9 @@ object HttpClient extends IOApp {
             latitude = item.Latitud.toFloat
           )
           
-          val shop: Shop = Services.insertShop(shopInput).unsafeRunSync()
+          // val shop: Shop = Services.insertShop(shopInput).unsafeRunSync()
           
-          println(s"${shop.name} <- Cargado!")
+          // println(s"${shop.name} <- Cargado!")
         }
         
         IO.unit

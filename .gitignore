@@ -18,6 +18,7 @@ build
 *.ipr
 *.iws
 .idea
+.bloop
 
 # mac
 .DS_Store

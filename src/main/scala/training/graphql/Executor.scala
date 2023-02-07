@@ -20,18 +20,20 @@ import sangria.marshalling.circe._
 import org.http4s.circe._
 import org.http4s.dsl.io._
 
+import doobie.hikari.HikariTransactor
+
 import training.models.{RequestJson}
 import training.graphql.Sangria.{schema}
 import training.repository.{Repo}
 import training.graphql.Parser
 
 object Executor {
-    def execute(requestJson: RequestJson) = {
+    def execute(db: HikariTransactor[IO], requestJson: RequestJson) = {
         val qs = requestJson.query.stripMargin
         
         Parser.parse(qs) match {
             case Right(document) => {
-                val result: Future[Json] = Ex.execute(schema, document,  new Repo)
+                val result: Future[Json] = Ex.execute(schema, document,  new Repo(db))
                 // Ok(IO.fromFuture(IO(exec)))
                 Try(Await.result(result, 10 seconds)) match {
                     case Success(result) => {

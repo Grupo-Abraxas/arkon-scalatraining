@@ -4,21 +4,22 @@ import cats.effect._
 import cats.effect.unsafe.implicits.global
 
 import doobie.implicits._
+import doobie.hikari.HikariTransactor
 
 import training.models.{Activity, Stratum, ShopType, Shop, ShopInput}
 
-object Services {
+class Services(db: HikariTransactor[IO]) {
     def findShopById(id: Long): IO[Option[Shop]] =
-        Query.findShopById(id).transact(Database.tx)
+        Query.findShopById(id).transact(db)
 
     def listShops(limit: Int, offset: Int): IO[List[Shop]] =
-        Query.listShops(limit, offset).transact(Database.tx)
+        Query.listShops(limit, offset).transact(db)
 
     def nearbyShops(limit: Int, lat: Double, lng: Double): IO[List[Shop]] =
-        Query.nearbyShops(limit, lat, lng).transact(Database.tx)
+        Query.nearbyShops(limit, lat, lng).transact(db)
 
     def shopsInRadius(radius: Int, lat: Double, lng: Double): IO[List[Shop]] =
-        Query.shopsInRadius(radius, lat, lng).transact(Database.tx)
+        Query.shopsInRadius(radius, lat, lng).transact(db)
 
     def getActivity(name: String): Activity = {
         val findActivity: Option[Activity] = findActivityByName(name).unsafeRunSync()
@@ -37,9 +38,9 @@ object Services {
 
     def insertShop(shopInput: ShopInput
     ): IO[Shop] = {
-        val activity: Activity = Services.getActivity(shopInput.activity)
-        val stratum: Stratum = Services.getStratum(shopInput.stratum)
-        val shopType: ShopType = Services.getShopType(shopInput.shopType)
+        val activity: Activity = getActivity(shopInput.activity)
+        val stratum: Stratum = getStratum(shopInput.stratum)
+        val shopType: ShopType = getShopType(shopInput.shopType)
 
         Query.insertShop(
             shopInput.name,
@@ -53,24 +54,24 @@ object Services {
             shopType.id,
             shopInput.latitude,
             shopInput.longitude
-        ).transact(Database.tx)
+        ).transact(db)
     }
 
     def findActivityByName(name: String): IO[Option[Activity]] =
-        Query.findActivityByName(name).transact(Database.tx)
+        Query.findActivityByName(name).transact(db)
 
     def findStratumByName(name: String): IO[Option[Stratum]] =
-        Query.findStratumByName(name).transact(Database.tx)
+        Query.findStratumByName(name).transact(db)
 
     def findShopTypeByName(name: String): IO[Option[ShopType]] =
-        Query.findShopTypeByName(name).transact(Database.tx)
+        Query.findShopTypeByName(name).transact(db)
 
     def insertActivity(name: String): IO[Activity] =
-        Query.insertActivity(name).transact(Database.tx)
+        Query.insertActivity(name).transact(db)
 
     def insertStratum(name: String): IO[Stratum] =
-        Query.insertStratum(name).transact(Database.tx)
+        Query.insertStratum(name).transact(db)
 
     def insertShopType(name: String): IO[ShopType] =
-        Query.insertShopType(name).transact(Database.tx)
+        Query.insertShopType(name).transact(db)
 }

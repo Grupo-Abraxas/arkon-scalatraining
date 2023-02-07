@@ -27,6 +27,13 @@ import training.graphql.Sangria.{schema}
 import training.repository.{Repo}
 import training.graphql.Parser
 
+/** Respuesta genérica de error.
+ *
+ *  @constructor crea la respuesta de error
+ *  @param error mensaje de error
+ */
+case class ErrorResponse(error: String)
+
 /** Fabrica para instancias de [[training.graphql.Executor]]. */
 object Executor {
     /** Usa la definición de sangria para ejecutar un query
@@ -41,19 +48,19 @@ object Executor {
         Parser.parse(qs) match {
             case Right(document) => {
                 val result: Future[Json] = Ex.execute(schema, document,  new Repo(db))
-                // Ok(IO.fromFuture(IO(exec)))
                 Try(Await.result(result, 10 seconds)) match {
-                    case Success(result) => {
-                        Ok(result)
-                    }
-                    case Failure(error) => {
-                        BadRequest(s"Error: ${error.getMessage}")
-                    }
+                    case Success(result) => Ok(result)
+                    case Failure(error) => responseWithError(error.getMessage)
                 }
             }
-            case Left(err) => {
-                BadRequest(s"Syntax error: ${err.getMessage}")
-            }
+            case Left(error) => responseWithError(error.getMessage)
         }
     }
+
+    /** Regresa una respuesta con error
+     *
+     *  @param message mensaje de error
+     *  @return IO.
+     */
+    def responseWithError(message: String) = BadRequest(ErrorResponse(message).asJson)
 }

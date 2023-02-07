@@ -39,25 +39,25 @@ object Sangria {
     val Longitude = Argument("lng", FloatType)
 
     val QueryType = ObjectType("Query", fields[Repo, Unit](
-      Field("shop", OptionType(ShopType),
-        description = Some("Returns a Shop with specific `id`."),
-        arguments = Id :: Nil,
-        resolve = c => c.ctx.shop(c arg Id).unsafeToFuture),
+        Field("shop", OptionType(ShopType),
+            description = Some("Returns a Shop with specific `id`."),
+            arguments = Id :: Nil,
+            resolve = c => c.ctx.shop(c arg Id).unsafeToFuture),
 
-      Field("shops", ListType(ShopType),
-        arguments = Limit :: Offset :: Nil,
-        description = Some("Returns a list of all available shops."),
-        resolve = c => c.ctx.listShops(c.arg(Limit), c.arg(Offset)).unsafeToFuture),
+        Field("shops", ListType(ShopType),
+            arguments = Limit :: Offset :: Nil,
+            description = Some("Returns a list of all available shops."),
+            resolve = c => c.ctx.listShops(c.arg(Limit), c.arg(Offset)).unsafeToFuture),
 
-      Field("nearbyShops", ListType(ShopType),
-        arguments = Limit :: Latitude :: Longitude :: Nil,
-        description = Some("Returns a list of all available shops."),
-        resolve = c => c.ctx.nearbyShops(c.arg(Limit), c.arg(Latitude), c.arg(Longitude)).unsafeToFuture),
+        Field("nearbyShops", ListType(ShopType),
+            arguments = Limit :: Latitude :: Longitude :: Nil,
+            description = Some("Returns a list of all available shops."),
+            resolve = c => c.ctx.nearbyShops(c.arg(Limit), c.arg(Latitude), c.arg(Longitude)).unsafeToFuture),
 
-      Field("shopsInRadius", ListType(ShopType),
-        arguments = Radius :: Latitude :: Longitude :: Nil,
-        description = Some("Returns a list of all available shops."),
-        resolve = c => c.ctx.shopsInRadius(c.arg(Radius), c.arg(Latitude), c.arg(Longitude)).unsafeToFuture)))
+        Field("shopsInRadius", ListType(ShopType),
+            arguments = Radius :: Latitude :: Longitude :: Nil,
+            description = Some("Returns a list of all available shops."),
+            resolve = c => c.ctx.shopsInRadius(c.arg(Radius), c.arg(Latitude), c.arg(Longitude)).unsafeToFuture)))
     
     val CreateShopInput = InputObjectType[ShopInput]("ShopInput", List(
         InputField("name", StringType),

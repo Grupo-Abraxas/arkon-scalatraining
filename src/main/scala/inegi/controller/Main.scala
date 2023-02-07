@@ -2,6 +2,7 @@ package inegi.controller
 
 import cats.effect.unsafe.implicits.global
 import cats.effect.{ExitCode, IO, IOApp}
+
 import org.http4s._
 import org.http4s.circe._
 import org.http4s.blaze.client.BlazeClientBuilder

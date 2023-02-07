@@ -117,8 +117,7 @@ object Query {
      */
     def insertActivity(name: String): ConnectionIO[Activity] =
         for {
-            _  <- sql"insert into comercial_activity (name) values ($name)".update.run
-            id <- sql"select lastval()".query[Long].unique
+            id  <- sql"insert into comercial_activity (name) values ($name)".update.withUniqueGeneratedKeys[Long]("id")
             p  <- sql"select id, name from comercial_activity where id = $id".query[Activity].unique
         } yield p
 
@@ -129,8 +128,7 @@ object Query {
      */
     def insertStratum(name: String): ConnectionIO[Stratum] =
         for {
-            _  <- sql"insert into stratum (name) values ($name)".update.run
-            id <- sql"select lastval()".query[Long].unique
+            id  <- sql"insert into stratum (name) values ($name)".update.withUniqueGeneratedKeys[Long]("id")
             p  <- sql"select id, name from stratum where id = $id".query[Stratum].unique
         } yield p
 
@@ -141,8 +139,7 @@ object Query {
      */
     def insertShopType(name: String): ConnectionIO[ShopType] =
         for {
-            _  <- sql"insert into shop_type (name) values ($name)".update.run
-            id <- sql"select lastval()".query[Long].unique
+            id  <- sql"insert into shop_type (name) values ($name)".update.withUniqueGeneratedKeys[Long]("id")
             p  <- sql"select id, name from shop_type where id = $id".query[ShopType].unique
         } yield p
     

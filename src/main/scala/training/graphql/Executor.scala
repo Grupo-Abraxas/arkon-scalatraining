@@ -27,7 +27,14 @@ import training.graphql.Sangria.{schema}
 import training.repository.{Repo}
 import training.graphql.Parser
 
+/** Fabrica para instancias de [[training.graphql.Executor]]. */
 object Executor {
+    /** Usa la definición de sangria para ejecutar un query
+     *
+     *  @param db transactor de base de datos
+     *  @param requestJson petición en formato JSON
+     *  @return IO.
+     */
     def execute(db: HikariTransactor[IO], requestJson: RequestJson) = {
         val qs = requestJson.query.stripMargin
         

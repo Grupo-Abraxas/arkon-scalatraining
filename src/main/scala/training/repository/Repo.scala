@@ -8,6 +8,11 @@ import doobie.hikari.HikariTransactor
 import training.models.{Shop, ShopInput}
 import database.Services
 
+/** Repositorio.
+ *
+ *  @constructor crea el Repositorio
+ *  @param db transactor de base de datos
+ */
 class Repo(db: HikariTransactor[IO]) {
     val service = new Services(db)
 

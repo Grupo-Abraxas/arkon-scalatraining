@@ -20,23 +20,23 @@ object Main extends IOApp {
 
   val app = HttpRoutes.of[IO] {
     case request @ POST -> Root / "graphql" =>
-      transactor.use { xa =>
-        for {
-          requestJson <- request.as[RequestJson]
-          response <- Executor.execute(xa, requestJson)
-        } yield response
-      }
+        transactor.use { xa =>
+            for {
+            requestJson <- request.as[RequestJson]
+            response <- Executor.execute(xa, requestJson)
+            } yield response
+        }
     case request @ GET -> Root =>
-      StaticFile.fromResource("/assets/graphiql.html", Some(request)).getOrElseF(NotFound())
+        StaticFile.fromResource("/assets/graphiql.html", Some(request)).getOrElseF(NotFound())
   }
 
   def run(args: List[String]): IO[ExitCode] = {
     BlazeServerBuilder[IO](global)
-      .bindHttp(8080, "localhost")
-      .withHttpApp(app.orNotFound)
-      .serve
-      .compile
-      .drain
-      .as(ExitCode.Success)
+        .bindHttp(8080, "localhost")
+        .withHttpApp(app.orNotFound)
+        .serve
+        .compile
+        .drain
+        .as(ExitCode.Success)
   }
 }

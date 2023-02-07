@@ -32,3 +32,6 @@ build
 
 #general
 *.class
+
+# database configuration
+src/main/resources/application.conf

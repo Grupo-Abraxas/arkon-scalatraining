@@ -24,6 +24,7 @@ libraryDependencies ++= Seq(
   "org.http4s" %% "http4s-dsl"          % "0.23.13",
 
   "org.postgis" % "postgis-jdbc" % "1.3.3",
+  "com.github.pureconfig" %% "pureconfig" % "0.17.2",
   
   "org.scalatest" %% "scalatest"    % "3.2.9" % "test"
 )

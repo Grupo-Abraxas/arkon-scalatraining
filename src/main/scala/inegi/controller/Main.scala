@@ -25,33 +25,27 @@ object Main extends IOApp {
     BlazeClientBuilder[IO].resource
       .use { client =>
         val response = callApi(client, "1ba9b452-4631-45f5-9452-bd31b03bdf8b").unsafeRunSync()
-
         Database.transactor.use { xa =>
           val serv = new Services(xa)
-
           for (item <- response){
             val shopInput = ShopInput(
-              name = item.Nombre,
-              businessName = item.Razon_social,
-              activity = item.Clase_actividad,
-              stratum = item.Estrato,
-              address = s"${item.Tipo_vialidad} ${item.Calle} ${item.Colonia} ${item.CP}",
-              phoneNumber = item.Telefono,
-              email = item.Correo_e,
-              website = item.Sitio_internet,
-              shopType = item.Tipo,
-              longitude = item.Longitud.toFloat,
-              latitude = item.Latitud.toFloat
-            )
+               name = item.Nombre,
+               businessName = item.Razon_social,
+               activity = item.Clase_actividad,
+               stratum = item.Estrato,
+               address = s"${item.Tipo_vialidad} ${item.Calle} ${item.Colonia} ${item.CP}",
+               phoneNumber = item.Telefono,
+               email = item.Correo_e,
+               website = item.Sitio_internet,
+               shopType = item.Tipo,
+               longitude = item.Longitud.toFloat,
+               latitude = item.Latitud.toFloat)
 
             val shop: Shop = serv.insertShop(shopInput).unsafeRunSync()
             println(s"${shop.name} <- Inserted!")
           }
-
           IO.unit
         }
-        
-        // IO.unit
       }
       .as(ExitCode.Success)
 }

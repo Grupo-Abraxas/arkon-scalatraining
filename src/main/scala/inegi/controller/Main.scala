@@ -19,8 +19,14 @@ object Main extends IOApp {
   implicit val decoder = jsonOf[IO, List[InegiResponse]]
 
   def callApi(client: Client[IO], token: String): IO[List[InegiResponse]] =
-    client.expect[List[InegiResponse]](uri"https://www.inegi.org.mx/app/api/denue/v1/consulta/Buscar/restaurante/21.85717833,-102.28487238/5000/" / token)
+    client.expect[List[InegiResponse]](uri"https://www.inegi.org.mx/app/api/denue/v1/consulta/Buscar/restaurante/21.85717833,-102.28487238/1000/" / token)
 
+  def addressFormat(item: InegiResponse): String = {
+    val intNum: String = if(item.Num_Interior == "") item.Num_Interior else s" INT.${item.Num_Interior}"
+    val numbers: String = if(item.Num_Exterior == "") item.Num_Exterior else s" ${item.Num_Exterior}${intNum}"
+    s"${item.Calle}${numbers} ${item.Colonia} C.P.${item.CP} ${item.Ubicacion}"
+  }
+  
   override def run(args: List[String]): IO[ExitCode] =
     BlazeClientBuilder[IO].resource
       .use { client =>
@@ -33,7 +39,7 @@ object Main extends IOApp {
                businessName = item.Razon_social,
                activity = item.Clase_actividad,
                stratum = item.Estrato,
-               address = s"${item.Tipo_vialidad} ${item.Calle} ${item.Colonia} ${item.CP}",
+               address = addressFormat(item),
                phoneNumber = item.Telefono,
                email = item.Correo_e,
                website = item.Sitio_internet,

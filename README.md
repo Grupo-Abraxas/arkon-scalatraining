@@ -37,7 +37,7 @@ query them based on their location.
 - [https://underscore.io/books](https://underscore.io/books/)
 
 ## Videos
-- [Let’s Code Real World App Using Purely Functional Techniques (in Scala)](https://youtu.be/m40YOZr1nxQ)
+- [Let’s Code Real World App Using Purely Functional Techniques (in Scala)](https://rutube.ru/video/012e1f2034234f39be847754a38fdfc8/) | [deprecated link](https://youtu.be/m40YOZr1nxQ)
 
 ## Tools
 - [Scala](https://www.scala-lang.org/2020/06/29/one-click-install.html)

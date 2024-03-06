@@ -1,0 +1,1207 @@
+{
+    "version": "1.4.0",
+    "project": {
+        "name": "arkon-scalatraining",
+        "directory": "/home/yorch/arkon-dev/arkon-scalatraining",
+        "workspaceDir": "/home/yorch/arkon-dev/arkon-scalatraining",
+        "sources": [
+            "/home/yorch/arkon-dev/arkon-scalatraining/src/main/scala",
+            "/home/yorch/arkon-dev/arkon-scalatraining/src/main/scala-2.13",
+            "/home/yorch/arkon-dev/arkon-scalatraining/src/main/scala-2",
+            "/home/yorch/arkon-dev/arkon-scalatraining/src/main/java",
+            "/home/yorch/arkon-dev/arkon-scalatraining/target/scala-2.13/src_managed/main"
+        ],
+        "dependencies": [
+            
+        ],
+        "classpath": [
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.3/scala-library-2.13.3.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-core_2.13/1.0.0-RC2/doobie-core_2.13-1.0.0-RC2.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-hikari_2.13/1.0.0-RC2/doobie-hikari_2.13-1.0.0-RC2.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-postgres_2.13/1.0.0-RC2/doobie-postgres_2.13-1.0.0-RC2.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-ast_2.13/3.0.0/sangria-ast_2.13-3.0.0.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-parser_2.13/3.0.0/sangria-parser_2.13-3.0.0.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-core_2.13/3.0.0/sangria-core_2.13-3.0.0.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-derivation_2.13/3.0.0/sangria-derivation_2.13-3.0.0.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-circe_2.13/1.3.2/sangria-circe_2.13-1.3.2.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-generic_2.13/0.14.1/circe-generic_2.13-0.14.1.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-parser_2.13/0.14.1/circe-parser_2.13-0.14.1.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-blaze-server_2.13/0.23.11/http4s-blaze-server_2.13-0.23.11.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-circe_2.13/0.23.11/http4s-circe_2.13-0.23.11.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-dsl_2.13/0.23.11/http4s-dsl_2.13-0.23.11.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-free_2.13/1.0.0-RC2/doobie-free_2.13-1.0.0-RC2.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-collection-compat_2.13/2.6.0/scala-collection-compat_2.13-2.6.0.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/com/chuusai/shapeless_2.13/2.3.7/shapeless_2.13-2.3.7.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/typename_2.13/1.0.0/typename_2.13-1.0.0.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/com/zaxxer/HikariCP/4.0.3/HikariCP-4.0.3.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/co/fs2/fs2-io_2.13/3.2.5/fs2-io_2.13-3.2.5.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/postgresql/postgresql/42.3.1/postgresql-42.3.1.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/parboiled/parboiled_2.13/2.3.0/parboiled_2.13-2.3.0.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/macro-visit_2.13/0.1.3/macro-visit_2.13-0.1.3.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-marshalling-api_2.13/1.0.7/sangria-marshalling-api_2.13-1.0.7.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-streaming-api_2.13/1.0.3/sangria-streaming-api_2.13-1.0.3.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.3/scala-reflect-2.13.3.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-core_2.13/0.14.1/circe-core_2.13-0.14.1.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-jawn_2.13/0.14.1/circe-jawn_2.13-0.14.1.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-blaze-core_2.13/0.23.11/http4s-blaze-core_2.13-0.23.11.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-server_2.13/0.23.11/http4s-server_2.13-0.23.11.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-core_2.13/0.23.11/http4s-core_2.13-0.23.11.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-jawn_2.13/0.23.11/http4s-jawn_2.13-0.23.11.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/co/fs2/fs2-core_2.13/3.2.5/fs2-core_2.13-3.2.5.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-core_2.13/2.7.0/cats-core_2.13-2.7.0.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-free_2.13/2.7.0/cats-free_2.13-2.7.0.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-effect_2.13/3.3.5/cats-effect_2.13-3.3.5.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/com/comcast/ip4s-core_2.13/3.1.2/ip4s-core_2.13-3.1.2.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-numbers_2.13/0.14.1/circe-numbers_2.13-0.14.1.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/jawn-parser_2.13/1.3.2/jawn-parser_2.13-1.3.2.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/blaze-http_2.13/0.15.3/blaze-http_2.13-0.15.3.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/case-insensitive_2.13/1.2.0/case-insensitive_2.13-1.2.0.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-effect-std_2.13/3.3.7/cats-effect-std_2.13-3.3.7.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-parse_2.13/0.3.6/cats-parse_2.13-0.3.6.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-crypto_2.13/0.2.2/http4s-crypto_2.13-0.2.2.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/literally_2.13/1.0.2/literally_2.13-1.0.2.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/log4s/log4s_2.13/1.10.0/log4s_2.13-1.10.0.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scodec/scodec-bits_2.13/1.1.30/scodec-bits_2.13-1.1.30.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/vault_2.13/3.1.0/vault_2.13-3.1.0.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/jawn-fs2_2.13/2.2.0/jawn-fs2_2.13-2.2.0.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-kernel_2.13/2.7.0/cats-kernel_2.13-2.7.0.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/simulacrum-scalafix-annotations_2.13/0.5.4/simulacrum-scalafix-annotations_2.13-0.5.4.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-effect-kernel_2.13/3.3.7/cats-effect-kernel_2.13-3.3.7.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/blaze-core_2.13/0.15.3/blaze-core_2.13-0.15.3.jar",
+            "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/com/twitter/hpack/1.0.2/hpack-1.0.2.jar"
+        ],
+        "out": "/home/yorch/arkon-dev/arkon-scalatraining/.bloop/arkon-scalatraining",
+        "classesDir": "/home/yorch/arkon-dev/arkon-scalatraining/.bloop/arkon-scalatraining/scala-2.13/classes",
+        "resources": [
+            "/home/yorch/arkon-dev/arkon-scalatraining/src/main/resources",
+            "/home/yorch/arkon-dev/arkon-scalatraining/target/scala-2.13/resource_managed/main"
+        ],
+        "scala": {
+            "organization": "org.scala-lang",
+            "name": "scala-compiler",
+            "version": "2.13.3",
+            "options": [
+                
+            ],
+            "jars": [
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.3/scala-library-2.13.3.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.3/scala-compiler-2.13.3.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.3/scala-reflect-2.13.3.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline/3.15.0/jline-3.15.0.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/net/java/dev/jna/jna/5.3.1/jna-5.3.1.jar"
+            ],
+            "setup": {
+                "order": "mixed",
+                "addLibraryToBootClasspath": true,
+                "addCompilerToClasspath": false,
+                "addExtraJarsToClasspath": false,
+                "manageBootClasspath": true,
+                "filterLibraryFromClasspath": true
+            }
+        },
+        "java": {
+            "options": [
+                
+            ]
+        },
+        "test": {
+            "frameworks": [
+                {
+                    "names": [
+                        "org.scalacheck.ScalaCheckFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs2.runner.Specs2Framework",
+                        "org.specs2.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.scalatest.tools.Framework",
+                        "org.scalatest.tools.ScalaTestFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "com.novocode.junit.JUnitFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "munit.Framework"
+                    ]
+                }
+            ],
+            "options": {
+                "excludes": [
+                    
+                ],
+                "arguments": [
+                    
+                ]
+            }
+        },
+        "platform": {
+            "name": "jvm",
+            "config": {
+                "home": "/usr/lib/jvm/java-8-openjdk-amd64/jre",
+                "options": [
+                    "-Duser.dir=/home/yorch/arkon-dev/arkon-scalatraining"
+                ]
+            },
+            "mainClass": [
+                
+            ],
+            "runtimeConfig": {
+                "home": "/usr/lib/jvm/java-8-openjdk-amd64/jre",
+                "options": [
+                    "-Duser.dir=/home/yorch/arkon-dev/arkon-scalatraining"
+                ]
+            },
+            "classpath": [
+                "/home/yorch/arkon-dev/arkon-scalatraining/.bloop/arkon-scalatraining/scala-2.13/classes",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.3/scala-library-2.13.3.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-core_2.13/1.0.0-RC2/doobie-core_2.13-1.0.0-RC2.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-hikari_2.13/1.0.0-RC2/doobie-hikari_2.13-1.0.0-RC2.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-postgres_2.13/1.0.0-RC2/doobie-postgres_2.13-1.0.0-RC2.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-ast_2.13/3.0.0/sangria-ast_2.13-3.0.0.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-parser_2.13/3.0.0/sangria-parser_2.13-3.0.0.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-core_2.13/3.0.0/sangria-core_2.13-3.0.0.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-derivation_2.13/3.0.0/sangria-derivation_2.13-3.0.0.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-circe_2.13/1.3.2/sangria-circe_2.13-1.3.2.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-generic_2.13/0.14.1/circe-generic_2.13-0.14.1.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-parser_2.13/0.14.1/circe-parser_2.13-0.14.1.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-blaze-server_2.13/0.23.11/http4s-blaze-server_2.13-0.23.11.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-circe_2.13/0.23.11/http4s-circe_2.13-0.23.11.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-dsl_2.13/0.23.11/http4s-dsl_2.13-0.23.11.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-free_2.13/1.0.0-RC2/doobie-free_2.13-1.0.0-RC2.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-collection-compat_2.13/2.6.0/scala-collection-compat_2.13-2.6.0.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/com/chuusai/shapeless_2.13/2.3.7/shapeless_2.13-2.3.7.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/typename_2.13/1.0.0/typename_2.13-1.0.0.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/com/zaxxer/HikariCP/4.0.3/HikariCP-4.0.3.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/co/fs2/fs2-io_2.13/3.2.5/fs2-io_2.13-3.2.5.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/postgresql/postgresql/42.3.1/postgresql-42.3.1.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/parboiled/parboiled_2.13/2.3.0/parboiled_2.13-2.3.0.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/macro-visit_2.13/0.1.3/macro-visit_2.13-0.1.3.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-marshalling-api_2.13/1.0.7/sangria-marshalling-api_2.13-1.0.7.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-streaming-api_2.13/1.0.3/sangria-streaming-api_2.13-1.0.3.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.3/scala-reflect-2.13.3.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-core_2.13/0.14.1/circe-core_2.13-0.14.1.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-jawn_2.13/0.14.1/circe-jawn_2.13-0.14.1.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-blaze-core_2.13/0.23.11/http4s-blaze-core_2.13-0.23.11.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-server_2.13/0.23.11/http4s-server_2.13-0.23.11.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-core_2.13/0.23.11/http4s-core_2.13-0.23.11.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-jawn_2.13/0.23.11/http4s-jawn_2.13-0.23.11.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/co/fs2/fs2-core_2.13/3.2.5/fs2-core_2.13-3.2.5.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-core_2.13/2.7.0/cats-core_2.13-2.7.0.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-free_2.13/2.7.0/cats-free_2.13-2.7.0.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-effect_2.13/3.3.5/cats-effect_2.13-3.3.5.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/com/comcast/ip4s-core_2.13/3.1.2/ip4s-core_2.13-3.1.2.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-numbers_2.13/0.14.1/circe-numbers_2.13-0.14.1.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/jawn-parser_2.13/1.3.2/jawn-parser_2.13-1.3.2.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/blaze-http_2.13/0.15.3/blaze-http_2.13-0.15.3.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/case-insensitive_2.13/1.2.0/case-insensitive_2.13-1.2.0.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-effect-std_2.13/3.3.7/cats-effect-std_2.13-3.3.7.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-parse_2.13/0.3.6/cats-parse_2.13-0.3.6.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-crypto_2.13/0.2.2/http4s-crypto_2.13-0.2.2.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/literally_2.13/1.0.2/literally_2.13-1.0.2.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/log4s/log4s_2.13/1.10.0/log4s_2.13-1.10.0.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scodec/scodec-bits_2.13/1.1.30/scodec-bits_2.13-1.1.30.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/vault_2.13/3.1.0/vault_2.13-3.1.0.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/jawn-fs2_2.13/2.2.0/jawn-fs2_2.13-2.2.0.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-kernel_2.13/2.7.0/cats-kernel_2.13-2.7.0.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/simulacrum-scalafix-annotations_2.13/0.5.4/simulacrum-scalafix-annotations_2.13-0.5.4.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-effect-kernel_2.13/3.3.7/cats-effect-kernel_2.13-3.3.7.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/blaze-core_2.13/0.15.3/blaze-core_2.13-0.15.3.jar",
+                "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/com/twitter/hpack/1.0.2/hpack-1.0.2.jar"
+            ]
+        },
+        "resolution": {
+            "modules": [
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-library",
+                    "version": "2.13.3",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scala-library",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.3/scala-library-2.13.3.jar"
+                        },
+                        {
+                            "name": "scala-library",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.3/scala-library-2.13.3-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.tpolecat",
+                    "name": "doobie-core_2.13",
+                    "version": "1.0.0-RC2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "doobie-core_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-core_2.13/1.0.0-RC2/doobie-core_2.13-1.0.0-RC2.jar"
+                        },
+                        {
+                            "name": "doobie-core_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-core_2.13/1.0.0-RC2/doobie-core_2.13-1.0.0-RC2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.tpolecat",
+                    "name": "doobie-hikari_2.13",
+                    "version": "1.0.0-RC2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "doobie-hikari_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-hikari_2.13/1.0.0-RC2/doobie-hikari_2.13-1.0.0-RC2.jar"
+                        },
+                        {
+                            "name": "doobie-hikari_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-hikari_2.13/1.0.0-RC2/doobie-hikari_2.13-1.0.0-RC2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.tpolecat",
+                    "name": "doobie-postgres_2.13",
+                    "version": "1.0.0-RC2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "doobie-postgres_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-postgres_2.13/1.0.0-RC2/doobie-postgres_2.13-1.0.0-RC2.jar"
+                        },
+                        {
+                            "name": "doobie-postgres_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-postgres_2.13/1.0.0-RC2/doobie-postgres_2.13-1.0.0-RC2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.sangria-graphql",
+                    "name": "sangria-ast_2.13",
+                    "version": "3.0.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "sangria-ast_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-ast_2.13/3.0.0/sangria-ast_2.13-3.0.0.jar"
+                        },
+                        {
+                            "name": "sangria-ast_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-ast_2.13/3.0.0/sangria-ast_2.13-3.0.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.sangria-graphql",
+                    "name": "sangria-parser_2.13",
+                    "version": "3.0.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "sangria-parser_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-parser_2.13/3.0.0/sangria-parser_2.13-3.0.0.jar"
+                        },
+                        {
+                            "name": "sangria-parser_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-parser_2.13/3.0.0/sangria-parser_2.13-3.0.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.sangria-graphql",
+                    "name": "sangria-core_2.13",
+                    "version": "3.0.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "sangria-core_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-core_2.13/3.0.0/sangria-core_2.13-3.0.0.jar"
+                        },
+                        {
+                            "name": "sangria-core_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-core_2.13/3.0.0/sangria-core_2.13-3.0.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.sangria-graphql",
+                    "name": "sangria-derivation_2.13",
+                    "version": "3.0.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "sangria-derivation_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-derivation_2.13/3.0.0/sangria-derivation_2.13-3.0.0.jar"
+                        },
+                        {
+                            "name": "sangria-derivation_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-derivation_2.13/3.0.0/sangria-derivation_2.13-3.0.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.sangria-graphql",
+                    "name": "sangria-circe_2.13",
+                    "version": "1.3.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "sangria-circe_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-circe_2.13/1.3.2/sangria-circe_2.13-1.3.2.jar"
+                        },
+                        {
+                            "name": "sangria-circe_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-circe_2.13/1.3.2/sangria-circe_2.13-1.3.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.circe",
+                    "name": "circe-generic_2.13",
+                    "version": "0.14.1",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "circe-generic_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-generic_2.13/0.14.1/circe-generic_2.13-0.14.1.jar"
+                        },
+                        {
+                            "name": "circe-generic_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-generic_2.13/0.14.1/circe-generic_2.13-0.14.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.circe",
+                    "name": "circe-parser_2.13",
+                    "version": "0.14.1",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "circe-parser_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-parser_2.13/0.14.1/circe-parser_2.13-0.14.1.jar"
+                        },
+                        {
+                            "name": "circe-parser_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-parser_2.13/0.14.1/circe-parser_2.13-0.14.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.http4s",
+                    "name": "http4s-blaze-server_2.13",
+                    "version": "0.23.11",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "http4s-blaze-server_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-blaze-server_2.13/0.23.11/http4s-blaze-server_2.13-0.23.11.jar"
+                        },
+                        {
+                            "name": "http4s-blaze-server_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-blaze-server_2.13/0.23.11/http4s-blaze-server_2.13-0.23.11-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.http4s",
+                    "name": "http4s-circe_2.13",
+                    "version": "0.23.11",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "http4s-circe_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-circe_2.13/0.23.11/http4s-circe_2.13-0.23.11.jar"
+                        },
+                        {
+                            "name": "http4s-circe_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-circe_2.13/0.23.11/http4s-circe_2.13-0.23.11-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.http4s",
+                    "name": "http4s-dsl_2.13",
+                    "version": "0.23.11",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "http4s-dsl_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-dsl_2.13/0.23.11/http4s-dsl_2.13-0.23.11.jar"
+                        },
+                        {
+                            "name": "http4s-dsl_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-dsl_2.13/0.23.11/http4s-dsl_2.13-0.23.11-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.tpolecat",
+                    "name": "doobie-free_2.13",
+                    "version": "1.0.0-RC2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "doobie-free_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-free_2.13/1.0.0-RC2/doobie-free_2.13-1.0.0-RC2.jar"
+                        },
+                        {
+                            "name": "doobie-free_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-free_2.13/1.0.0-RC2/doobie-free_2.13-1.0.0-RC2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang.modules",
+                    "name": "scala-collection-compat_2.13",
+                    "version": "2.6.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scala-collection-compat_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-collection-compat_2.13/2.6.0/scala-collection-compat_2.13-2.6.0.jar"
+                        },
+                        {
+                            "name": "scala-collection-compat_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-collection-compat_2.13/2.6.0/scala-collection-compat_2.13-2.6.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.chuusai",
+                    "name": "shapeless_2.13",
+                    "version": "2.3.7",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "shapeless_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/com/chuusai/shapeless_2.13/2.3.7/shapeless_2.13-2.3.7.jar"
+                        },
+                        {
+                            "name": "shapeless_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/com/chuusai/shapeless_2.13/2.3.7/shapeless_2.13-2.3.7-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.tpolecat",
+                    "name": "typename_2.13",
+                    "version": "1.0.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "typename_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/typename_2.13/1.0.0/typename_2.13-1.0.0.jar"
+                        },
+                        {
+                            "name": "typename_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/typename_2.13/1.0.0/typename_2.13-1.0.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.zaxxer",
+                    "name": "HikariCP",
+                    "version": "4.0.3",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "HikariCP",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/com/zaxxer/HikariCP/4.0.3/HikariCP-4.0.3.jar"
+                        },
+                        {
+                            "name": "HikariCP",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/com/zaxxer/HikariCP/4.0.3/HikariCP-4.0.3-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.slf4j",
+                    "name": "slf4j-api",
+                    "version": "1.7.36",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "slf4j-api",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar"
+                        },
+                        {
+                            "name": "slf4j-api",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "co.fs2",
+                    "name": "fs2-io_2.13",
+                    "version": "3.2.5",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "fs2-io_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/co/fs2/fs2-io_2.13/3.2.5/fs2-io_2.13-3.2.5.jar"
+                        },
+                        {
+                            "name": "fs2-io_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/co/fs2/fs2-io_2.13/3.2.5/fs2-io_2.13-3.2.5-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.postgresql",
+                    "name": "postgresql",
+                    "version": "42.3.1",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "postgresql",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/postgresql/postgresql/42.3.1/postgresql-42.3.1.jar"
+                        },
+                        {
+                            "name": "postgresql",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/postgresql/postgresql/42.3.1/postgresql-42.3.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.parboiled",
+                    "name": "parboiled_2.13",
+                    "version": "2.3.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "parboiled_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/parboiled/parboiled_2.13/2.3.0/parboiled_2.13-2.3.0.jar"
+                        },
+                        {
+                            "name": "parboiled_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/parboiled/parboiled_2.13/2.3.0/parboiled_2.13-2.3.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.sangria-graphql",
+                    "name": "macro-visit_2.13",
+                    "version": "0.1.3",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "macro-visit_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/macro-visit_2.13/0.1.3/macro-visit_2.13-0.1.3.jar"
+                        },
+                        {
+                            "name": "macro-visit_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/macro-visit_2.13/0.1.3/macro-visit_2.13-0.1.3-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.sangria-graphql",
+                    "name": "sangria-marshalling-api_2.13",
+                    "version": "1.0.7",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "sangria-marshalling-api_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-marshalling-api_2.13/1.0.7/sangria-marshalling-api_2.13-1.0.7.jar"
+                        },
+                        {
+                            "name": "sangria-marshalling-api_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-marshalling-api_2.13/1.0.7/sangria-marshalling-api_2.13-1.0.7-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.sangria-graphql",
+                    "name": "sangria-streaming-api_2.13",
+                    "version": "1.0.3",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "sangria-streaming-api_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-streaming-api_2.13/1.0.3/sangria-streaming-api_2.13-1.0.3.jar"
+                        },
+                        {
+                            "name": "sangria-streaming-api_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/sangria-graphql/sangria-streaming-api_2.13/1.0.3/sangria-streaming-api_2.13-1.0.3-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-reflect",
+                    "version": "2.13.3",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scala-reflect",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.3/scala-reflect-2.13.3.jar"
+                        },
+                        {
+                            "name": "scala-reflect",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.3/scala-reflect-2.13.3-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.circe",
+                    "name": "circe-core_2.13",
+                    "version": "0.14.1",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "circe-core_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-core_2.13/0.14.1/circe-core_2.13-0.14.1.jar"
+                        },
+                        {
+                            "name": "circe-core_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-core_2.13/0.14.1/circe-core_2.13-0.14.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.circe",
+                    "name": "circe-jawn_2.13",
+                    "version": "0.14.1",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "circe-jawn_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-jawn_2.13/0.14.1/circe-jawn_2.13-0.14.1.jar"
+                        },
+                        {
+                            "name": "circe-jawn_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-jawn_2.13/0.14.1/circe-jawn_2.13-0.14.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.http4s",
+                    "name": "http4s-blaze-core_2.13",
+                    "version": "0.23.11",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "http4s-blaze-core_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-blaze-core_2.13/0.23.11/http4s-blaze-core_2.13-0.23.11.jar"
+                        },
+                        {
+                            "name": "http4s-blaze-core_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-blaze-core_2.13/0.23.11/http4s-blaze-core_2.13-0.23.11-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.http4s",
+                    "name": "http4s-server_2.13",
+                    "version": "0.23.11",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "http4s-server_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-server_2.13/0.23.11/http4s-server_2.13-0.23.11.jar"
+                        },
+                        {
+                            "name": "http4s-server_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-server_2.13/0.23.11/http4s-server_2.13-0.23.11-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.http4s",
+                    "name": "http4s-core_2.13",
+                    "version": "0.23.11",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "http4s-core_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-core_2.13/0.23.11/http4s-core_2.13-0.23.11.jar"
+                        },
+                        {
+                            "name": "http4s-core_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-core_2.13/0.23.11/http4s-core_2.13-0.23.11-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.http4s",
+                    "name": "http4s-jawn_2.13",
+                    "version": "0.23.11",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "http4s-jawn_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-jawn_2.13/0.23.11/http4s-jawn_2.13-0.23.11.jar"
+                        },
+                        {
+                            "name": "http4s-jawn_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-jawn_2.13/0.23.11/http4s-jawn_2.13-0.23.11-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "co.fs2",
+                    "name": "fs2-core_2.13",
+                    "version": "3.2.5",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "fs2-core_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/co/fs2/fs2-core_2.13/3.2.5/fs2-core_2.13-3.2.5.jar"
+                        },
+                        {
+                            "name": "fs2-core_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/co/fs2/fs2-core_2.13/3.2.5/fs2-core_2.13-3.2.5-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "cats-core_2.13",
+                    "version": "2.7.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "cats-core_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-core_2.13/2.7.0/cats-core_2.13-2.7.0.jar"
+                        },
+                        {
+                            "name": "cats-core_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-core_2.13/2.7.0/cats-core_2.13-2.7.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "cats-free_2.13",
+                    "version": "2.7.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "cats-free_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-free_2.13/2.7.0/cats-free_2.13-2.7.0.jar"
+                        },
+                        {
+                            "name": "cats-free_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-free_2.13/2.7.0/cats-free_2.13-2.7.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "cats-effect_2.13",
+                    "version": "3.3.5",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "cats-effect_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-effect_2.13/3.3.5/cats-effect_2.13-3.3.5.jar"
+                        },
+                        {
+                            "name": "cats-effect_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-effect_2.13/3.3.5/cats-effect_2.13-3.3.5-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.comcast",
+                    "name": "ip4s-core_2.13",
+                    "version": "3.1.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "ip4s-core_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/com/comcast/ip4s-core_2.13/3.1.2/ip4s-core_2.13-3.1.2.jar"
+                        },
+                        {
+                            "name": "ip4s-core_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/com/comcast/ip4s-core_2.13/3.1.2/ip4s-core_2.13-3.1.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.checkerframework",
+                    "name": "checker-qual",
+                    "version": "3.5.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "checker-qual",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar"
+                        },
+                        {
+                            "name": "checker-qual",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.circe",
+                    "name": "circe-numbers_2.13",
+                    "version": "0.14.1",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "circe-numbers_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-numbers_2.13/0.14.1/circe-numbers_2.13-0.14.1.jar"
+                        },
+                        {
+                            "name": "circe-numbers_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-numbers_2.13/0.14.1/circe-numbers_2.13-0.14.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "jawn-parser_2.13",
+                    "version": "1.3.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "jawn-parser_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/jawn-parser_2.13/1.3.2/jawn-parser_2.13-1.3.2.jar"
+                        },
+                        {
+                            "name": "jawn-parser_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/jawn-parser_2.13/1.3.2/jawn-parser_2.13-1.3.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.http4s",
+                    "name": "blaze-http_2.13",
+                    "version": "0.15.3",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "blaze-http_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/blaze-http_2.13/0.15.3/blaze-http_2.13-0.15.3.jar"
+                        },
+                        {
+                            "name": "blaze-http_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/blaze-http_2.13/0.15.3/blaze-http_2.13-0.15.3-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "case-insensitive_2.13",
+                    "version": "1.2.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "case-insensitive_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/case-insensitive_2.13/1.2.0/case-insensitive_2.13-1.2.0.jar"
+                        },
+                        {
+                            "name": "case-insensitive_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/case-insensitive_2.13/1.2.0/case-insensitive_2.13-1.2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "cats-effect-std_2.13",
+                    "version": "3.3.7",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "cats-effect-std_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-effect-std_2.13/3.3.7/cats-effect-std_2.13-3.3.7.jar"
+                        },
+                        {
+                            "name": "cats-effect-std_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-effect-std_2.13/3.3.7/cats-effect-std_2.13-3.3.7-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "cats-parse_2.13",
+                    "version": "0.3.6",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "cats-parse_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-parse_2.13/0.3.6/cats-parse_2.13-0.3.6.jar"
+                        },
+                        {
+                            "name": "cats-parse_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-parse_2.13/0.3.6/cats-parse_2.13-0.3.6-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.http4s",
+                    "name": "http4s-crypto_2.13",
+                    "version": "0.2.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "http4s-crypto_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-crypto_2.13/0.2.2/http4s-crypto_2.13-0.2.2.jar"
+                        },
+                        {
+                            "name": "http4s-crypto_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/http4s-crypto_2.13/0.2.2/http4s-crypto_2.13-0.2.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "literally_2.13",
+                    "version": "1.0.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "literally_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/literally_2.13/1.0.2/literally_2.13-1.0.2.jar"
+                        },
+                        {
+                            "name": "literally_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/literally_2.13/1.0.2/literally_2.13-1.0.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.log4s",
+                    "name": "log4s_2.13",
+                    "version": "1.10.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "log4s_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/log4s/log4s_2.13/1.10.0/log4s_2.13-1.10.0.jar"
+                        },
+                        {
+                            "name": "log4s_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/log4s/log4s_2.13/1.10.0/log4s_2.13-1.10.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scodec",
+                    "name": "scodec-bits_2.13",
+                    "version": "1.1.30",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scodec-bits_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scodec/scodec-bits_2.13/1.1.30/scodec-bits_2.13-1.1.30.jar"
+                        },
+                        {
+                            "name": "scodec-bits_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scodec/scodec-bits_2.13/1.1.30/scodec-bits_2.13-1.1.30-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "vault_2.13",
+                    "version": "3.1.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "vault_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/vault_2.13/3.1.0/vault_2.13-3.1.0.jar"
+                        },
+                        {
+                            "name": "vault_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/vault_2.13/3.1.0/vault_2.13-3.1.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "jawn-fs2_2.13",
+                    "version": "2.2.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "jawn-fs2_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/jawn-fs2_2.13/2.2.0/jawn-fs2_2.13-2.2.0.jar"
+                        },
+                        {
+                            "name": "jawn-fs2_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/jawn-fs2_2.13/2.2.0/jawn-fs2_2.13-2.2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "cats-kernel_2.13",
+                    "version": "2.7.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "cats-kernel_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-kernel_2.13/2.7.0/cats-kernel_2.13-2.7.0.jar"
+                        },
+                        {
+                            "name": "cats-kernel_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-kernel_2.13/2.7.0/cats-kernel_2.13-2.7.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "simulacrum-scalafix-annotations_2.13",
+                    "version": "0.5.4",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "simulacrum-scalafix-annotations_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/simulacrum-scalafix-annotations_2.13/0.5.4/simulacrum-scalafix-annotations_2.13-0.5.4.jar"
+                        },
+                        {
+                            "name": "simulacrum-scalafix-annotations_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/simulacrum-scalafix-annotations_2.13/0.5.4/simulacrum-scalafix-annotations_2.13-0.5.4-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "cats-effect-kernel_2.13",
+                    "version": "3.3.7",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "cats-effect-kernel_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-effect-kernel_2.13/3.3.7/cats-effect-kernel_2.13-3.3.7.jar"
+                        },
+                        {
+                            "name": "cats-effect-kernel_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-effect-kernel_2.13/3.3.7/cats-effect-kernel_2.13-3.3.7-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.http4s",
+                    "name": "blaze-core_2.13",
+                    "version": "0.15.3",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "blaze-core_2.13",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/blaze-core_2.13/0.15.3/blaze-core_2.13-0.15.3.jar"
+                        },
+                        {
+                            "name": "blaze-core_2.13",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/http4s/blaze-core_2.13/0.15.3/blaze-core_2.13-0.15.3-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.twitter",
+                    "name": "hpack",
+                    "version": "1.0.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "hpack",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/com/twitter/hpack/1.0.2/hpack-1.0.2.jar"
+                        },
+                        {
+                            "name": "hpack",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/com/twitter/hpack/1.0.2/hpack-1.0.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-library",
+                    "version": "2.13.3",
+                    "configurations": "optional",
+                    "artifacts": [
+                        {
+                            "name": "scala-library",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.3/scala-library-2.13.3.jar"
+                        },
+                        {
+                            "name": "scala-library",
+                            "classifier": "sources",
+                            "path": "/home/yorch/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.3/scala-library-2.13.3-sources.jar"
+                        }
+                    ]
+                }
+            ]
+        },
+        "tags": [
+            "library"
+        ]
+    }
+}

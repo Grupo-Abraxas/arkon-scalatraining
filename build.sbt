@@ -4,6 +4,9 @@ version := "0.1"
 
 scalaVersion := "2.13.3"
 
+Compile / mainClass := Some("app.Main")
+
+
 libraryDependencies ++= Seq(
   "org.tpolecat"             %% "doobie-core" % "1.0.0-RC2",
   "org.tpolecat"             %% "doobie-hikari" % "1.0.0-RC2",
@@ -15,12 +18,16 @@ libraryDependencies ++= Seq(
   "org.sangria-graphql" %% "sangria-derivation"    % "3.0.0",
   "org.sangria-graphql" %% "sangria-circe"         % "1.3.2",
 
+  "org.typelevel" %% "cats-effect" % "3.3.5",
+
    "io.circe" %% "circe-generic" % "0.14.1",
    "io.circe" %% "circe-parser"  % "0.14.1",
 
-   "org.http4s" %% "http4s-blaze-server" % "0.23.11",
-   "org.http4s" %% "http4s-circe"        % "0.23.11",
-   "org.http4s" %% "http4s-dsl"          % "0.23.11",
+  "org.http4s" %% "http4s-ember-server" % "0.23.11",
+  "org.http4s" %% "http4s-circe" % "0.23.11",
+  "org.http4s" %% "http4s-dsl" % "0.23.11",
+
+  "ch.qos.logback" % "logback-classic" % "1.2.11",
 
   "org.scalatest" %% "scalatest"    % "3.2.9" % "test"
 )

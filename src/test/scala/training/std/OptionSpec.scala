@@ -1,8 +1,8 @@
 package training.std
 
-import training.BaseSpec
 import io.circe._
 import org.scalatest.EitherValues
+import training.BaseSpec
 
 class OptionSpec extends BaseSpec with EitherValues {
 

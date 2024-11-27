@@ -6,6 +6,8 @@ target/
 build/
 .bsp
 
+.env
+
 # eclipse
 build
 .classpath
@@ -31,4 +33,4 @@ build
 .metals
 
 #general
-*.class
+*.classc

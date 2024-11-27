@@ -4,7 +4,7 @@ version := "0.1"
 
 scalaVersion := "2.13.3"
 
-Compile / mainClass := Some("app.Main")
+Compile / mainClass := Some("graphql.app.Main")
 
 
 libraryDependencies ++= Seq(
@@ -20,8 +20,16 @@ libraryDependencies ++= Seq(
 
   "org.typelevel" %% "cats-effect" % "3.3.5",
 
-   "io.circe" %% "circe-generic" % "0.14.1",
-   "io.circe" %% "circe-parser"  % "0.14.1",
+  "org.tpolecat" %% "doobie-core" % "1.0.0-RC2",
+  "org.tpolecat" %% "doobie-hikari" % "1.0.0-RC2",
+  "org.tpolecat" %% "doobie-postgres" % "1.0.0-RC2",
+
+  "org.postgresql" % "postgresql" % "42.3.1",
+
+  "com.github.pureconfig" %% "pureconfig" % "0.17.4",
+
+  "io.circe" %% "circe-generic" % "0.14.1",
+  "io.circe" %% "circe-parser"  % "0.14.1",
 
   "org.http4s" %% "http4s-ember-server" % "0.23.11",
   "org.http4s" %% "http4s-circe" % "0.23.11",

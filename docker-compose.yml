@@ -1,38 +1,49 @@
-version: "3.9"
+version: '3.8'
+
 services:
-  app:
+  graphql:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: graphql
     ports:
       - "8080:8080"
-    depends_on:
-      - db
-    env_file:
-      - .env
     environment:
-      - DB_HOST=db
-      - DB_PORT=5432
-      - DB_USER=${POSTGRES_USER}
-      - DB_PASSWORD=${POSTGRES_PASSWORD}
-      - DB_NAME=${POSTGRES_DB}
-    networks:
-      - internal
+      MODULE: graphql
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_HOST: postgres
+    depends_on:
+      - postgres
 
-  db:
-    image: postgres:14
+  ingest:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ingest
+    ports:
+      - "8081:8081"
+    environment:
+      MODULE: ingest
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_HOST: postgres
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:13
+    container_name: postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "127.0.0.1:5433:5432"
     volumes:
-      - db_data:/var/lib/postgresql/data
-    networks:
-      - internal
+      - postgres_data:/var/lib/postgresql/data
 
 volumes:
-  db_data: {}
-
-networks:
-  internal:
-    driver: bridge
+  postgres_data:

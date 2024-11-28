@@ -4,45 +4,39 @@ import cats.effect.IO
 import cats.effect.unsafe.IORuntime
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
-
-
-// Modelo funcional de datos simulados
 final case class WiFiAccessPoint(id: String, colonia: String, lat: Double, long: Double)
 
 class GraphQLSpec extends AnyFunSuite with Matchers {
-
-  // Proporciona un IORuntime implícito para las pruebas
   implicit val runtime: IORuntime = IORuntime.global
-
-  // Datos simulados para pruebas (inmutables)
   val mockData: List[WiFiAccessPoint] = List(
     WiFiAccessPoint("1", "Colonia A", 19.432608, -99.133209),
     WiFiAccessPoint("2", "Colonia B", 19.434580, -99.135334),
     WiFiAccessPoint("3", "Colonia A", 19.432000, -99.132500)
   )
-
-  // Función pura para simular consultas GraphQL
   def queryGraphQL(query: String): IO[List[WiFiAccessPoint]] = IO {
     query match {
-      case q if q.contains("wifiAccessPoints(page: 1, pageSize: 2)") =>
+      case q if q.contains("wifiAccessPoints(page: 1, pageSize: 2)")            =>
         mockData.take(2)
-      case q if q.contains("""wifiAccessPoint(id: "1")""") =>
+      case q if q.contains("""wifiAccessPoint(id: "1")""")                      =>
         mockData.filter(_.id == "1")
       case q if q.contains("wifiAccessPointsByColonia(colonia: \"Colonia A\")") =>
         mockData.filter(_.colonia == "Colonia A")
-      case q if q.contains("wifiAccessPointsByProximity(lat: 19.432608, long: -99.133209, limit: 2)") =>
-        mockData.sortBy(p => distance(p.lat, p.long, 19.432608, -99.133209)).take(2)
-      case _ => List.empty
+      case q
+          if q.contains(
+            "wifiAccessPointsByProximity(lat: 19.432608, long: -99.133209, limit: 2)"
+          ) =>
+        mockData
+          .sortBy(
+            p => distance(p.lat, p.long, 19.432608, -99.133209)
+          )
+          .take(2)
+      case _                                                                    => List.empty
     }
   }
-
-  // Función auxiliar para calcular distancias
   def distance(lat1: Double, long1: Double, lat2: Double, long2: Double): Double =
     Math.sqrt(Math.pow(lat1 - lat2, 2) + Math.pow(long1 - long2, 2))
-
-  // Prueba: Consultar una lista paginada de puntos WiFi
   test("Debería devolver una lista paginada de puntos WiFi") {
-    val query =
+    val query  =
       """
         query {
           wifiAccessPoints(page: 1, pageSize: 2) {
@@ -55,10 +49,8 @@ class GraphQLSpec extends AnyFunSuite with Matchers {
 
     result shouldEqual mockData.take(2)
   }
-
-  // Prueba: Consultar un punto WiFi por ID
   test("Debería devolver un punto WiFi por ID") {
-    val query =
+    val query  =
       """
         query {
           wifiAccessPoint(id: "1") {
@@ -71,10 +63,8 @@ class GraphQLSpec extends AnyFunSuite with Matchers {
 
     result shouldEqual mockData.filter(_.id == "1")
   }
-
-  // Prueba: Consultar puntos WiFi por colonia
   test("Debería devolver puntos WiFi por colonia") {
-    val query =
+    val query  =
       """
         query {
           wifiAccessPointsByColonia(colonia: "Colonia A") {
@@ -87,10 +77,8 @@ class GraphQLSpec extends AnyFunSuite with Matchers {
 
     result shouldEqual mockData.filter(_.colonia == "Colonia A")
   }
-
-  // Prueba: Consultar puntos WiFi ordenados por proximidad
   test("Debería devolver puntos WiFi ordenados por proximidad") {
-    val query =
+    val query  =
       """
         query {
           wifiAccessPointsByProximity(lat: 19.432608, long: -99.133209, limit: 2) {
@@ -101,7 +89,11 @@ class GraphQLSpec extends AnyFunSuite with Matchers {
       """
     val result = queryGraphQL(query).unsafeRunSync()
 
-    val expected = mockData.sortBy(p => distance(p.lat, p.long, 19.432608, -99.133209)).take(2)
+    val expected = mockData
+      .sortBy(
+        p => distance(p.lat, p.long, 19.432608, -99.133209)
+      )
+      .take(2)
     result shouldEqual expected
   }
 }

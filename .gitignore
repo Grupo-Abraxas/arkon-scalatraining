@@ -1,5 +1,4 @@
-# sbt
-# (may want to keep parts of 'project')
+
 bin/
 project/target
 target/
@@ -33,4 +32,4 @@ build
 .metals
 
 #general
-*.classc
+*.class

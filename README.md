@@ -1,102 +1,201 @@
-<a href="https://www.arkondata.com/">
-    <img src="./img/logo.jpg" align="right" height="80">
-</a>
+# Proyecto: API de Puntos de Acceso WiFi
 
-# Arkon's Scala Training
+## Introducción
 
-## Description
-Scala hands on training project. Looking to introduce new team members or anyone interested to the scala 
-programming language and the way it's used within the ArkonData team. 
+Este proyecto implementa una API basada en GraphQL desarrollada en Scala, que permite gestionar y consultar información sobre puntos de acceso WiFi. La solución se ejecuta dentro de un contenedor Docker, simplificando su despliegue y operación. La base de datos utilizada es PostgreSQL, y se han habilitado las extensiones `cube` y `earthdistance` para realizar cálculos geoespaciales.
 
-You'll implement a web server exposing a GraphQL API to expose business retrieved from the INEGI's API and 
-query them based on their location.
+Adicionalmente, el proyecto incluye un módulo llamado `ingest` que ejecuta un script encargado de obtener y cargar los datos iniciales de los puntos de acceso WiFi de la Ciudad de México en la base de datos.
 
-* [Concepts](https://github.com/Grupo-Abraxas/arkon-scalatraining#concepts)
-* [Tools](https://github.com/Grupo-Abraxas/arkon-scalatraining#tools)
-* [Libraries](https://github.com/Grupo-Abraxas/arkon-scalatraining#libraries)
-* [Exercises](https://github.com/Grupo-Abraxas/arkon-scalatraining#exercises)
-* [Basic commands](https://github.com/Grupo-Abraxas/arkon-scalatraining#basic-commands)
-* [Requirements](https://github.com/Grupo-Abraxas/arkon-scalatraining#requirements)
+### Funcionalidades Principales de la API
 
-## Concepts
-- [Functional Programming](https://www.baeldung.com/scala/functional-programming)
-- Referential transparency.
-- Immutability.
-- Recursion (FP).
-- Basic concurrency using [Scala's Future](https://docs.scala-lang.org/overviews/core/futures.html). 
-- Functor/Mondad (FP through [cats](https://typelevel.org/cats/)).
-- The real world/side effects using the [IO Monad](https://medium.com/walmartglobaltech/understanding-io-monad-in-scala-b495ca572174).
-- Testing
-- [Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/)
+- **Obtener una lista paginada de puntos de acceso WiFi.**
+- **Consultar la información de un punto específico dado su ID.**
+- **Filtrar puntos de acceso WiFi por colonia y devolver una lista paginada.**
+- **Obtener una lista de puntos WiFi ordenada por proximidad a una coordenada dada (`lat, long`).**
 
-- [Types and type clases](https://scalac.io/blog/typeclasses-in-scala/)
-- [Implicits](https://docs.scala-lang.org/tour/implicit-parameters.html)
-- [hlists](https://www.scala-exercises.org/shapeless/heterogenous_lists)
+---
 
-## Books
-- [https://underscore.io/books](https://underscore.io/books/)
+## Dependencias y Versiones
 
-## Videos
-- [Let’s Code Real World App Using Purely Functional Techniques (in Scala)](https://rutube.ru/video/012e1f2034234f39be847754a38fdfc8/) | [deprecated link](https://youtu.be/m40YOZr1nxQ)
+### Requisitos
 
-## Tools
-- [Scala](https://www.scala-lang.org/2020/06/29/one-click-install.html)
-- [IntelliJ (IDE)](https://www.jetbrains.com/idea/download/)
-- [sbt](https://www.scala-sbt.org/)
+El único requisito es tener **Docker** instalado en tu sistema, ya que el contenedor contiene todas las configuraciones necesarias.
 
-## Libraries
-- [cats](https://typelevel.org/cats/): Library for FP.
-- [cats-effect](https://typelevel.org/cats-effect/): IO Monad in Scala.
-- [FS2](https://fs2.io/index.html): Functional streams.
-- [Doobie](https://tpolecat.github.io/doobie/): Functional layer for JDBC.
-- [Sangria](https://sangria-graphql.github.io/): Scala library for GraphQL.
-- [ScalaTest](https://www.scalatest.org/): Scala testing library.
-- [ScalaCheck](https://www.scalacheck.org/): Library for random testing of program properties inspired by [QuickCheck](https://hackage.haskell.org/package/QuickCheck).
-- [http4s](https://http4s.org/): Library fot HTTP
+- **Docker**: Versiones recientes (20.x o superior recomendado).
 
-## Exercises
-- [Std lib](https://www.scala-exercises.org/std_lib/asserts)
-- [Fp in Scala](https://www.scala-exercises.org/fp_in_scala/getting_started_with_functional_programming)
-- [Cats](https://www.scala-exercises.org/cats/semigroup)
-- [Circe](https://www.scala-exercises.org/circe/Json)
-- [Doobie](https://www.scala-exercises.org/doobie/connecting_to_database)
-- [ScalaCheck](https://www.scala-exercises.org/scalacheck/properties)
+---
 
-## Basic commands
-SBT console
+## Instrucciones de Despliegue
+
+1. **Configurar el archivo `.env`:**
+
+   Antes de iniciar el contenedor, asegúrate de crear un archivo llamado `.env` en la raíz del proyecto con las siguientes variables de entorno:
+
+   ```env
+   POSTGRES_USER=postgres
+   POSTGRES_PASSWORD=password
+   POSTGRES_DB=wifi_db
+   POSTGRES_HOST=postgres
+   ```
+
+2. **Construir e iniciar los contenedores:**
+
+   Ejecuta el siguiente comando desde la terminal:
+
+   ```bash
+   docker-compose up --build
+   ```
+
+   Esto levantará la API, la base de datos PostgreSQL y el módulo `ingest` en contenedores separados, conectados por una red interna.
+
+3. **Verificar que todo esté listo:**
+
+   Sabrá que los contenedores están configurados correctamente cuando vea los siguientes mensajes en la consola:
+
+    - Para la API GraphQL:
+      ```plaintext
+      graphql   | 16:18:09.218 [io-compute-3] INFO org.http4s.ember.server.EmberServerBuilderCompanionPlatform - Ember-Server service bound to address: [::]:8080
+      ```
+
+    - Para el módulo de ingestión de datos:
+      ```plaintext
+      ingest    | Ingest process completed successfully!
+      ```
+
+4. **Acceder a la API:**
+
+   Una vez que los mensajes anteriores se muestren, la API estará disponible en `http://localhost:8080/graphql`.
+
+---
+
+## Ejemplos de Consultas y Mutaciones en la API
+
+### Consultas (Query)
+
+#### Obtener Mensaje de Bienvenida
+
+```graphql
+query Hello {
+  hello
+}
 ```
-$ sbt
+#### Obtener Lista de Puntos WiFi
+```graphql
+query WifiPoints {
+  wifiPoints(limit: 5, offset: 0) {
+    id
+    program
+    installationDate
+    latitude
+    longitude
+    neighborhood
+    municipality
+  }
+}
 ```
 
-Running sbt commands inside the SBT console
-```
-// sbt console
-$ sbt
+#### Consultar Información de un Punto de Acceso por ID
 
-// Scala REPL
-$ sbt console
-
-// Compile the main module
-sbt:arkon-scalatraining> compile
-
-// Compile the test module
-sbt:arkon-scalatraining> test:compile
-
-// Run all tests
-sbt:arkon-scalatraining> test
-
-// Run a specific test
-sbt:arkon-scalatraining> testOnly training.std.OptionSpec
+```graphql
+query WifiPointById {
+  wifiPointById(id: 1) {
+    id
+    program
+    installationDate
+    latitude
+    longitude
+    neighborhood
+    municipality
+  }
+}
 ```
 
-## Requirements 
-Implement a GraphQL API based on the given [schema](./schema.graphql) to expose the saved business and 
-query them based on their location. The database to be used should be [PostgreSQL](www.postgresql.org) with the 
-[PostGIS](http://postgis.net/) exitension to power the georeferenced queries. To fill the database you'll have 
-to implement a web scrapper to retrieve data from the INEGI's DENUE [API](https://www.inegi.org.mx/servicios/api_denue.html) 
-and execute the `createShop` mutation defined on the implemented API.
+#### Consultar Puntos WiFi por Colonia
 
-The implemented API should comply the following rules: 
-- On the `createShop` mutation 
-    - The `activity`, `stratum` and `shopType` fields should search for existing records on the `Activity`, 
-      `Stratum` and `ShopType` tables and insert only if there is no previous record.
+```graphql
+query WifiPointsByNeighborhood {
+    wifiPointsByNeighborhood(neighborhood: "NARVARTE PONIENTE", limit: 5, offset: 0) {
+        id
+        program
+        installationDate
+        latitude
+        longitude
+        neighborhood
+        municipality
+    }
+}
+```
+
+#### Obtener Puntos WiFi Ordenados por Proximidad a una Coordenada
+
+```graphql
+query WifiPointsByProximity {
+    wifiPointsByProximity(latitude: 19.4087, longitude: -99.1344, distance: 500) {
+        id
+        program
+        installationDate
+        latitude
+        longitude
+        neighborhood
+        municipality
+    }
+}
+```
+
+### Mutaciones
+
+#### Agregar un Nuevo Punto de Acceso WiFi
+
+```graphql
+mutation AddWifiPoint {
+  addWifiPoint(
+    program: "Free Public WiFi",
+    latitude: 19.432608,
+    longitude: -99.133209,
+    neighborhood: "Centro",
+    municipality: "CDMX"
+  ) {
+    id
+    program
+    installationDate
+    latitude
+    longitude
+    neighborhood
+    municipality
+  }
+}
+```
+
+#### Eliminar un Punto de Acceso WiFi
+
+```graphql
+mutation DeleteWifiPoint {
+  deleteWifiPoint(id: 1)
+}
+```
+
+---
+
+## Diagrama General de la Solución
+
+```plaintext
++-------------------+        +----------------------+
+|    Cliente        | -----> | API GraphQL (Scala) |
++-------------------+        +----------------------+
+                                     |
+                                     |
+                      +-----------------------------------+
+                      |        Base de Datos (PostgreSQL)|
+                      +-----------------------------------+
+                                     |
+                                     |
+                      +-----------------------------------+
+                      |          Módulo `ingest`         |
+                      +-----------------------------------+
+```
+
+- **Cliente:** Cualquier cliente compatible con GraphQL puede consumir la API, como `Postman`, `GraphQL Playground` o integraciones frontend.
+- **API GraphQL:** Desarrollada en Scala, gestiona las consultas y mutaciones relacionadas con los puntos de acceso WiFi.
+- **Base de Datos:** PostgreSQL almacena toda la información y realiza cálculos geoespaciales mediante extensiones.
+- **Módulo `ingest`:** Script automatizado que obtiene los datos iniciales de WiFi de la CDMX y los carga en la base de datos.
+

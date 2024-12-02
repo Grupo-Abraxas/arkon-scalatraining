@@ -48,6 +48,8 @@ lazy val graphql = (project in file("modules/graphql"))
       "org.tpolecat"             %% "doobie-hikari" % "1.0.0-RC2",
       "org.tpolecat"             %% "doobie-postgres" % "1.0.0-RC2",
 
+      "org.flywaydb" % "flyway-core" % "9.22.0",
+
       "org.sangria-graphql" %% "sangria-ast"           % "3.0.0",
       "org.sangria-graphql" %% "sangria-parser"        % "3.0.0",
       "org.sangria-graphql" %% "sangria-core"          % "3.0.0",
@@ -55,10 +57,6 @@ lazy val graphql = (project in file("modules/graphql"))
       "org.sangria-graphql" %% "sangria-circe"         % "1.3.2",
 
       "org.typelevel" %% "cats-effect" % "3.3.5",
-
-      "org.tpolecat" %% "doobie-core" % "1.0.0-RC2",
-      "org.tpolecat" %% "doobie-hikari" % "1.0.0-RC2",
-      "org.tpolecat" %% "doobie-postgres" % "1.0.0-RC2",
 
       "org.postgresql" % "postgresql" % "42.3.1",
 

@@ -27,9 +27,9 @@ class QueryController(service: WifiPointService)(implicit runtime: IORuntime) {
       Field(
         name = "wifiPointById",
         fieldType = OptionType(WifiPoint.Type),
-        arguments = List(Argument("id", StringType)),
+        arguments = List(Argument("id", IntType)),
         resolve = ctx => {
-          val id = ctx.arg[String]("id")
+          val id = ctx.arg[Int]("id")
           service.getWifiPointById(id).unsafeToFuture()
         }
       ),

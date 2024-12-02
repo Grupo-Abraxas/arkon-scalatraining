@@ -3,7 +3,7 @@ package models
 import sangria.schema._
 
 case class WifiPoint(
-    id: String,
+    id: Option[Int] = None,
     program: String,
     installationDate: Option[String],
     latitude: Double,
@@ -16,7 +16,7 @@ object WifiPoint {
   val Type: ObjectType[Unit, WifiPoint] = ObjectType(
     "WifiPoint",
     fields[Unit, WifiPoint](
-      Field("id", StringType, resolve = _.value.id),
+      Field("id", OptionType(IntType), resolve = _.value.id),
       Field("program", StringType, resolve = _.value.program),
       Field("installationDate", OptionType(StringType), resolve = _.value.installationDate),
       Field("latitude", FloatType, resolve = _.value.latitude),
@@ -26,13 +26,4 @@ object WifiPoint {
     )
   )
 
-  val inputArguments: List[Argument[_]] = List(
-    Argument("id", StringType),
-    Argument("program", StringType),
-    Argument("installationDate", OptionInputType(StringType)),
-    Argument("latitude", FloatType),
-    Argument("longitude", FloatType),
-    Argument("neighborhood", StringType),
-    Argument("municipality", StringType)
-  )
 }

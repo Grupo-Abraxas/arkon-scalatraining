@@ -1,0 +1,13 @@
+FROM hseeberger/scala-sbt:11.0.14.1_1.6.2_2.13.8
+
+WORKDIR /app
+
+COPY . /app/
+
+# Comando por defecto
+CMD ["sbt", "run"]
+
+# Ejecutar sbt update para descargar dependencias
+RUN sbt update
+
+ENTRYPOINT ["sbt"]

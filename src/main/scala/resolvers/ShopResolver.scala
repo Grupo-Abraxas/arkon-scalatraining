@@ -1,0 +1,5 @@
+package resolvers
+
+class ShopResolver {
+
+}

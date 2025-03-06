@@ -32,8 +32,9 @@ object Main extends IOApp {
 
     // Otras consultas útiles
     allDatabases <- sql"SELECT datname FROM pg_database WHERE datistemplate = false".query[String].to[List]
-    
+
     // Imprime información
+    //hacer por IO
     _ <- FC.delay(println(s"Conexión establecida: $isAlive"))
     _ <- FC.delay(println(s"Base de datos actual: $currentDb"))
     _ <- FC.delay(println(s"Usuario actual: $userName"))

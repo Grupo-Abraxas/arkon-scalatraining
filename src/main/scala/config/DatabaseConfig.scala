@@ -14,10 +14,9 @@ object DatabaseConfig {
     "postgres"                           // contraseña
   )
 
-  // Alternativa: Configuración con HikariCP para pool de conexiones (recomendado para producción)
   def createTransactorResource: Resource[IO, HikariTransactor[IO]] =
     for {
-      ce <- ExecutionContexts.fixedThreadPool[IO](32) // Pool para operaciones bloqueantes
+      ce <- ExecutionContexts.fixedThreadPool[IO](32)
       xa <- HikariTransactor.newHikariTransactor[IO](
         "org.postgresql.Driver",
         "jdbc:postgresql://localhost:5432/shops_db",

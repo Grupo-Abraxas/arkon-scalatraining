@@ -2,7 +2,7 @@ import cats.effect.{ExitCode, IO, IOApp}
 import com.comcast.ip4s.IpLiteralSyntax
 import config.DatabaseConfig
 import doobie.{ConnectionIO, FC}
-import doobie.implicits._  // Falta este import crucial
+import doobie.implicits._
 import org.http4s.ember.server.EmberServerBuilder
 import org.http4s.implicits._
 import org.http4s.server.Router
@@ -20,17 +20,13 @@ object Main extends IOApp {
   // Instancia de bd
   val xa = DatabaseConfig.createTransactor
 
-  // Define connectionTest como un ConnectionIO[Unit]
   val connectionTest: ConnectionIO[Unit] = for {
-    // Verifica que la conexión funciona
     isAlive <- FC.isValid(1)
 
     // Obtiene información sobre la conexión actual
     currentDb <- sql"SELECT current_database()".query[String].unique
     userName <- sql"SELECT current_user".query[String].unique
     serverVersion <- sql"SHOW server_version".query[String].unique
-
-    // Otras consultas útiles
     allDatabases <- sql"SELECT datname FROM pg_database WHERE datistemplate = false".query[String].to[List]
 
     // Imprime información

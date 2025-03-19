@@ -1,37 +1,22 @@
 package config
 
 import cats.effect.{IO, Resource}
-import doobie.{ExecutionContexts, Transactor}
-import doobie.hikari.HikariTransactor
+import doobie.util.transactor.Transactor
+import com.typesafe.config.{Config, ConfigFactory}
 
 object DatabaseConfig {
 
-  def createTransactor(
-    dbName: String,
-    user: String,
-    password: String,
-    host: String
-  ): Transactor[IO] = Transactor.fromDriverManager[IO](
-    "org.postgresql.Driver",
-    s"jdbc:postgresql://$host:5432/$dbName",
-    user,
-    password
-  )
+  private val config: Config = ConfigFactory.load()
+  private val dbConfig: Config = config.getConfig("db")
 
-  def createTransactorResource(
-    dbName: String,
-    user: String,
-    password: String,
-    host: String
-  ): Resource[IO, HikariTransactor[IO]] =
-    for {
-      ce <- ExecutionContexts.fixedThreadPool[IO](32)
-      xa <- HikariTransactor.newHikariTransactor[IO](
-        "org.postgresql.Driver",
-        s"jdbc:postgresql://$host:5432/$dbName",
-        user,
-        password,
-        ce
-      )
-    } yield xa
+  def createTransactor(): Resource[IO, Transactor[IO]] = {
+    val transactor: Transactor[IO] = Transactor.fromDriverManager[IO](
+      dbConfig.getString("driver"),
+      dbConfig.getString("url"),
+      dbConfig.getString("user"),
+      dbConfig.getString("password")
+    )
+
+    Resource.pure(transactor)
+  }
 }

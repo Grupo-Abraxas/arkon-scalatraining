@@ -82,7 +82,6 @@ object GraphQLSchema {
       InputField("email", OptionInputType(StringType)),
       InputField("website", OptionInputType(StringType)),
       InputField("shopTypeId", IntType)
-      // Omitimos position porque es complejo de manejar en la entrada
     )
   )
   
@@ -100,11 +99,11 @@ object GraphQLSchema {
     fields[Unit, Unit](
       Field("shop", OptionType(ShopType),
         arguments = IdArg :: Nil,
-        resolve = c => ShopController.getShop(c.arg(IdArg)).unsafeToFuture()
+        resolve = c => ShopController.getShop(c.arg(IdArg)).unsafeRunSync()
       ),
       Field("shops", ListType(ShopType),
         arguments = LimitArg :: OffsetArg :: Nil,
-        resolve = c => ShopController.getShops(c.arg(LimitArg), c.arg(OffsetArg)).unsafeToFuture()
+        resolve = c => ShopController.getShops(c.arg(LimitArg), c.arg(OffsetArg)).unsafeRunSync()
       ),
       Field("nearbyShops", ListType(ShopType),
         arguments = LatArg :: LongArg :: RadiusArg :: LimitArg :: Nil,
@@ -113,7 +112,7 @@ object GraphQLSchema {
           c.arg(LongArg).toFloat, 
           c.arg(RadiusArg),
           c.arg(LimitArg)
-        ).unsafeToFuture()
+        ).unsafeRunSync()
       )
     )
   )
@@ -123,7 +122,7 @@ object GraphQLSchema {
     fields[Unit, Unit](
       Field("createShop", IntType,
         arguments = ShopInputArg :: Nil,
-        resolve = c => ShopController.createShop(c.arg(ShopInputArg)).unsafeToFuture()
+        resolve = c => ShopController.createShop(c.arg(ShopInputArg)).unsafeRunSync()
       )
     )
   )

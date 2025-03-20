@@ -24,23 +24,50 @@ object Main extends IOApp.Simple {
 
   val graphQLRoute = HttpRoutes.of[IO] {
     case req @ POST -> Root / "graphql" =>
+      println(s"Received GraphQL request: ${req.method} ${req.uri}")
+      
       for {
-        request <- req.as[GraphQLRequest]
+        request <- req.as[GraphQLRequest].attempt.flatMap {
+          case Right(request) => 
+            println(s"Parsed request successfully: ${request.query}")
+            println(s"Variables: ${request.variables}")
+            println(s"Operation name: ${request.operationName}")
+            IO.pure(request)
+          case Left(error) =>
+            println(s"Failed to parse request: ${error.getMessage}")
+            IO.raiseError(error)
+        }
+        
         result <- IO.fromFuture(IO {
-          println("Request: " + request)
+          println("Starting query execution")
           QueryParser.parse(request.query) match {
             case Success(queryAst) =>
+              println(s"Successfully parsed query: ${queryAst}")
+              println("Executing query with Sangria")
+              
               Executor.execute(
                 schema = GraphQLSchema.schema,
                 queryAst = queryAst,
                 variables = request.variables.getOrElse(Json.obj()),
                 operationName = request.operationName
-              ).recover {
-                case error: QueryAnalysisError => error.resolveError
-                case error: ErrorWithResolver  => error.resolveError
+              ).map { result =>
+                println(s"Query executed successfully: ${result.spaces2}")
+                result
+              }.recover {
+                case error: QueryAnalysisError => 
+                  println(s"Query analysis error: ${error.getMessage}")
+                  error.resolveError
+                case error: ErrorWithResolver =>
+                  println(s"Error with resolver: ${error.getMessage}")
+                  error.resolveError
+                case error: Throwable =>
+                  println(s"Unexpected error during execution: ${error.getMessage}")
+                  error.printStackTrace()
+                  Json.obj("error" -> Json.fromString(s"Unexpected error: ${error.getMessage}"))
               }
+              
             case Failure(error: SyntaxError) =>
-              println("Syntax Error: " + error.getMessage)
+              println(s"Syntax Error: ${error.getMessage}")
               Future.successful(
                 Json.obj(
                   "syntaxError" -> Json.fromString(error.getMessage),
@@ -53,28 +80,44 @@ object Main extends IOApp.Simple {
                 )
               )
             case Failure(error) =>
-              println(Json.obj("error" -> Json.fromString(error.getMessage)))
+              println(s"General error: ${error.getMessage}")
+              error.printStackTrace()
               Future.successful(Json.obj("error" -> Json.fromString(error.getMessage)))
           }
         })
-        resp <- Ok(result)
+        
+        _ = println(s"Sending response: ${result.spaces2}")
+        resp <- Ok(result).attempt.flatMap {
+          case Right(response) => 
+            println("Response sent successfully")
+            IO.pure(response)
+          case Left(error) =>
+            println(s"Failed to send response: ${error.getMessage}")
+            IO.raiseError(error)
+        }
       } yield resp
   }
 
   val app: HttpApp[IO] = Router(
     "/" -> graphQLRoute,
     "/" -> HttpRoutes.of[IO] {
-      case GET -> Root => Ok("GraphQL Server Running")
+      case GET -> Root => 
+        println("Healthcheck endpoint called")
+        Ok("GraphQL Server Running")
     }
   ).orNotFound
 
   override def run: IO[Unit] = {
+    println("Starting GraphQL server")
     EmberServerBuilder
       .default[IO]
       .withHost(ipv4"0.0.0.0")
       .withPort(port"5000")
       .withHttpApp(app)
       .build
-      .use(_ => IO.never)
+      .use { server =>
+        println(s"Server started at ${server.address}")
+        IO.never
+      }
   }
 }

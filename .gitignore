@@ -31,3 +31,5 @@ build
 
 #general
 *.class
+
+src/main/resources/application.conf

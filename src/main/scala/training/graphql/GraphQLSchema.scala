@@ -57,15 +57,15 @@ object GraphQLSchema {
       Shop(
         id = map.getOrElse("id", 0).asInstanceOf[Int],
         name = map("name").asInstanceOf[String],
-        businessName = map.get("businessName").map(_.asInstanceOf[String]),
+        businessName = map.get("businessName").flatMap(_.asInstanceOf[Option[String]]),
         activityId = map("activityId").asInstanceOf[Int],
         stratumId = map("stratumId").asInstanceOf[Int],
         address = map("address").asInstanceOf[String],
-        phoneNumber = map.get("phoneNumber").map(_.asInstanceOf[String]),
-        email = map.get("email").map(_.asInstanceOf[String]),
-        website = map.get("website").map(_.asInstanceOf[String]),
+        phoneNumber = map.get("phoneNumber").flatMap(_.asInstanceOf[Option[String]]),
+        email = map.get("email").flatMap(_.asInstanceOf[Option[String]]),
+        website = map.get("website").flatMap(_.asInstanceOf[Option[String]]),
         shopTypeId = map("shopTypeId").asInstanceOf[Int],
-        position = map.get("position").map(_.asInstanceOf[PGpoint]).orNull
+        position = map.get("position").flatMap(_.asInstanceOf[Option[PGpoint]]).orNull
       )
     }
   }
@@ -81,7 +81,8 @@ object GraphQLSchema {
       InputField("phoneNumber", OptionInputType(StringType)),
       InputField("email", OptionInputType(StringType)),
       InputField("website", OptionInputType(StringType)),
-      InputField("shopTypeId", IntType)
+      InputField("shopTypeId", IntType),
+      InputField("position", OptionInputType(PGpointType))
     )
   )
   

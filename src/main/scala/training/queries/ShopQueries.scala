@@ -14,7 +14,7 @@ object ShopQueries {
     sql"""
       SELECT id, name, business_name, activity_id, stratum_id, address,
       phone_number, email, website, shop_type_id, position 
-      FROM shops WHERE id = $id
+      FROM shop WHERE id = $id
     """.queryWithLogHandler[Shop](logHandler)
       .option
   }
@@ -23,7 +23,7 @@ object ShopQueries {
     sql"""
       SELECT id, name, business_name, activity_id, stratum_id,
       address, phone_number, email, website, shop_type_id, position 
-      FROM shops LIMIT $limit OFFSET $offset
+      FROM shop LIMIT $limit OFFSET $offset
     """.queryWithLogHandler[Shop](logHandler)
       .to[List]
   }
@@ -32,7 +32,7 @@ object ShopQueries {
     sql"""
       SELECT id, name, business_name, activity_id, stratum_id,
       address, phone_number, email, website, shop_type_id, position
-      FROM shops
+      FROM shop
       WHERE ST_DistanceSphere(position, ST_MakePoint($long, $lat)) < $radius
       LIMIT $limit
     """.queryWithLogHandler[Shop](logHandler)
@@ -41,7 +41,7 @@ object ShopQueries {
 
   def createShop(shop: Shop): ConnectionIO[Int] = {
     sql"""
-      INSERT INTO shops (
+      INSERT INTO shop (
         name, business_name, activity_id, stratum_id,
         address, phone_number, email, website, shop_type_id, position
       ) 

@@ -32,4 +32,4 @@ build
 #general
 *.class
 
-src/main/scala/resources/application.conf
+src/main/resources/application.conf

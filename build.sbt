@@ -47,7 +47,7 @@ val sangriaCirceVersion="1.3.2"
 val skunkVersion = "0.6.4"
 
 
-addCommandAlias("format", "scalafixAll;scalafmtAll;scalafmtSbt")
+addCommandAlias("format", "scalafixEnable;scalafixAll;scalafmtAll;scalafmtSbt")
 
 lazy val root =
   project

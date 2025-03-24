@@ -1,6 +1,6 @@
 package com.arkondata.training
 
-import cats.effect.{IO, ResourceApp, ResourceIO, Resource}
+import cats.effect.{IO, Resource, ResourceApp, ResourceIO}
 
 object Main extends ResourceApp.Forever:
 

@@ -31,7 +31,6 @@ ThisBuild / resolvers += "arkondata--sbt-dev".at(
   "https://arkondata-744752950324.d.codeartifact.us-east-1.amazonaws.com/maven/sbt-dev"
 )
 
-
 val catsEffectVersion = "3.6.0"
 
 val circeVersion = "0.14.12"
@@ -42,33 +41,31 @@ val http4sVersion = "0.23.30"
 
 val munitCatsEffectVersion = "2.0.0"
 
-val sangriaVersion="4.2.5"
-val sangriaCirceVersion="1.3.2"
-val skunkVersion = "0.6.4"
+val sangriaVersion = "4.2.5"
 
+val sangriaCirceVersion = "1.3.2"
+
+val skunkVersion = "0.6.4"
 
 addCommandAlias("format", "scalafixEnable;scalafixAll;scalafmtAll;scalafmtSbt")
 
 lazy val root =
-  project
-    .in(file("."))
-    .aggregate(training)
+  project.in(file(".")).aggregate(training)
 
-lazy val training=
-	project
+lazy val training =
+  project
     .in(file("training"))
     .settings(
       name := "arkon-training",
       libraryDependencies ++= Seq(
-				"org.typelevel" %% "cats-effect"     % catsEffectVersion,
-				"io.circe" %% "circe-generic" % circeVersion,
-  "io.circe" %% "circe-parser" % circeVersion,
+        "org.typelevel" %% "cats-effect" % catsEffectVersion,
+        "io.circe" %% "circe-generic" % circeVersion,
+        "io.circe" %% "circe-parser" % circeVersion,
         "is.cir" %% "ciris-http4s" % cirisVersion,
         "org.http4s" %% "http4s-ember-server" % http4sVersion,
-				"org.sangria-graphql" %% "sangria" % sangriaVersion,
-				"org.sangria-graphql" %% "sangria-circe" % sangriaCirceVersion,
-				 "org.tpolecat" %% "skunk-core" % skunkVersion,
+        "org.sangria-graphql" %% "sangria" % sangriaVersion,
+        "org.sangria-graphql" %% "sangria-circe" % sangriaCirceVersion,
+        "org.tpolecat" %% "skunk-core" % skunkVersion,
         "org.typelevel" %% "munit-cats-effect" % munitCatsEffectVersion % Test
       )
     )
-

@@ -1,19 +1,18 @@
 package com.arkondata.training
 
-import io.circe.{Json, DecodingFailure}
-import cats.data.{EitherT, Kleisli}
-import cats.syntax.either.catsSyntaxEither
-import sangria.parser.{QueryParser, SyntaxError}
-import cats.effect.Async
-import sangria.ast.Document
-import sangria.schema.Schema
-import sangria.execution.Executor
-import cats.syntax.flatMap.toFlatMapOps
 import scala.concurrent.ExecutionContext
-import sangria.marshalling.circe.{CirceInputUnmarshaller,CirceResultMarshaller}
-import sangria.execution.WithViolations
 
+import cats.data.{EitherT, Kleisli}
+import cats.effect.Async
 import cats.syntax.applicativeError.catsSyntaxApplicativeError
+import cats.syntax.either.catsSyntaxEither
+import cats.syntax.flatMap.toFlatMapOps
+import io.circe.{DecodingFailure, Json}
+import sangria.ast.Document
+import sangria.execution.{Executor, WithViolations}
+import sangria.marshalling.circe.{CirceInputUnmarshaller, CirceResultMarshaller}
+import sangria.parser.{QueryParser, SyntaxError}
+import sangria.schema.Schema
 
 trait GraphQL[F[_]]:
 
@@ -46,15 +45,15 @@ object GraphQL:
       def parse: Kleisli[EitherT[F, Json, *], (String, Option[String], Json), (Document, Option[String], Json)] =
         Kleisli(arguments =>
           EitherT
-          .fromEither(
-            QueryParser.parse(arguments._1).toEither.leftMap {
-              case error: SyntaxError =>
-                syntaxErrorToJson(error)
-              case error =>
-                errorToJson(error)
-            }
-          )
-          .map(document => (document,arguments._2, arguments._3))
+            .fromEither(
+              QueryParser.parse(arguments._1).toEither.leftMap {
+                case error: SyntaxError =>
+                  syntaxErrorToJson(error)
+                case error =>
+                  errorToJson(error)
+              }
+            )
+            .map(document => (document, arguments._2, arguments._3))
         )
 
       def executeQuery: Kleisli[EitherT[F, Json, *], (Document, Option[String], Json), Json] =

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id="training [file:/C:/Rayner/Proyectos/arkon-scalatraining/]" external.linked.project.path="$MODULE_DIR$/../../training" external.root.project.path="$MODULE_DIR$/../.." external.system.id="SBT" external.system.module.type="nestedProject" type="JAVA_MODULE" version="4">
+  <component name="DisplayModuleName">
+    <option name="name" value="arkon-training" />
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_23">
+    <output url="file://$MODULE_DIR$/../../training/target/scala-3.6.4/classes" />
+    <output-test url="file://$MODULE_DIR$/../../training/target/scala-3.6.4/test-classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../training">
+      <sourceFolder url="file://$MODULE_DIR$/../../training/src/main/scala" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/../../training/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="sbt: scala-sdk-3.6.4" level="project" />
+    <orderEntry type="library" name="sbt: org.scala-lang:scala3-library_3:3.6.4:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:cats-effect_3:3.6.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-generic_3:0.14.12:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-parser_3:0.14.12:jar" level="project" />
+    <orderEntry type="library" name="sbt: is.cir:ciris-http4s_3:3.7.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.http4s:http4s-ember-server_3:0.23.30:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.sangria-graphql:sangria_3:4.2.5:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.sangria-graphql:sangria-circe_3:1.3.2:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.tpolecat:skunk-core_3:0.6.4:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.http4s:http4s-dsl_3:0.23.30:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.http4s:http4s-circe_3:0.23.30:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.scala-lang:scala-library:2.13.15:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:cats-effect-kernel_3:3.6.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:cats-effect-std_3:3.6.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:cats-mtl_3:1.3.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-core_3:0.14.12:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-jawn_3:0.14.12:jar" level="project" />
+    <orderEntry type="library" name="sbt: is.cir:ciris_3:3.7.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.http4s:http4s-core_3:0.23.30:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.http4s:http4s-ember-core_3:0.23.30:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.http4s:http4s-server_3:0.23.30:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:log4cats-slf4j_3:2.7.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.sangria-graphql:sangria-core_3:4.2.5:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.sangria-graphql:sangria-derivation_3:4.2.5:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.sangria-graphql:sangria-marshalling-api_3:1.0.8:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:cats-core_3:2.13.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: co.fs2:fs2-core_3:3.11.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: co.fs2:fs2-io_3:3.11.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.scodec:scodec-bits_3:1.1.38:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.scodec:scodec-core_3:2.2.2:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.scodec:scodec-cats_3:1.2.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.tpolecat:natchez-core_3:0.3.5:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.tpolecat:sourcepos_3:1.1.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.scala-lang.modules:scala-collection-compat_3:2.11.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:twiddles-core_3:0.6.2:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.ongres.scram:client:2.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.http4s:http4s-jawn_3:0.23.30:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-numbers_3:0.14.12:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:jawn-parser_3:1.6.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:case-insensitive_3:1.4.2:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:cats-parse_3:1.0.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.http4s:http4s-crypto_3:0.2.4:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.comcast:ip4s-core_3:3.6.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:literally_3:1.1.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:vault_3:3.6.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.log4s:log4s_3:1.10.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:log4cats-core_3:2.7.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.twitter:hpack:1.0.2:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.slf4j:slf4j-api:1.7.36:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.sangria-graphql:sangria-parser_3:4.2.5:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.sangria-graphql:macro-visit_3:0.2.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.sangria-graphql:sangria-streaming-api_3:1.0.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:cats-kernel_3:2.13.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.ongres.scram:common:2.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:jawn-fs2_3:2.4.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.sangria-graphql:sangria-ast_3:4.2.5:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.parboiled:parboiled_3:2.5.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.ongres.stringprep:saslprep:1.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.ongres.stringprep:stringprep:1.1:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.typelevel:munit-cats-effect_3:2.0.0:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.scalameta:munit_3:1.0.0:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.scalameta:junit-interface:1.0.0:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.scalameta:munit-diff_3:1.0.0:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: junit:junit:4.13.2:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.scala-sbt:test-interface:1.0:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.hamcrest:hamcrest-core:1.3:jar" level="project" />
+  </component>
+</module>

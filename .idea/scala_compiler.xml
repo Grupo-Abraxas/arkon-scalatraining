@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaCompilerConfiguration">
+    <profile name="sbt 1" modules="arkon-scalatraining_8431" />
+    <profile name="sbt 2" modules="root,root.arkon-training">
+      <option name="deprecationWarnings" value="true" />
+      <option name="uncheckedWarnings" value="true" />
+      <option name="featureWarnings" value="true" />
+      <parameters>
+        <parameter value="-encoding" />
+        <parameter value="utf8" />
+        <parameter value="-language:noAutoTupling" />
+        <parameter value="-Wnonunit-statement" />
+        <parameter value="-Wsafe-init" />
+        <parameter value="-Wunused:all" />
+        <parameter value="-Wvalue-discard" />
+        <parameter value="-Xfatal-warnings" />
+        <parameter value="-Xkind-projector" />
+        <parameter value="-Yexplicit-nulls" />
+      </parameters>
+    </profile>
+  </component>
+</project>

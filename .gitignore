@@ -1,33 +1,18 @@
-# sbt
-# (may want to keep parts of 'project')
-bin/
-project/target
-target/
-build/
-
-# eclipse
-build
-.classpath
-.project
-.settings
-.worksheet
-
-# intellij idea
-*.log
-*.iml
-*.ipr
-*.iws
-.idea
-
-# mac
-.DS_Store
-
-# other?
-.history
-.scala_dependencies
-.cache
-.cache-main
+.bloop
+.bsp
 .metals
+.vscode
 
-#general
-*.class
+.env
+
+metals.sbt
+project/project
+
+yarn.lock
+package-lock.json
+node_modules
+
+build
+target
+
+.github/actions/

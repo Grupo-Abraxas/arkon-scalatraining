@@ -66,6 +66,8 @@ lazy val training =
         "org.sangria-graphql" %% "sangria" % sangriaVersion,
         "org.sangria-graphql" %% "sangria-circe" % sangriaCirceVersion,
         "org.tpolecat" %% "skunk-core" % skunkVersion,
-        "org.typelevel" %% "munit-cats-effect" % munitCatsEffectVersion % Test
-      )
+        "org.typelevel" %% "munit-cats-effect" % munitCatsEffectVersion % Test,
+				"org.http4s" %% "http4s-dsl" % http4sVersion,
+				"org.http4s" %% "http4s-circe" % http4sVersion
+			)
     )
